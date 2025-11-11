@@ -3,6 +3,12 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/com
 import { Button } from "@/components/ui/button";
 import { getAllCategories } from "@/lib/calculator-data";
 import { ArrowRight, Calculator } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Calculator Hub - 380+ Free Online Calculators",
+  description: "Access 380+ free calculators for finance, health, math, science, conversion, construction, and more. Fast, accurate calculations for any need. No signup required.",
+};
 
 export default function Home() {
   const categories = getAllCategories();

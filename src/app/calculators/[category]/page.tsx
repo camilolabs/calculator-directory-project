@@ -3,12 +3,29 @@ import { notFound } from "next/navigation";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { getCategory, getAllCategories } from "@/lib/calculator-data";
 import { ArrowLeft } from "lucide-react";
+import { Metadata } from "next";
 
 export function generateStaticParams() {
   const categories = getAllCategories();
   return categories.map((category) => ({
     category: category.id,
   }));
+}
+
+export async function generateMetadata({ params }: { params: { category: string } }): Promise<Metadata> {
+  const category = getCategory(params.category);
+
+  if (!category) {
+    return {
+      title: "Category Not Found",
+      description: "The requested calculator category was not found.",
+    };
+  }
+
+  return {
+    title: `${category.name} Calculators - ${category.calculators.length} Free Tools`,
+    description: `${category.description}. Access ${category.calculators.length} free ${category.name.toLowerCase()} calculators including ${category.calculators.slice(0, 3).map(c => c.name).join(", ")}, and more.`,
+  };
 }
 
 export default function CategoryPage({ params }: { params: { category: string } }) {

@@ -8,6 +8,7 @@ import { CalculatorLayout } from "@/components/calculators/CalculatorLayout";
 import { GenericCalculator } from "@/components/calculators/GenericCalculator";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { CheckCircle2, Lightbulb, Target, Zap } from "lucide-react";
+import { useEffect } from "react";
 
 export default function CalculatorPage({
   params,
@@ -17,6 +18,25 @@ export default function CalculatorPage({
   const calculator = getCalculator(params.category, params.calculator);
   const category = getCategory(params.category);
   const seoContent = getCalculatorSEO(params.calculator);
+
+  // Set document metadata dynamically
+  useEffect(() => {
+    if (calculator && seoContent) {
+      const title = `${calculator.name} - Free Online Calculator Tool`;
+      const description = seoContent.description.slice(0, 160);
+      
+      document.title = title;
+      
+      // Update or create meta description
+      let metaDescription = document.querySelector('meta[name="description"]');
+      if (!metaDescription) {
+        metaDescription = document.createElement('meta');
+        metaDescription.setAttribute('name', 'description');
+        document.head.appendChild(metaDescription);
+      }
+      metaDescription.setAttribute('content', description);
+    }
+  }, [calculator, seoContent]);
 
   if (!calculator || !category) {
     notFound();
