@@ -6,15 +6,30 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# or start on a fixed port
+npm run dev:port
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Dev Scripts
+
+- `npm run dev` – Start dev server (Turbopack).
+- `npm run dev:port` – Start dev server on `http://localhost:3000`.
+- `npm run lint` – Run ESLint.
+- `npm run lint:fix` – Fix lint issues.
+- `npm run typecheck` – TypeScript check only.
+- `npm run check` – Typecheck + lint.
+- `npm run build` – Production build (runs `prebuild` first).
+
+## Node Version
+
+- Requires Node `>= 18.18`. See `"engines"` in `package.json`.
+
+## Production Build Strictness
+
+- TypeScript and ESLint errors are ignored in development for speed.
+- In production builds, errors are enforced (see `next.config.ts`).
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
