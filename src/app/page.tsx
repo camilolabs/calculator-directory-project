@@ -244,7 +244,7 @@ export default function Home() {
               </div>
             </div>
             <div className="pt-8 border-t text-center text-muted-foreground">
-              <p>© 2024 Calculator Hub. All calculators are free to use.</p>
+              <p>© 2025 Calculator Hub. All calculators are free to use. Made with ❤️ by Snapik</p>
             </div>
           </div>
         </div>

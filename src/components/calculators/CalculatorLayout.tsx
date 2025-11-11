@@ -53,7 +53,7 @@ export function CalculatorLayout({
       {/* Footer */}
       <footer className="border-t py-8 mt-12">
         <div className="container mx-auto px-4 text-center text-muted-foreground">
-          <p>© 2024 Calculator Hub. All calculators are free to use.</p>
+          <p>© 2025 Calculator Hub. All calculators are free to use. Made with ❤️ by Snapik</p>
         </div>
       </footer>
     </div>
