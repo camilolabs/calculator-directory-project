@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3001"
   ),
-  robots: { index: true, follow: true },
+  robots: { index: false, follow: false },
   alternates: { canonical: "/" },
   openGraph: {
     title: "Calcupik",

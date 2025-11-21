@@ -1,14 +1,23 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 
+function trimTo(input: string, max: number): string {
+  if (input.length <= max) return input;
+  const cut = input.slice(0, max);
+  const lastSpace = cut.lastIndexOf(" ");
+  return (lastSpace > 0 ? cut.slice(0, lastSpace) : cut).trim();
+}
+
 export async function generateMetadata(): Promise<Metadata> {
   // Count calculators dynamically from data source
   const categories = getAllCategories();
   const totalCalculators = categories.reduce((sum, c) => sum + c.calculators.length, 0);
   const countLabel = `${totalCalculators}+`;
 
-  const title = `${countLabel} Free Calculators in One Place`;
-  const description = `Explore ${countLabel} free calculators for finance, health, cooking, construction, education, math, science, and more. Fast, accurate, and easy to use on any device.`;
+  const baseTitle = `${countLabel} Free calculators in one place`;
+  const title = trimTo(baseTitle, 60);
+  const baseDescription = `Explore ${countLabel} free calculators for finance, health, cooking, construction, education, math, science, and more. Fast, accurate, and easy to use on any device.`;
+  const description = trimTo(baseDescription.replace(/\s+/g, " ").trim(), 160);
 
   return {
     title,
@@ -52,7 +61,7 @@ export default function Home() {
               <span className="text-2xl font-bold">Calcupik</span>
             </div>
             <Link href="/calculators">
-              <Button>Browse All Calculators</Button>
+              <Button>Browse all calculators</Button>
             </Link>
           </div>
         </div>
@@ -62,9 +71,9 @@ export default function Home() {
       <section className="container mx-auto px-4 py-16 md:py-24">
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-            {totalCalculators}+ Free Calculators
+            {totalCalculators}+ Free calculators
             <br />
-            <span className="text-primary">All in One Place</span>
+            <span className="text-primary">all in one place</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
             From financial planning to cooking recipes, health tracking to construction projects — find the perfect calculator for any calculation.
@@ -72,13 +81,13 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <Link href="/calculators" prefetch={false}>
               <Button size="lg" className="text-lg px-8 h-12">
-                Explore Calculators
+                Explore calculators
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
             <Link href="/calculators" prefetch={false}>
               <Button size="lg" variant="outline" className="text-lg px-8 h-12">
-                View All Categories
+                View all categories
               </Button>
             </Link>
           </div>
@@ -91,7 +100,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
             <div>
               <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{totalCalculators}+</div>
-              <div className="text-muted-foreground">Free Calculators</div>
+              <div className="text-muted-foreground">Free calculators</div>
             </div>
             <div>
               <div className="text-4xl md:text-5xl font-bold text-primary mb-2">10</div>
@@ -99,7 +108,7 @@ export default function Home() {
             </div>
             <div>
               <div className="text-4xl md:text-5xl font-bold text-primary mb-2">100%</div>
-              <div className="text-muted-foreground">Free to Use</div>
+              <div className="text-muted-foreground">Free to use</div>
             </div>
           </div>
         </div>
@@ -108,7 +117,7 @@ export default function Home() {
       {/* Featured Categories */}
       <section className="container mx-auto px-4 py-16">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Popular Categories</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Popular categories</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Explore our most popular calculator categories
           </p>
@@ -143,7 +152,7 @@ export default function Home() {
         <div className="text-center mt-12">
           <Link href="/calculators" prefetch={false}>
             <Button size="lg" variant="outline">
-              View All {categories.length} Categories
+              View all {categories.length} categories
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
@@ -155,7 +164,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose Calcupik?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Why choose Calcupik?</h2>
               <p className="text-lg text-muted-foreground">
                 Fast, accurate, and easy-to-use calculators for everyone
               </p>
@@ -163,21 +172,21 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center space-y-3">
                 <div className="text-4xl mb-2">⚡</div>
-                <h3 className="text-xl font-semibold">Lightning Fast</h3>
+                <h3 className="text-xl font-semibold">Lightning fast</h3>
                 <p className="text-muted-foreground">
                   Instant calculations with no delays or loading times
                 </p>
               </div>
               <div className="text-center space-y-3">
                 <div className="text-4xl mb-2">🎯</div>
-                <h3 className="text-xl font-semibold">100% Accurate</h3>
+                <h3 className="text-xl font-semibold">100% accurate</h3>
                 <p className="text-muted-foreground">
                   Precise calculations you can trust for any purpose
                 </p>
               </div>
               <div className="text-center space-y-3">
                 <div className="text-4xl mb-2">📱</div>
-                <h3 className="text-xl font-semibold">Mobile Friendly</h3>
+                <h3 className="text-xl font-semibold">Mobile friendly</h3>
                 <p className="text-muted-foreground">
                   Works perfectly on all devices, anywhere, anytime
                 </p>
@@ -191,14 +200,14 @@ export default function Home() {
       <section className="container mx-auto px-4 py-16">
         <div className="max-w-3xl mx-auto text-center space-y-6 bg-primary/5 rounded-2xl p-12 border">
           <h2 className="text-3xl md:text-4xl font-bold">
-            Ready to Get Started?
+            Ready to get started?
           </h2>
           <p className="text-lg text-muted-foreground">
             Access {totalCalculators}+ free calculators instantly. No signup required.
           </p>
           <Link href="/calculators">
             <Button size="lg" className="text-lg px-8 h-12">
-              Start Calculating Now
+              Start calculating now
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>

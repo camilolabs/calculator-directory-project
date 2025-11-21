@@ -30,7 +30,7 @@ export default function CalculatorsPage() {
       <section className="container mx-auto px-4 py-12 md:py-16">
         <div className="max-w-3xl mx-auto text-center space-y-4">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-            380+ Free Calculators
+            380+ Free calculators
           </h1>
           <p className="text-xl text-muted-foreground">
             Find the perfect calculator for any calculation. From finance to health, math to cooking.
@@ -92,7 +92,7 @@ export default function CalculatorsPage() {
       {/* Categories Grid */}
       {!searchQuery && (
         <section className="container mx-auto px-4 pb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">Browse by Category</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">Browse by category</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {categories.map((category) => (
               <Link key={category.id} href={`/calculators/${category.id}`} prefetch={false}>

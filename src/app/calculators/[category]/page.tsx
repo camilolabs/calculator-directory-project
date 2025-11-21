@@ -29,25 +29,26 @@ function ensureRange(input: string, min: number, max: number, padSuffix: string)
   return out;
 }
 
-export async function generateMetadata({ params }: any) {
-  const category = getCategory(params.category);
-  if (!category) {
+export async function generateMetadata({ params }: { params: Promise<{ category: string }> }) {
+  const { category } = await params;
+  const cat = getCategory(category);
+  if (!cat) {
     return {
       title: "Calculators",
       description: "Browse free online calculators. Fast, accurate, and easy to use.",
     };
   }
 
-  const count = category.calculators.length;
-  const primaryKeyword = `${category.name} calculators`;
-  const baseTitle = `${primaryKeyword}: Free Online Tools`;
-  const title = ensureRange(baseTitle, 50, 60, " | Free Calculators");
+  const count = cat.calculators.length;
+  const primaryKeyword = `${cat.name} calculators`;
+  const baseTitle = `${primaryKeyword}: Free online tools`;
+  const title = ensureRange(baseTitle, 50, 60, " | Free calculators");
 
-  const baseDescription = `${category.description} Explore ${count} free ${category.name.toLowerCase()} calculators — fast, accurate, and easy to use.`;
+  const baseDescription = `${cat.description} Explore ${count} free ${cat.name.toLowerCase()} calculators — fast, accurate, and easy to use.`;
   const descCandidate = baseDescription.replace(/\s+/g, " ").trim();
   const description = ensureRange(descCandidate, 150, 160, " Compare, calculate, and visualize results instantly.");
 
-  const url = `/calculators/${category.id}`;
+  const url = `/calculators/${cat.id}`;
 
   return {
     title,
@@ -72,10 +73,11 @@ export async function generateMetadata({ params }: any) {
   };
 }
 
-export default function CategoryPage({ params }: any) {
-  const category = getCategory(params.category);
+export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
+  const { category } = await params;
+  const cat = getCategory(category);
 
-  if (!category) {
+  if (!cat) {
     notFound();
   }
 
@@ -89,7 +91,7 @@ export default function CategoryPage({ params }: any) {
             <span className="mx-2">›</span>
             <Link href="/calculators" prefetch={false} className="hover:text-foreground">Calculators</Link>
             <span className="mx-2">›</span>
-            <span className="text-foreground font-medium">{category.name}</span>
+            <span className="text-foreground font-medium">{cat.name}</span>
           </nav>
         </div>
       </header>
@@ -97,15 +99,15 @@ export default function CategoryPage({ params }: any) {
       {/* Category Header */}
       <section className="container mx-auto px-4 py-12">
         <div className="max-w-3xl mx-auto text-center space-y-4">
-          <div className="text-6xl mb-4">{category.icon}</div>
+          <div className="text-6xl mb-4">{cat.icon}</div>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-            {category.name} Calculators
+            {cat.name} calculators
           </h1>
           <p className="text-xl text-muted-foreground">
-            {category.description}
+            {cat.description}
           </p>
           <p className="text-sm text-muted-foreground">
-            {category.calculators.length} calculators available
+            {cat.calculators.length} calculators available
           </p>
         </div>
       </section>
@@ -113,10 +115,10 @@ export default function CategoryPage({ params }: any) {
       {/* Calculators Grid */}
       <section className="container mx-auto px-4 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {category.calculators.map((calculator) => (
+          {cat.calculators.map((calculator) => (
             <Link
               key={calculator.id}
-              href={`/calculators/${category.id}/${calculator.id}`}
+              href={`/calculators/${cat.id}/${calculator.id}`}
             >
               <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer group">
                 <CardHeader>
@@ -140,29 +142,29 @@ export default function CategoryPage({ params }: any) {
 
       {/* JSON-LD: Breadcrumbs & ItemList */}
       <div className="sr-only" aria-hidden="true">
-        <SEOJsonLd
-          json={{
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: `${process.env.NEXT_PUBLIC_SITE_URL ?? ""}/` },
-              { "@type": "ListItem", position: 2, name: "Calculators", item: `${process.env.NEXT_PUBLIC_SITE_URL ?? ""}/calculators` },
-              { "@type": "ListItem", position: 3, name: category.name, item: `${process.env.NEXT_PUBLIC_SITE_URL ?? ""}/calculators/${category.id}` },
-            ],
-          }}
-        />
-        <SEOJsonLd
-          json={{
-            "@context": "https://schema.org",
-            "@type": "ItemList",
-            itemListElement: category.calculators.map((c, index) => ({
-              "@type": "ListItem",
-              position: index + 1,
-              name: c.name,
-              url: `${process.env.NEXT_PUBLIC_SITE_URL ?? ""}/calculators/${category.id}/${c.id}`,
-            })),
-          }}
-        />
+            <SEOJsonLd
+              json={{
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  { "@type": "ListItem", position: 1, name: "Home", item: `${process.env.NEXT_PUBLIC_SITE_URL ?? ""}/` },
+                  { "@type": "ListItem", position: 2, name: "Calculators", item: `${process.env.NEXT_PUBLIC_SITE_URL ?? ""}/calculators` },
+                  { "@type": "ListItem", position: 3, name: cat.name, item: `${process.env.NEXT_PUBLIC_SITE_URL ?? ""}/calculators/${cat.id}` },
+                ],
+              }}
+            />
+            <SEOJsonLd
+              json={{
+                "@context": "https://schema.org",
+                "@type": "ItemList",
+                itemListElement: cat.calculators.map((c, index) => ({
+                  "@type": "ListItem",
+                  position: index + 1,
+                  name: c.name,
+                  url: `${process.env.NEXT_PUBLIC_SITE_URL ?? ""}/calculators/${cat.id}/${c.id}`,
+                })),
+              }}
+            />
       </div>
 
       {/* Footer handled globally in RootLayout */}

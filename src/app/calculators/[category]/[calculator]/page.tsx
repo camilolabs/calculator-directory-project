@@ -72,7 +72,7 @@ export default function CalculatorPage({
           {/* Main Description */}
           <section className="prose prose-gray dark:prose-invert max-w-none">
             <h2 className="text-2xl font-bold mb-4">
-              About This {calculator.name}
+              About this {calculator.name}
             </h2>
             <p className="text-muted-foreground leading-relaxed">
               {seoContent.description}
@@ -84,7 +84,7 @@ export default function CalculatorPage({
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Zap className="h-5 w-5 text-primary" />
-                How This Calculator Works
+                How this calculator works
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -99,7 +99,7 @@ export default function CalculatorPage({
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Target className="h-5 w-5 text-primary" />
-                  Common Use Cases
+                  Common use cases
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -119,7 +119,7 @@ export default function CalculatorPage({
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <CheckCircle2 className="h-5 w-5 text-primary" />
-                  Key Benefits
+                  Key benefits
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -140,7 +140,7 @@ export default function CalculatorPage({
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Lightbulb className="h-5 w-5 text-primary" />
-                Expert Tips & Best Practices
+                Expert tips & best practices
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -167,7 +167,7 @@ export default function CalculatorPage({
           {/* Related Calculators */}
           {related.length > 0 && (
             <section>
-              <h3 className="text-xl font-semibold mt-8 mb-4">Related Calculators</h3>
+              <h3 className="text-xl font-semibold mt-8 mb-4">Related calculators</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {related.map((item) => (
                   <a

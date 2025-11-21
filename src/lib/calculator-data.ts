@@ -23,133 +23,133 @@ export const calculatorData: Category[] = [
     calculators: [
       {
         id: "loan",
-        name: "Loan Calculator",
+        name: "Loan calculator",
         description: "Calculate monthly loan payments and total interest",
         icon: "🏦",
         category: "finance"
       },
       {
         id: "mortgage",
-        name: "Mortgage Calculator",
+        name: "Mortgage calculator",
         description: "Calculate mortgage payments with taxes and insurance",
         icon: "🏠",
         category: "finance"
       },
       {
         id: "investment",
-        name: "Investment Calculator",
+        name: "Investment calculator",
         description: "Calculate investment returns over time",
         icon: "📈",
         category: "finance"
       },
       {
         id: "retirement",
-        name: "Retirement Calculator",
+        name: "Retirement calculator",
         description: "Plan your retirement savings",
         icon: "👴",
         category: "finance"
       },
       {
         id: "compound-interest",
-        name: "Compound Interest",
+        name: "Compound interest calculator", 
         description: "Calculate compound interest on savings",
         icon: "💵",
         category: "finance"
       },
       {
         id: "roi",
-        name: "ROI Calculator",
+        name: "ROI calculator",
         description: "Calculate return on investment percentage",
         icon: "📊",
         category: "finance"
       },
       {
         id: "savings",
-        name: "Savings Calculator",
+        name: "Savings calculator",
         description: "Plan your savings goals",
         icon: "🐷",
         category: "finance"
       },
       {
         id: "tax",
-        name: "Tax Calculator",
+        name: "Tax calculator",
         description: "Estimate your income tax",
         icon: "📋",
         category: "finance"
       },
       {
         id: "budget",
-        name: "Budget Calculator",
+        name: "Budget calculator",
         description: "Plan your monthly budget",
         icon: "💳",
         category: "finance"
       },
       {
         id: "currency",
-        name: "Currency Converter",
+        name: "Currency converter",
         description: "Convert between currencies",
         icon: "💱",
         category: "finance"
       },
       {
         id: "debt-payoff",
-        name: "Debt Payoff",
+        name: "Debt payoff calculator",
         description: "Calculate debt repayment timeline",
         icon: "💳",
         category: "finance"
       },
       {
         id: "credit-card",
-        name: "Credit Card Payoff",
+        name: "Credit card payoff calculator",
         description: "Calculate credit card payoff time",
         icon: "💳",
         category: "finance"
       },
       {
         id: "apr",
-        name: "APR Calculator",
+        name: "APR calculator",
         description: "Calculate annual percentage rate",
         icon: "📊",
         category: "finance"
       },
       {
         id: "amortization",
-        name: "Amortization Schedule",
+        name: "Amortization schedule",
         description: "Generate loan amortization schedule",
         icon: "📅",
         category: "finance"
       },
       {
         id: "inflation",
-        name: "Inflation Calculator",
+        name: "Inflation calculator",
         description: "Calculate inflation impact over time",
         icon: "📈",
         category: "finance"
       },
       {
         id: "net-worth",
-        name: "Net Worth Calculator",
+        name: "Net worth calculator", 
         description: "Calculate total net worth",
         icon: "💎",
         category: "finance"
       },
       {
         id: "emergency-fund",
-        name: "Emergency Fund",
+        name: "Emergency fund calculator",
         description: "Calculate emergency fund needs",
         icon: "🆘",
         category: "finance"
       },
       {
         id: "401k",
-        name: "401(k) Calculator",
+        name: "401(k) calculator",
         description: "Calculate 401(k) growth",
         icon: "📊",
         category: "finance"
       },
       {
         id: "tip",
-        name: "Tip Calculator",
+        name: "Tip calculator",
         description: "Calculate tip and split bill",
         icon: "💵",
         category: "finance"
@@ -164,28 +164,28 @@ export const calculatorData: Category[] = [
     calculators: [
       {
         id: "bmi",
-        name: "BMI Calculator",
+        name: "BMI calculator",
         description: "Calculate your Body Mass Index",
         icon: "⚖️",
         category: "health"
       },
       {
         id: "calorie",
-        name: "Calorie Calculator",
+        name: "Calorie calculator",
         description: "Calculate daily calorie needs",
         icon: "🍎",
         category: "health"
       },
       {
         id: "body-fat",
-        name: "Body Fat Calculator",
+        name: "Body fat calculator",
         description: "Estimate your body fat percentage",
         icon: "📏",
         category: "health"
       },
       {
         id: "protein",
-        name: "Protein Calculator",
+        name: "Protein calculator",
         description: "Calculate daily protein requirements",
         icon: "🥩",
         category: "health"
@@ -199,98 +199,98 @@ export const calculatorData: Category[] = [
       },
       {
         id: "ideal-weight",
-        name: "Ideal Weight",
+        name: "Ideal weight calculator",
         description: "Calculate your ideal body weight",
         icon: "🎯",
         category: "health"
       },
       {
         id: "pregnancy",
-        name: "Pregnancy Calculator",
+        name: "Pregnancy calculator",
         description: "Calculate due date and milestones",
         icon: "🤰",
         category: "health"
       },
       {
         id: "heart-rate",
-        name: "Heart Rate Zones",
+        name: "Heart rate calculator",  
         description: "Calculate target heart rate zones",
         icon: "❤️",
         category: "health"
       },
       {
         id: "pace",
-        name: "Running Pace",
+        name: "Running pace",
         description: "Calculate running pace and splits",
         icon: "🏃",
         category: "health"
       },
       {
         id: "macro",
-        name: "Macro Calculator",
+        name: "Macro calculator",
         description: "Calculate macronutrient ratios",
         icon: "🥗",
         category: "health"
       },
       {
         id: "blood-pressure",
-        name: "Blood Pressure Tracker",
+        name: "Blood pressure calculator",
         description: "Track and analyze blood pressure",
         icon: "🩺",
         category: "health"
       },
       {
         id: "hydration",
-        name: "Hydration Calculator",
+        name: "Hydration calculator",
         description: "Calculate optimal hydration needs",
         icon: "💧",
         category: "health"
       },
       {
         id: "body-age",
-        name: "Body Age Calculator",
+        name: "Body age calculator",
         description: "Calculate your biological age",
         icon: "🎂",
         category: "health"
       },
       {
         id: "meal-planner",
-        name: "Meal Planner",
+        name: "Meal planner",
         description: "Plan balanced meals",
         icon: "🍽️",
         category: "health"
       },
       {
         id: "bmr",
-        name: "BMR Calculator",
+        name: "BMR calculator",
         description: "Calculate basal metabolic rate",
         icon: "🔥",
         category: "health"
       },
       {
         id: "carbs",
-        name: "Carbs Calculator",
+        name: "Carbs calculator", 
         description: "Calculate daily carb intake",
         icon: "🍞",
         category: "health"
       },
       {
         id: "steps",
-        name: "Step Counter Goal",
+        name: "Step counter goal",
         description: "Calculate step goals and distance",
         icon: "👟",
         category: "health"
       },
       {
         id: "waist-hip",
-        name: "Waist-to-Hip Ratio",
+        name: "Waist-to-hip ratio calculator",
         description: "Calculate WHR for health risk",
         icon: "📏",
         category: "health"
       },
       {
         id: "body-comp",
-        name: "Body Composition",
+        name: "Body composition calculator",
         description: "Calculate lean vs fat mass",
         icon: "💪",
         category: "health"
@@ -305,49 +305,49 @@ export const calculatorData: Category[] = [
     calculators: [
       {
         id: "percentage",
-        name: "Percentage Calculator",
+        name: "Percentage calculator",
         description: "Calculate percentages easily",
         icon: "📊",
         category: "math"
       },
       {
         id: "fraction",
-        name: "Fraction Calculator",
+        name: "Fraction calculator",
         description: "Add, subtract, multiply, divide fractions",
         icon: "➗",
         category: "math"
       },
       {
         id: "square-root",
-        name: "Square Root",
+        name: "Square root calculator",
         description: "Calculate square roots and powers",
         icon: "√",
         category: "math"
       },
       {
         id: "average",
-        name: "Average Calculator",
+        name: "Average calculator",
         description: "Calculate mean, median, mode",
         icon: "📈",
         category: "math"
       },
       {
         id: "pythagorean",
-        name: "Pythagorean Theorem",
+        name: "Pythagorean theorem",
         description: "Calculate triangle sides",
         icon: "📐",
         category: "math"
       },
       {
         id: "exponent",
-        name: "Exponent Calculator",
+        name: "Exponent calculator",
         description: "Calculate exponential values",
         icon: "ⁿ",
         category: "math"
       },
       {
         id: "factorial",
-        name: "Factorial Calculator",
+        name: "Factorial calculator",
         description: "Calculate factorials",
         icon: "!",
         category: "math"
@@ -361,77 +361,77 @@ export const calculatorData: Category[] = [
       },
       {
         id: "ratio",
-        name: "Ratio Calculator",
+        name: "Ratio calculator",
         description: "Calculate and simplify ratios",
         icon: "⚖️",
         category: "math"
       },
       {
         id: "matrix",
-        name: "Matrix Calculator",
+        name: "Matrix calculator",
         description: "Perform matrix operations",
         icon: "🔲",
         category: "math"
       },
       {
         id: "prime",
-        name: "Prime Number Checker",
+        name: "Prime number checker",
         description: "Check if number is prime",
         icon: "🔢",
         category: "math"
       },
       {
         id: "logarithm",
-        name: "Logarithm Calculator",
+        name: "Logarithm calculator",
         description: "Calculate logarithms",
         icon: "log",
         category: "math"
       },
       {
         id: "scientific-notation",
-        name: "Scientific Notation",
+        name: "Scientific notation",  
         description: "Convert to scientific notation",
         icon: "🔬",
         category: "math"
       },
       {
         id: "quadratic",
-        name: "Quadratic Equation",
+        name: "Quadratic equation solver",
         description: "Solve quadratic equations",
         icon: "x²",
         category: "math"
       },
       {
         id: "permutation",
-        name: "Permutation & Combination",
+        name: "Permutation & combination calculator",
         description: "Calculate permutations and combinations",
         icon: "🔀",
         category: "math"
       },
       {
         id: "standard-deviation",
-        name: "Standard Deviation",
+        name: "Standard deviation ",
         description: "Calculate standard deviation",
         icon: "σ",
         category: "math"
       },
       {
         id: "probability",
-        name: "Probability Calculator",
+        name: "Probability calculator",
         description: "Calculate probability",
         icon: "🎲",
         category: "math"
       },
       {
         id: "area-perimeter",
-        name: "Area & Perimeter",
+        name: "Area & perimeter calculator",
         description: "Calculate area and perimeter of shapes",
         icon: "⬜",
         category: "math"
       },
       {
         id: "slope",
-        name: "Slope Calculator",
+        name: "Slope calculator",
         description: "Calculate line slope",
         icon: "📐",
         category: "math"
@@ -446,133 +446,133 @@ export const calculatorData: Category[] = [
     calculators: [
       {
         id: "velocity",
-        name: "Velocity Calculator",
+        name: "Velocity calculator",
         description: "Calculate velocity, speed, and acceleration",
         icon: "🚀",
         category: "science"
       },
       {
         id: "force",
-        name: "Force Calculator",
+        name: "Force calculator",
         description: "Calculate force using Newton's laws",
         icon: "⚡",
         category: "science"
       },
       {
         id: "energy",
-        name: "Energy Calculator",
+        name: "Energy calculator",
         description: "Calculate kinetic and potential energy",
         icon: "🔋",
         category: "science"
       },
       {
         id: "density",
-        name: "Density Calculator",
+        name: "Density calculator", 
         description: "Calculate density, mass, and volume",
         icon: "🧊",
         category: "science"
       },
       {
         id: "pressure",
-        name: "Pressure Calculator",
+        name: "Pressure calculator",
         description: "Calculate pressure in various units",
         icon: "🌡️",
         category: "science"
       },
       {
         id: "wavelength",
-        name: "Wavelength Calculator",
+        name: "Wavelength calculator",      
         description: "Calculate wavelength and frequency",
         icon: "〰️",
         category: "science"
       },
       {
         id: "ohms-law",
-        name: "Ohm's Law",
+        name: "Ohm's law",
         description: "Calculate voltage, current, and resistance",
         icon: "⚡",
         category: "science"
       },
       {
         id: "molar-mass",
-        name: "Molar Mass",
+        name: "Molar mass calculator",
         description: "Calculate molar mass of compounds",
         icon: "⚗️",
         category: "science"
       },
       {
         id: "ph",
-        name: "pH Calculator",
+        name: "pH calculator",    
         description: "Calculate pH and pOH values",
         icon: "🧪",
         category: "science"
       },
       {
         id: "half-life",
-        name: "Half-Life Calculator",
+        name: "Half-life calculator",
         description: "Calculate radioactive decay",
         icon: "☢️",
         category: "science"
       },
       {
         id: "gravity",
-        name: "Gravity Calculator",
+        name: "Gravity calculator",
         description: "Calculate gravitational force",
         icon: "🌍",
         category: "science"
       },
       {
         id: "momentum",
-        name: "Momentum Calculator",
+        name: "Momentum calculator",
         description: "Calculate momentum",
         icon: "➡️",
         category: "science"
       },
       {
         id: "power",
-        name: "Power Calculator",
+        name: "Power calculator",
         description: "Calculate power in watts",
         icon: "⚡",
         category: "science"
       },
       {
         id: "work",
-        name: "Work Calculator",
+        name: "Work calculator",
         description: "Calculate work done by force",
         icon: "💼",
         category: "science"
       },
       {
         id: "acceleration",
-        name: "Acceleration Calculator",
+        name: "Acceleration calculator",
         description: "Calculate acceleration",
         icon: "🚀",
         category: "science"
       },
       {
         id: "projectile",
-        name: "Projectile Motion",
+        name: "Projectile motion calculator",
         description: "Calculate projectile trajectory",
         icon: "🎯",
         category: "science"
       },
       {
         id: "gas-laws",
-        name: "Gas Laws Calculator",
+        name: "Gas laws calculator",
         description: "Calculate gas law equations",
         icon: "💨",
         category: "science"
       },
       {
         id: "stoichiometry",
-        name: "Stoichiometry",
+        name: "Stoichiometry calculator",
         description: "Calculate chemical reactions",
         icon: "⚗️",
         category: "science"
       },
       {
         id: "kinematics",
-        name: "Kinematics Calculator",
+        name: "Kinematics calculator",
         description: "Calculate motion equations",
         icon: "📊",
         category: "science"
@@ -587,133 +587,133 @@ export const calculatorData: Category[] = [
     calculators: [
       {
         id: "length",
-        name: "Length Converter",
+        name: "Length converter",
         description: "Convert between length units",
         icon: "📏",
         category: "conversion"
       },
       {
         id: "weight",
-        name: "Weight Converter",
+        name: "Weight converter",
         description: "Convert between weight and mass units",
         icon: "⚖️",
         category: "conversion"
       },
       {
         id: "temperature",
-        name: "Temperature Converter",
+        name: "Temperature converter",
         description: "Convert Celsius, Fahrenheit, Kelvin",
         icon: "🌡️",
         category: "conversion"
       },
       {
         id: "volume",
-        name: "Volume Converter",
+        name: "Volume converter",
         description: "Convert between volume units",
         icon: "🥤",
         category: "conversion"
       },
       {
         id: "area",
-        name: "Area Converter",
+        name: "Area converter",
         description: "Convert between area units",
         icon: "📐",
         category: "conversion"
       },
       {
         id: "speed",
-        name: "Speed Converter",
+        name: "Speed converter",  
         description: "Convert between speed units",
         icon: "🏃",
         category: "conversion"
       },
       {
         id: "time",
-        name: "Time Converter",
+        name: "Time converter",
         description: "Convert between time units",
         icon: "⏰",
         category: "conversion"
       },
       {
         id: "data",
-        name: "Data Converter",
+        name: "Data converter",
         description: "Convert bytes, KB, MB, GB, TB",
         icon: "💾",
         category: "conversion"
       },
       {
         id: "pressure-conversion",
-        name: "Pressure Converter",
+        name: "Pressure converter",
         description: "Convert between pressure units",
         icon: "🎈",
         category: "conversion"
       },
       {
         id: "energy-conversion",
-        name: "Energy Converter",
+        name: "Energy converter",
         description: "Convert between energy units",
         icon: "⚡",
         category: "conversion"
       },
       {
         id: "angle",
-        name: "Angle Converter",
+        name: "Angle converter",
         description: "Convert degrees, radians, gradians",
         icon: "📐",
         category: "conversion"
       },
       {
         id: "frequency",
-        name: "Frequency Converter",
+        name: "Frequency converter",
         description: "Convert frequency units",
         icon: "〰️",
         category: "conversion"
       },
       {
         id: "fuel",
-        name: "Fuel Economy Converter",
+        name: "Fuel economy converter",
         description: "Convert MPG, L/100km",
         icon: "⛽",
         category: "conversion"
       },
       {
         id: "torque",
-        name: "Torque Converter",
+        name: "Torque converter",
         description: "Convert torque units",
         icon: "🔧",
         category: "conversion"
       },
       {
         id: "power-conv",
-        name: "Power Converter",
+        name: "Power converter",
         description: "Convert power units",
         icon: "⚡",
         category: "conversion"
       },
       {
         id: "force",
-        name: "Force Converter",
+        name: "Force converter",
         description: "Convert force units",
         icon: "💪",
         category: "conversion"
       },
       {
         id: "luminosity",
-        name: "Luminosity Converter",
+        name: "Luminosity converter",
         description: "Convert light intensity units",
         icon: "💡",
         category: "conversion"
       },
       {
         id: "density-conv",
-        name: "Density Converter",
+        name: "Density converter",  
         description: "Convert density units",
         icon: "🧊",
         category: "conversion"
       },
       {
         id: "viscosity",
-        name: "Viscosity Converter",
+        name: "Viscosity converter",
         description: "Convert viscosity units",
         icon: "💧",
         category: "conversion"
@@ -728,133 +728,133 @@ export const calculatorData: Category[] = [
     calculators: [
       {
         id: "concrete",
-        name: "Concrete Calculator",
+        name: "Concrete calculator",
         description: "Calculate concrete volume needed",
         icon: "🏗️",
         category: "construction"
       },
       {
         id: "paint",
-        name: "Paint Calculator",
+        name: "Paint calculator",
         description: "Calculate paint quantity needed",
         icon: "🎨",
         category: "construction"
       },
       {
         id: "flooring",
-        name: "Flooring Calculator",
+        name: "Flooring calculator",
         description: "Calculate flooring materials needed",
         icon: "🪵",
         category: "construction"
       },
       {
         id: "roofing",
-        name: "Roofing Calculator",
+        name: "Roofing calculator",
         description: "Calculate roofing materials",
         icon: "🏠",
         category: "construction"
       },
       {
         id: "drywall",
-        name: "Drywall Calculator",
+        name: "Drywall calculator",
         description: "Calculate drywall sheets needed",
         icon: "🧱",
         category: "construction"
       },
       {
         id: "brick",
-        name: "Brick Calculator",
+        name: "Brick calculator",
         description: "Calculate number of bricks needed",
         icon: "🧱",
         category: "construction"
       },
       {
         id: "gravel",
-        name: "Gravel Calculator",
+        name: "Gravel calculator",
         description: "Calculate gravel quantity needed",
         icon: "🪨",
         category: "construction"
       },
       {
         id: "fence",
-        name: "Fence Calculator",
+        name: "Fence calculator",
         description: "Calculate fencing materials",
         icon: "🚧",
         category: "construction"
       },
       {
         id: "stairs",
-        name: "Stair Calculator",
+        name: "Stair calculator",
         description: "Calculate stair dimensions",
         icon: "🪜",
         category: "construction"
       },
       {
         id: "tile",
-        name: "Tile Calculator",
+        name: "Tile calculator",
         description: "Calculate tiles needed",
         icon: "⬜",
         category: "construction"
       },
       {
         id: "insulation",
-        name: "Insulation Calculator",
+        name: "Insulation calculator",
         description: "Calculate insulation needs",
         icon: "🧱",
         category: "construction"
       },
       {
         id: "lumber",
-        name: "Lumber Calculator",
+        name: "Lumber calculator",
         description: "Calculate lumber board feet",
         icon: "🪵",
         category: "construction"
       },
       {
         id: "deck",
-        name: "Deck Calculator",
+        name: "Deck calculator",
         description: "Calculate deck materials",
         icon: "🏡",
         category: "construction"
       },
       {
         id: "siding",
-        name: "Siding Calculator",
+        name: "Siding calculator",
         description: "Calculate siding needed",
         icon: "🏠",
         category: "construction"
       },
       {
         id: "gutter",
-        name: "Gutter Calculator",
+        name: "Gutter calculator",
         description: "Calculate gutter length needed",
         icon: "🌧️",
         category: "construction"
       },
       {
         id: "window",
-        name: "Window Calculator",
+        name: "Window calculator",
         description: "Calculate window sizing",
         icon: "🪟",
         category: "construction"
       },
       {
         id: "door",
-        name: "Door Calculator",
+        name: "Door calculator",
         description: "Calculate door frame dimensions",
         icon: "🚪",
         category: "construction"
       },
       {
         id: "foundation",
-        name: "Foundation Calculator",
+        name: "Foundation calculator",
         description: "Calculate foundation materials",
         icon: "🏗️",
         category: "construction"
       },
       {
         id: "landscape",
-        name: "Landscape Calculator",
+        name: "Landscape calculator",
         description: "Calculate landscaping materials",
         icon: "🌳",
         category: "construction"
@@ -869,133 +869,133 @@ export const calculatorData: Category[] = [
     calculators: [
       {
         id: "gpa",
-        name: "GPA Calculator",
+        name: "GPA calculator",
         description: "Calculate your grade point average",
         icon: "📚",
         category: "education"
       },
       {
         id: "grade",
-        name: "Grade Calculator",
+        name: "Grade calculator",
         description: "Calculate final grades",
         icon: "✏️",
         category: "education"
       },
       {
         id: "study-time",
-        name: "Study Time Planner",
+        name: "Study time planner",
         description: "Plan your study schedule",
         icon: "⏰",
         category: "education"
       },
       {
         id: "reading-time",
-        name: "Reading Time",
+        name: "Reading time",
         description: "Estimate reading time for texts",
         icon: "📖",
         category: "education"
       },
       {
         id: "word-count",
-        name: "Word Counter",
+        name: "Word counter",
         description: "Count words and characters",
         icon: "📝",
         category: "education"
       },
       {
         id: "typing-speed",
-        name: "Typing Speed",
+        name: "Typing speed",
         description: "Calculate WPM typing speed",
         icon: "⌨️",
         category: "education"
       },
       {
         id: "sat-score",
-        name: "SAT Score Calculator",
+        name: "SAT score calculator",
         description: "Calculate SAT scores",
         icon: "📄",
         category: "education"
       },
       {
         id: "essay-length",
-        name: "Essay Length",
+        name: "Essay length",
         description: "Calculate essay length and pages",
         icon: "📃",
         category: "education"
       },
       {
         id: "class-credits",
-        name: "Credit Hours",
+        name: "Credit hours",
         description: "Calculate semester credit hours",
         icon: "🎓",
         category: "education"
       },
       {
         id: "scholarship",
-        name: "Scholarship Calculator",
+        name: "Scholarship calculator", 
         description: "Calculate scholarship awards",
         icon: "💰",
         category: "education"
       },
       {
         id: "test-predictor",
-        name: "Test Score Predictor",
+        name: "Test score predictor",
         description: "Predict final test scores",
         icon: "📊",
         category: "education"
       },
       {
         id: "study-break",
-        name: "Study Break Timer",
+        name: "Study break timer",  
         description: "Calculate optimal study breaks",
         icon: "☕",
         category: "education"
       },
       {
         id: "assignment-planner",
-        name: "Assignment Planner",
+        name: "Assignment planner",
         description: "Plan assignment completion",
         icon: "📋",
         category: "education"
       },
       {
         id: "exam-prep",
-        name: "Exam Preparation",
+        name: "Exam preparation",
         description: "Calculate exam study time needed",
         icon: "📝",
         category: "education"
       },
       {
         id: "learning-pace",
-        name: "Learning Pace",
+        name: "Learning pace",
         description: "Calculate learning speed",
         icon: "🧠",
         category: "education"
       },
       {
         id: "attendance",
-        name: "Attendance Tracker",
+        name: "Attendance tracker",
         description: "Track class attendance percentage",
         icon: "✅",
         category: "education"
       },
       {
         id: "homework-time",
-        name: "Homework Time",
+        name: "Homework time",
         description: "Estimate homework duration",
         icon: "📚",
         category: "education"
       },
       {
         id: "academic-performance",
-        name: "Academic Performance",
+        name: "Academic performance",
         description: "Track overall academic progress",
         icon: "🎯",
         category: "education"
       },
       {
         id: "semester-planner",
-        name: "Semester Planner",
+        name: "Semester planner",
         description: "Plan semester schedule",
         icon: "📅",
         category: "education"
@@ -1010,70 +1010,70 @@ export const calculatorData: Category[] = [
     calculators: [
       {
         id: "age",
-        name: "Age Calculator",
+        name: "Age calculator",
         description: "Calculate age in years, months, days",
         icon: "🎂",
         category: "time"
       },
       {
         id: "date-difference",
-        name: "Date Difference",
+        name: "Date difference",
         description: "Calculate days between dates",
         icon: "📅",
         category: "time"
       },
       {
         id: "time-duration",
-        name: "Time Duration",
+        name: "Time duration",
         description: "Calculate time duration between times",
         icon: "⏱️",
         category: "time"
       },
       {
         id: "business-days",
-        name: "Business Days",
+        name: "Business days",
         description: "Calculate working days",
         icon: "💼",
         category: "time"
       },
       {
         id: "timezone",
-        name: "Time Zone Converter",
+        name: "Time zone converter",
         description: "Convert between time zones",
         icon: "🌍",
         category: "time"
       },
       {
         id: "countdown",
-        name: "Countdown Timer",
+        name: "Countdown timer",
         description: "Calculate time until event",
         icon: "⏰",
         category: "time"
       },
       {
         id: "work-hours",
-        name: "Work Hours",
+        name: "Work hours",       
         description: "Calculate work hours and overtime",
         icon: "⏲️",
         category: "time"
       },
       {
         id: "shift",
-        name: "Shift Calculator",
+        name: "Shift calculator",
         description: "Calculate shift hours and breaks",
         icon: "🕐",
         category: "time"
       },
       {
         id: "sleep",
-        name: "Sleep Calculator",
+        name: "Sleep calculator",         
         description: "Calculate optimal sleep and wake times",
         icon: "😴",
         category: "time"
       },
       {
         id: "meeting",
-        name: "Meeting Time",
+        name: "Meeting time",
         description: "Calculate meeting durations",
         icon: "👥",
         category: "time"
@@ -1087,56 +1087,56 @@ export const calculatorData: Category[] = [
       },
       {
         id: "week-number",
-        name: "Week Number",
+        name: "Week number",  
         description: "Calculate week number of year",
         icon: "📅",
         category: "time"
       },
       {
         id: "lunar",
-        name: "Lunar Calendar",
+        name: "Lunar calendar",         
         description: "Convert to lunar calendar dates",
         icon: "🌙",
         category: "time"
       },
       {
         id: "work-anniversary",
-        name: "Work Anniversary",
+        name: "Work anniversary",
         description: "Calculate work tenure",
         icon: "💼",
         category: "time"
       },
       {
         id: "project-timeline",
-        name: "Project Timeline",
+        name: "Project timeline",
         description: "Calculate project milestones",
         icon: "📊",
         category: "time"
       },
       {
         id: "deadline",
-        name: "Deadline Calculator",
+        name: "Deadline calculator",  
         description: "Calculate time until deadline",
         icon: "⏳",
         category: "time"
       },
       {
         id: "time-tracker",
-        name: "Time Tracker",
+        name: "Time tracker",
         description: "Track time spent on tasks",
         icon: "⏱️",
         category: "time"
       },
       {
         id: "billing-hours",
-        name: "Billing Hours",
+        name: "Billing hours",
         description: "Calculate billable hours",
         icon: "💰",
         category: "time"
       },
       {
         id: "retirement-countdown",
-        name: "Retirement Countdown",
+        name: "Retirement countdown", 
         description: "Calculate time until retirement",
         icon: "🏖️",
         category: "time"
@@ -1151,133 +1151,133 @@ export const calculatorData: Category[] = [
     calculators: [
       {
         id: "recipe-scaler",
-        name: "Recipe Scaler",
+        name: "Recipe scaler",
         description: "Scale recipe ingredients",
         icon: "📖",
         category: "cooking"
       },
       {
         id: "cooking-time",
-        name: "Cooking Time",
+        name: "Cooking time",
         description: "Calculate cooking times by weight",
         icon: "⏲️",
         category: "cooking"
       },
       {
         id: "portion",
-        name: "Portion Calculator",
+        name: "Portion calculator", 
         description: "Calculate servings and portions",
         icon: "🍽️",
         category: "cooking"
       },
       {
         id: "nutrition",
-        name: "Nutrition Calculator",
+        name: "Nutrition calculator", 
         description: "Calculate nutritional values",
         icon: "🥗",
         category: "cooking"
       },
       {
         id: "baking",
-        name: "Baking Converter",
+        name: "Baking converter", 
         description: "Convert baking measurements",
         icon: "🧁",
         category: "cooking"
       },
       {
         id: "meat-temp",
-        name: "Meat Temperature",
+        name: "Meat temperature",
         description: "Safe cooking temperatures",
         icon: "🥩",
         category: "cooking"
       },
       {
         id: "pizza",
-        name: "Pizza Dough",
+        name: "Pizza dough",  
         description: "Calculate pizza dough ingredients",
         icon: "🍕",
         category: "cooking"
       },
       {
         id: "cocktail",
-        name: "Cocktail Ratio",
+        name: "Cocktail ratio",  
         description: "Scale cocktail recipes",
         icon: "🍸",
         category: "cooking"
       },
       {
         id: "coffee",
-        name: "Coffee Ratio",
+        name: "Coffee ratio",  
         description: "Calculate coffee to water ratio",
         icon: "☕",
         category: "cooking"
       },
       {
         id: "bread",
-        name: "Bread Baker's %",
+        name: "Bread baker's %",  
         description: "Calculate baker's percentage",
         icon: "🍞",
         category: "cooking"
       },
       {
         id: "meal-prep",
-        name: "Meal Prep Calculator",
+        name: "Meal prep calculator", 
         description: "Calculate meal prep portions",
         icon: "🥡",
         category: "cooking"
       },
       {
         id: "grocery",
-        name: "Grocery Calculator",
+        name: "Grocery calculator",   
         description: "Calculate grocery list quantities",
         icon: "🛒",
         category: "cooking"
       },
       {
         id: "sous-vide",
-        name: "Sous Vide Time",
+        name: "Sous vide time",  
         description: "Calculate sous vide cooking time",
         icon: "🥩",
         category: "cooking"
       },
       {
         id: "fermentation",
-        name: "Fermentation Timer",
+        name: "Fermentation timer",  
         description: "Calculate fermentation time",
         icon: "🫙",
         category: "cooking"
       },
       {
         id: "rising-time",
-        name: "Dough Rising Time",
+        name: "Dough rising time",    
         description: "Calculate bread rising time",
         icon: "🍞",
         category: "cooking"
       },
       {
         id: "marinating",
-        name: "Marinating Time",
+        name: "Marinating time",    
         description: "Calculate optimal marinating time",
         icon: "🥩",
         category: "cooking"
       },
       {
         id: "food-cost",
-        name: "Food Cost Calculator",
+        name: "Food cost calculator",    
         description: "Calculate recipe food costs",
         icon: "💰",
         category: "cooking"
       },
       {
         id: "batch-cooking",
-        name: "Batch Cooking",
+        name: "Batch cooking",
         description: "Calculate batch cooking portions",
         icon: "🍲",
         category: "cooking"
       },
       {
         id: "meal-planning",
-        name: "Weekly Meal Planning",
+        name: "Weekly meal planning",
         description: "Plan weekly meals and portions",
         icon: "📅",
         category: "cooking"
@@ -1292,91 +1292,91 @@ export const calculatorData: Category[] = [
     calculators: [
       {
         id: "profit-margin",
-        name: "Profit Margin",
+        name: "Profit margin calculator",
         description: "Calculate profit margins",
         icon: "📊",
         category: "business"
       },
       {
         id: "break-even",
-        name: "Break-Even Point",
+        name: "Break-even point",
         description: "Calculate break-even analysis",
         icon: "📈",
         category: "business"
       },
       {
         id: "markup",
-        name: "Markup Calculator",
+        name: "Markup calculator",
         description: "Calculate markup and margin",
         icon: "💵",
         category: "business"
       },
       {
         id: "payroll",
-        name: "Payroll Calculator",
+        name: "Payroll calculator",
         description: "Calculate employee payroll",
         icon: "💰",
         category: "business"
       },
       {
         id: "discount",
-        name: "Discount Calculator",
+        name: "Discount calculator",
         description: "Calculate discounts and savings",
         icon: "🏷️",
         category: "business"
       },
       {
         id: "sales-tax",
-        name: "Sales Tax",
+        name: "Sales tax calculator",
         description: "Calculate sales tax amounts",
         icon: "🧾",
         category: "business"
       },
       {
         id: "commission",
-        name: "Commission Calculator",
+        name: "Commission calculator",
         description: "Calculate sales commissions",
         icon: "💸",
         category: "business"
       },
       {
         id: "hourly-rate",
-        name: "Hourly Rate",
+        name: "Hourly rate calculator",
         description: "Calculate hourly billing rates",
         icon: "⏰",
         category: "business"
       },
       {
         id: "depreciation",
-        name: "Depreciation",
+        name: "Depreciation calculator",
         description: "Calculate asset depreciation",
         icon: "📉",
         category: "business"
       },
       {
         id: "inventory",
-        name: "Inventory Turnover",
+        name: "Inventory turnover calculator",
         description: "Calculate inventory turnover ratio",
         icon: "📦",
         category: "business"
       },
       {
         id: "cash-flow",
-        name: "Cash Flow Calculator",
+        name: "Cash flow calculator",
         description: "Calculate cash flow projections",
         icon: "💵",
         category: "business"
       },
       {
         id: "roi-advanced",
-        name: "ROI Advanced",
+        name: "ROI Advanced Calculator",
         description: "Advanced return on investment analysis",
         icon: "📊",
         category: "business"
       },
       {
         id: "customer-lifetime",
-        name: "Customer Lifetime Value",
+        name: "Customer lifetime value calculator",
         description: "Calculate CLV",
         icon: "👥",
         category: "business"
@@ -1390,35 +1390,35 @@ export const calculatorData: Category[] = [
       },
       {
         id: "employee-turnover",
-        name: "Employee Turnover",
+        name: "Employee turnover",
         description: "Calculate turnover rate",
         icon: "🚪",
         category: "business"
       },
       {
         id: "revenue-projection",
-        name: "Revenue Projection",
+        name: "Revenue projection calculator",
         description: "Project future revenue",
         icon: "💰",
         category: "business"
       },
       {
         id: "expense-tracker",
-        name: "Expense Tracker",
+        name: "Expense tracker",
         description: "Track business expenses",
         icon: "📋",
         category: "business"
       },
       {
         id: "invoice",
-        name: "Invoice Calculator",
+        name: "Invoice calculator",
         description: "Calculate invoice totals",
         icon: "🧾",
         category: "business"
       },
       {
         id: "productivity",
-        name: "Productivity Calculator",
+        name: "Productivity calculator",
         description: "Measure productivity metrics",
         icon: "⚡",
         category: "business"
@@ -1433,7 +1433,7 @@ export const calculatorData: Category[] = [
     calculators: [
       {
         id: "fuel-cost",
-        name: "Fuel Cost Calculator",
+        name: "Fuel cost calculator",
         description: "Calculate trip fuel costs",
         icon: "⛽",
         category: "automotive"
@@ -1447,28 +1447,28 @@ export const calculatorData: Category[] = [
       },
       {
         id: "lease",
-        name: "Car Lease Calculator",
+        name: "Car lease calculator",
         description: "Calculate monthly lease payments",
         icon: "🚘",
         category: "automotive"
       },
       {
         id: "auto-loan",
-        name: "Auto Loan Calculator",
+        name: "Auto loan calculator",
         description: "Calculate car loan payments",
         icon: "💰",
         category: "automotive"
       },
       {
         id: "tire-size",
-        name: "Tire Size Calculator",
+        name: "Tire size calculator",
         description: "Compare tire sizes and specs",
         icon: "🛞",
         category: "automotive"
       },
       {
         id: "horsepower",
-        name: "Horsepower Calculator",
+        name: "Horsepower calculator",
         description: "Calculate engine horsepower",
         icon: "⚡",
         category: "automotive"
@@ -1482,84 +1482,84 @@ export const calculatorData: Category[] = [
       },
       {
         id: "ev-range",
-        name: "EV Range Calculator",
+        name: "EV range calculator",
         description: "Calculate electric vehicle range",
         icon: "🔌",
         category: "automotive"
       },
       {
         id: "maintenance",
-        name: "Maintenance Schedule",
+        name: "Maintenance schedule",
         description: "Track vehicle maintenance",
         icon: "🔧",
         category: "automotive"
       },
       {
         id: "emission",
-        name: "Carbon Emissions",
+        name: "Carbon emissions calculator",
         description: "Calculate vehicle emissions",
         icon: "🌫️",
         category: "automotive"
       },
       {
         id: "insurance-cost",
-        name: "Insurance Cost",
+        name: "Insurance cost calculator",
         description: "Estimate car insurance costs",
         icon: "🛡️",
         category: "automotive"
       },
       {
         id: "car-depreciation",
-        name: "Car Depreciation",
+        name: "Car depreciation calculator",
         description: "Calculate vehicle depreciation",
         icon: "📉",
         category: "automotive"
       },
       {
         id: "road-trip",
-        name: "Road Trip Planner",
+        name: "Road trip planner",
         description: "Plan road trip costs and time",
         icon: "🗺️",
         category: "automotive"
       },
       {
         id: "toll",
-        name: "Toll Calculator",
+        name: "Toll calculator",
         description: "Calculate toll costs",
         icon: "🛣️",
         category: "automotive"
       },
       {
         id: "parking-cost",
-        name: "Parking Cost",
+        name: "Parking cost calculator",
         description: "Calculate parking expenses",
         icon: "🅿️",
         category: "automotive"
       },
       {
         id: "registration",
-        name: "Registration Fees",
+        name: "Registration fees",
         description: "Estimate registration costs",
         icon: "📋",
         category: "automotive"
       },
       {
         id: "car-comparison",
-        name: "Car Comparison",
+        name: "Car comparison",
         description: "Compare vehicle costs",
         icon: "⚖️",
         category: "automotive"
       },
       {
         id: "gas-vs-electric",
-        name: "Gas vs Electric",
+        name: "Gas vs electric",
         description: "Compare gas and electric costs",
         icon: "⚡",
         category: "automotive"
       },
       {
         id: "trade-in",
-        name: "Trade-In Value",
+        name: "Trade-in value calculator",
         description: "Estimate trade-in value",
         icon: "💰",
         category: "automotive"
@@ -1568,139 +1568,139 @@ export const calculatorData: Category[] = [
   },
   {
     id: "real-estate",
-    name: "Real Estate",
+    name: "Real estate",
     description: "Property and housing calculators",
     icon: "🏡",
     calculators: [
       {
         id: "home-affordability",
-        name: "Home Affordability",
+        name: "Home affordability",
         description: "Calculate home buying budget",
         icon: "💰",
         category: "real-estate"
       },
       {
         id: "rent-vs-buy",
-        name: "Rent vs Buy",
+        name: "Rent vs buy",
         description: "Compare renting vs buying",
         icon: "🏘️",
         category: "real-estate"
       },
       {
         id: "property-tax",
-        name: "Property Tax",
+        name: "Property tax",
         description: "Calculate property taxes",
         icon: "📋",
         category: "real-estate"
       },
       {
         id: "cap-rate",
-        name: "Cap Rate Calculator",
+        name: "Cap rate calculator",
         description: "Calculate capitalization rate",
         icon: "📊",
         category: "real-estate"
       },
       {
         id: "rental-yield",
-        name: "Rental Yield",
+        name: "Rental yield",
         description: "Calculate rental property yield",
         icon: "🏢",
         category: "real-estate"
       },
       {
         id: "closing-costs",
-        name: "Closing Costs",
+        name: "Closing costs",
         description: "Estimate closing costs",
         icon: "📝",
         category: "real-estate"
       },
       {
         id: "square-footage",
-        name: "Square Footage",
+        name: "Square footage",
         description: "Calculate room and property area",
         icon: "📐",
         category: "real-estate"
       },
       {
         id: "mortgage-points",
-        name: "Mortgage Points",
+        name: "Mortgage points",  
         description: "Calculate mortgage points value",
         icon: "💵",
         category: "real-estate"
       },
       {
         id: "refinance",
-        name: "Refinance Calculator",
+        name: "Refinance calculator",
         description: "Calculate refinancing benefits",
         icon: "🔄",
         category: "real-estate"
       },
       {
         id: "hoa-fees",
-        name: "HOA Fees Impact",
+        name: "HOA fees impact",
         description: "Calculate HOA fee impact",
         icon: "🏘️",
         category: "real-estate"
       },
       {
         id: "investment-property",
-        name: "Investment Property",
+        name: "Investment property",
         description: "Calculate investment property returns",
         icon: "📈",
         category: "real-estate"
       },
       {
         id: "flip",
-        name: "House Flip Calculator",
+        name: "House flip calculator",
         description: "Calculate flipping profit",
         icon: "🔨",
         category: "real-estate"
       },
       {
         id: "airbnb-income",
-        name: "Airbnb Income",
+        name: "Airbnb income",
         description: "Calculate rental income potential",
         icon: "🏠",
         category: "real-estate"
       },
       {
         id: "home-equity",
-        name: "Home Equity",
+        name: "Home equity",
         description: "Calculate home equity",
         icon: "💰",
         category: "real-estate"
       },
       {
         id: "down-payment",
-        name: "Down Payment",
+        name: "Down payment",
         description: "Calculate down payment needs",
         icon: "💵",
         category: "real-estate"
       },
       {
         id: "pmi",
-        name: "PMI Calculator",
+        name: "PMI calculator",
         description: "Calculate private mortgage insurance",
         icon: "🛡️",
         category: "real-estate"
       },
       {
         id: "land-area",
-        name: "Land Area Calculator",
+        name: "Land area calculator",
         description: "Calculate land area and acreage",
         icon: "🗺️",
         category: "real-estate"
       },
       {
         id: "renovation",
-        name: "Renovation Cost",
+        name: "Renovation cost",
         description: "Estimate renovation costs",
         icon: "🔨",
         category: "real-estate"
       },
       {
         id: "appraisal",
-        name: "Appraisal Value",
+        name: "Appraisal value",
         description: "Estimate property appraisal",
         icon: "📊",
         category: "real-estate"
@@ -1715,133 +1715,133 @@ export const calculatorData: Category[] = [
     calculators: [
       {
         id: "trip-cost",
-        name: "Trip Cost Calculator",
+        name: "Trip cost calculator",
         description: "Calculate total trip expenses",
         icon: "💰",
         category: "travel"
       },
       {
         id: "flight-carbon",
-        name: "Flight Carbon",
+        name: "Flight carbon",
         description: "Calculate flight carbon footprint",
         icon: "🌍",
         category: "travel"
       },
       {
         id: "travel-time",
-        name: "Travel Time",
+        name: "Travel time",
         description: "Calculate travel duration",
         icon: "⏱️",
         category: "travel"
       },
       {
         id: "trip-split",
-        name: "Trip Split Calculator",
+        name: "Trip split calculator",
         description: "Split travel costs among group",
         icon: "👥",
         category: "travel"
       },
       {
         id: "distance",
-        name: "Distance Calculator",
+        name: "Distance calculator",
         description: "Calculate distance between cities",
         icon: "🗺️",
         category: "travel"
       },
       {
         id: "luggage-weight",
-        name: "Luggage Weight",
+        name: "Luggage weight",
         description: "Calculate baggage weight limits",
         icon: "🧳",
         category: "travel"
       },
       {
         id: "jet-lag",
-        name: "Jet Lag Calculator",
+        name: "Jet lag calculator",
         description: "Calculate jet lag recovery time",
         icon: "😴",
         category: "travel"
       },
       {
         id: "visa-days",
-        name: "Visa Days Counter",
+        name: "Visa days counter",
         description: "Track visa stay duration",
         icon: "📖",
         category: "travel"
       },
       {
         id: "packing-list",
-        name: "Packing List",
+        name: "Packing list",
         description: "Generate packing checklist",
         icon: "📋",
         category: "travel"
       },
       {
         id: "travel-insurance",
-        name: "Travel Insurance",
+        name: "Travel insurance",
         description: "Calculate travel insurance needs",
         icon: "🛡️",
         category: "travel"
       },
       {
         id: "budget-planner",
-        name: "Travel Budget Planner",
+        name: "Travel budget planner",
         description: "Plan comprehensive travel budget",
         icon: "💰",
         category: "travel"
       },
       {
         id: "currency-trip",
-        name: "Trip Currency Exchange",
+        name: "Trip currency exchange",
         description: "Calculate currency needs for trip",
         icon: "💱",
         category: "travel"
       },
       {
         id: "timezone-meeting",
-        name: "Time Zone Meeting",
+        name: "Time zone meeting",
         description: "Find best meeting time across zones",
         icon: "🌍",
         category: "travel"
       },
       {
         id: "travel-rewards",
-        name: "Travel Rewards",
+        name: "Travel rewards",
         description: "Calculate travel points value",
         icon: "🎁",
         category: "travel"
       },
       {
         id: "passport-validity",
-        name: "Passport Validity",
+        name: "Passport validity",
         description: "Check passport expiration",
         icon: "📘",
         category: "travel"
       },
       {
         id: "road-trip-stops",
-        name: "Road Trip Stops",
+        name: "Road trip stops",
         description: "Plan optimal road trip stops",
         icon: "🚗",
         category: "travel"
       },
       {
         id: "accommodation",
-        name: "Accommodation Cost",
+        name: "Accommodation cost",
         description: "Calculate lodging expenses",
         icon: "🏨",
         category: "travel"
       },
       {
         id: "daily-expenses",
-        name: "Daily Travel Expenses",
+        name: "Daily travel expenses",
         description: "Track daily travel spending",
         icon: "💳",
         category: "travel"
       },
       {
         id: "itinerary",
-        name: "Itinerary Planner",
+        name: "Itinerary planner",
         description: "Plan detailed travel itinerary",
         icon: "📅",
         category: "travel"
@@ -1856,133 +1856,133 @@ export const calculatorData: Category[] = [
     calculators: [
       {
         id: "plant-spacing",
-        name: "Plant Spacing",
+        name: "Plant spacing",
         description: "Calculate plant spacing needs",
         icon: "🌿",
         category: "gardening"
       },
       {
         id: "soil-volume",
-        name: "Soil Volume",
+        name: "Soil volume",
         description: "Calculate soil needed",
         icon: "🪴",
         category: "gardening"
       },
       {
         id: "mulch",
-        name: "Mulch Calculator",
+        name: "Mulch calculator",
         description: "Calculate mulch quantity",
         icon: "🍂",
         category: "gardening"
       },
       {
         id: "watering",
-        name: "Watering Schedule",
+        name: "Watering schedule",
         description: "Plan plant watering schedule",
         icon: "💧",
         category: "gardening"
       },
       {
         id: "fertilizer",
-        name: "Fertilizer Calculator",
+        name: "Fertilizer calculator",
         description: "Calculate fertilizer amounts",
         icon: "🧪",
         category: "gardening"
       },
       {
         id: "compost",
-        name: "Compost Calculator",
+        name: "Compost calculator",   
         description: "Calculate compost mix ratios",
         icon: "♻️",
         category: "gardening"
       },
       {
         id: "seed-quantity",
-        name: "Seed Quantity",
+        name: "Seed quantity",
         description: "Calculate seeds needed",
         icon: "🌾",
         category: "gardening"
       },
       {
         id: "harvest-date",
-        name: "Harvest Date",
+        name: "Harvest date",
         description: "Calculate harvest timing",
         icon: "🥕",
         category: "gardening"
       },
       {
         id: "grow-lights",
-        name: "Grow Light Calculator",
+        name: "Grow light calculator",
         description: "Calculate grow light needs",
         icon: "💡",
         category: "gardening"
       },
       {
         id: "garden-area",
-        name: "Garden Area",
+        name: "Garden area",
         description: "Calculate garden plot area",
         icon: "📐",
         category: "gardening"
       },
       {
         id: "zone-finder",
-        name: "Hardiness Zone Finder",
+        name: "Hardiness zone finder",
         description: "Find plant hardiness zone",
         icon: "🌍",
         category: "gardening"
       },
       {
         id: "frost-date",
-        name: "Frost Date Calculator",
+        name: "Frost date calculator",
         description: "Calculate first/last frost dates",
         icon: "❄️",
         category: "gardening"
       },
       {
         id: "growing-season",
-        name: "Growing Season",
+        name: "Growing season",
         description: "Calculate growing season length",
         icon: "🌞",
         category: "gardening"
       },
       {
         id: "greenhouse",
-        name: "Greenhouse Calculator",
+        name: "Greenhouse calculator",
         description: "Calculate greenhouse dimensions",
         icon: "🏡",
         category: "gardening"
       },
       {
         id: "rain-barrel",
-        name: "Rain Barrel Calculator",
+        name: "Rain barrel calculator",
         description: "Calculate rainwater collection",
         icon: "💧",
         category: "gardening"
       },
       {
         id: "irrigation",
-        name: "Irrigation Calculator",
+        name: "Irrigation calculator",
         description: "Calculate irrigation needs",
         icon: "🚿",
         category: "gardening"
       },
       {
         id: "seed-starting",
-        name: "Seed Starting Date",
+        name: "Seed starting date",
         description: "Calculate when to start seeds",
         icon: "🌱",
         category: "gardening"
       },
       {
         id: "companion-plants",
-        name: "Companion Planting",
+        name: "Companion planting",
         description: "Find companion plants",
         icon: "🌻",
         category: "gardening"
       },
       {
         id: "yield-estimator",
-        name: "Yield Estimator",
+        name: "Yield estimator",
         description: "Estimate garden yield",
         icon: "🥕",
         category: "gardening"
@@ -1997,133 +1997,133 @@ export const calculatorData: Category[] = [
     calculators: [
       {
         id: "beam-deflection",
-        name: "Beam Deflection",
+        name: "Beam deflection",
         description: "Calculate beam deflection",
         icon: "📏",
         category: "engineering"
       },
       {
         id: "gear-ratio",
-        name: "Gear Ratio",
+        name: "Gear ratio",
         description: "Calculate gear ratios",
         icon: "⚙️",
         category: "engineering"
       },
       {
         id: "torque",
-        name: "Torque Calculator",
+        name: "Torque calculator",
         description: "Calculate torque and force",
         icon: "🔩",
         category: "engineering"
       },
       {
         id: "wire-gauge",
-        name: "Wire Gauge",
+        name: "Wire gauge",
         description: "Calculate wire size needed",
         icon: "🔌",
         category: "engineering"
       },
       {
         id: "stress-strain",
-        name: "Stress & Strain",
+        name: "Stress & strain",
         description: "Calculate material stress",
         icon: "🏗️",
         category: "engineering"
       },
       {
         id: "flow-rate",
-        name: "Flow Rate",
+        name: "Flow rate",
         description: "Calculate fluid flow rate",
         icon: "💧",
         category: "engineering"
       },
       {
         id: "heat-transfer",
-        name: "Heat Transfer",
+        name: "Heat transfer",
         description: "Calculate heat transfer rate",
         icon: "🔥",
         category: "engineering"
       },
       {
         id: "spring-constant",
-        name: "Spring Constant",
+        name: "Spring constant",
         description: "Calculate spring force",
         icon: "🌀",
         category: "engineering"
       },
       {
         id: "belt-length",
-        name: "Belt Length",
+        name: "Belt length",
         description: "Calculate pulley belt length",
         icon: "🔗",
         category: "engineering"
       },
       {
         id: "moment-inertia",
-        name: "Moment of Inertia",
+        name: "Moment of inertia",
         description: "Calculate moment of inertia",
         icon: "🔄",
         category: "engineering"
       },
       {
         id: "voltage-drop",
-        name: "Voltage Drop",
+        name: "Voltage drop",
         description: "Calculate voltage drop in cables",
         icon: "⚡",
         category: "engineering"
       },
       {
         id: "pipe-sizing",
-        name: "Pipe Sizing",
+        name: "Pipe sizing",
         description: "Calculate optimal pipe size",
         icon: "🔧",
         category: "engineering"
       },
       {
         id: "hvac-load",
-        name: "HVAC Load",
+        name: "HVAC load",
         description: "Calculate heating/cooling load",
         icon: "❄️",
         category: "engineering"
       },
       {
         id: "electrical-load",
-        name: "Electrical Load",
+        name: "Electrical load",
         description: "Calculate electrical load",
         icon: "⚡",
         category: "engineering"
       },
       {
         id: "compression-ratio",
-        name: "Compression Ratio",
+        name: "Compression ratio",  
         description: "Calculate engine compression ratio",
         icon: "🔩",
         category: "engineering"
       },
       {
         id: "hydraulic-pressure",
-        name: "Hydraulic Pressure",
+        name: "Hydraulic pressure",
         description: "Calculate hydraulic system pressure",
         icon: "💧",
         category: "engineering"
       },
       {
         id: "structural-load",
-        name: "Structural Load",
+        name: "Structural load",
         description: "Calculate structural loads",
         icon: "🏗️",
         category: "engineering"
       },
       {
         id: "weld-strength",
-        name: "Weld Strength",
+        name: "Weld strength",
         description: "Calculate weld strength",
         icon: "🔥",
         category: "engineering"
       },
       {
         id: "bearing-load",
-        name: "Bearing Load",
+        name: "Bearing load",
         description: "Calculate bearing load capacity",
         icon: "⚙️",
         category: "engineering"
@@ -2138,133 +2138,133 @@ export const calculatorData: Category[] = [
     calculators: [
       {
         id: "1rm",
-        name: "One-Rep Max",
+        name: "One-rep max",
         description: "Calculate 1RM weightlifting",
         icon: "🏋️",
         category: "sports"
       },
       {
         id: "swim-pace",
-        name: "Swimming Pace",
+        name: "Swimming pace",
         description: "Calculate swimming pace",
         icon: "🏊",
         category: "sports"
       },
       {
         id: "cycling-power",
-        name: "Cycling Power",
+        name: "Cycling power",
         description: "Calculate cycling wattage",
         icon: "🚴",
         category: "sports"
       },
       {
         id: "vo2-max",
-        name: "VO2 Max",
+        name: "VO2 max",
         description: "Calculate aerobic capacity",
         icon: "💨",
         category: "sports"
       },
       {
         id: "race-time",
-        name: "Race Time Predictor",
+        name: "Race time predictor",
         description: "Predict race finish times",
         icon: "🏃",
         category: "sports"
       },
       {
         id: "vertical-jump",
-        name: "Vertical Jump",
+        name: "Vertical jump",
         description: "Calculate jump height",
         icon: "🦘",
         category: "sports"
       },
       {
         id: "golf-handicap",
-        name: "Golf Handicap",
+        name: "Golf handicap",
         description: "Calculate golf handicap",
         icon: "⛳",
         category: "sports"
       },
       {
         id: "batting-average",
-        name: "Batting Average",
+        name: "Batting average",
         description: "Calculate baseball stats",
         icon: "⚾",
         category: "sports"
       },
       {
         id: "free-throw",
-        name: "Free Throw %",
+        name: "Free throw %",
         description: "Calculate basketball percentages",
         icon: "🏀",
         category: "sports"
       },
       {
         id: "training-zones",
-        name: "Training Zones",
+        name: "Training zones",
         description: "Calculate training intensity zones",
         icon: "📊",
         category: "sports"
       },
       {
         id: "protein-athletes",
-        name: "Protein for Athletes",
+        name: "Protein for athletes",
         description: "Calculate athletic protein needs",
         icon: "🥩",
         category: "sports"
       },
       {
         id: "carb-loading",
-        name: "Carb Loading",
+        name: "Carb loading",
         description: "Calculate carb loading for events",
         icon: "🍝",
         category: "sports"
       },
       {
         id: "hydration-sports",
-        name: "Sports Hydration",
+        name: "Sports hydration",
         description: "Calculate hydration for exercise",
         icon: "💧",
         category: "sports"
       },
       {
         id: "recovery-time",
-        name: "Recovery Time",
+        name: "Recovery time",
         description: "Calculate workout recovery time",
         icon: "😴",
         category: "sports"
       },
       {
         id: "training-load",
-        name: "Training Load",
+        name: "Training load",
         description: "Calculate training load and fatigue",
         icon: "📈",
         category: "sports"
       },
       {
         id: "speed-calculator",
-        name: "Speed Calculator",
+        name: "Speed calculator",
         description: "Calculate speed from pace",
         icon: "⚡",
         category: "sports"
       },
       {
         id: "splits",
-        name: "Distance Splits",
+        name: "Distance splits",
         description: "Calculate race splits",
         icon: "⏱️",
         category: "sports"
       },
       {
         id: "power-weight",
-        name: "Power-to-Weight Ratio",
+        name: "Power-to-weight ratio",
         description: "Calculate power to weight ratio",
         icon: "⚖️",
         category: "sports"
       },
       {
         id: "exercise-calories",
-        name: "Exercise Calories",
+        name: "Exercise calories",
         description: "Calculate calories burned exercising",
         icon: "🔥",
         category: "sports"
@@ -2279,133 +2279,133 @@ export const calculatorData: Category[] = [
     calculators: [
       {
         id: "depth-of-field",
-        name: "Depth of Field",
+        name: "Depth of field",
         description: "Calculate DOF for photos",
         icon: "📸",
         category: "photography"
       },
       {
         id: "exposure",
-        name: "Exposure Calculator",
+        name: "Exposure calculator",
         description: "Calculate exposure settings",
         icon: "☀️",
         category: "photography"
       },
       {
         id: "field-of-view",
-        name: "Field of View",
+        name: "Field of view",
         description: "Calculate camera FOV",
         icon: "👁️",
         category: "photography"
       },
       {
         id: "print-size",
-        name: "Print Size",
+        name: "Print size",
         description: "Calculate print dimensions",
         icon: "🖼️",
         category: "photography"
       },
       {
         id: "aspect-ratio",
-        name: "Aspect Ratio",
+        name: "Aspect ratio",
         description: "Calculate image aspect ratios",
         icon: "📐",
         category: "photography"
       },
       {
         id: "hyperfocal",
-        name: "Hyperfocal Distance",
+        name: "Hyperfocal distance",
         description: "Calculate hyperfocal distance",
         icon: "🔍",
         category: "photography"
       },
       {
         id: "flash-guide",
-        name: "Flash Guide Number",
+        name: "Flash guide number",
         description: "Calculate flash power needed",
         icon: "⚡",
         category: "photography"
       },
       {
         id: "timelapse",
-        name: "Timelapse Calculator",
+        name: "Timelapse calculator",
         description: "Calculate timelapse settings",
         icon: "⏱️",
         category: "photography"
       },
       {
         id: "megapixels",
-        name: "Megapixel Calculator",
+        name: "Megapixel calculator",
         description: "Calculate resolution needs",
         icon: "🖥️",
         category: "photography"
       },
       {
         id: "lens-converter",
-        name: "Lens Crop Factor",
+        name: "Lens crop factor",
         description: "Calculate crop factor equivalents",
         icon: "🔭",
         category: "photography"
       },
       {
         id: "storage",
-        name: "Storage Calculator",
+        name: "Storage calculator",
         description: "Calculate photo storage needs",
         icon: "💾",
         category: "photography"
       },
       {
         id: "sensor-size",
-        name: "Sensor Size Comparison",
+        name: "Sensor size comparison",
         description: "Compare camera sensor sizes",
         icon: "📐",
         category: "photography"
       },
       {
         id: "diffraction",
-        name: "Diffraction Limit",
+        name: "Diffraction limit",
         description: "Calculate diffraction limit",
         icon: "🔬",
         category: "photography"
       },
       {
         id: "macro-magnification",
-        name: "Macro Magnification",
+        name: "Macro magnification",
         description: "Calculate macro magnification ratio",
         icon: "🔍",
         category: "photography"
       },
       {
         id: "star-trails",
-        name: "Star Trails Calculator",
+        name: "Star trails calculator",
         description: "Calculate star trail exposure",
         icon: "⭐",
         category: "photography"
       },
       {
         id: "sunset-time",
-        name: "Sunset Time",
+        name: "Sunset time",
         description: "Calculate golden hour timing",
         icon: "🌅",
         category: "photography"
       },
       {
         id: "panorama",
-        name: "Panorama Calculator",
+        name: "Panorama calculator",
         description: "Calculate panorama shots needed",
         icon: "🏞️",
         category: "photography"
       },
       {
         id: "video-bitrate",
-        name: "Video Bitrate",
+        name: "Video bitrate",
         description: "Calculate video bitrate needs",
         icon: "🎥",
         category: "photography"
       },
       {
         id: "lens-equivalence",
-        name: "Lens Equivalence",
+        name: "Lens equivalence",
         description: "Calculate lens focal length equivalence",
         icon: "📸",
         category: "photography"
@@ -2420,28 +2420,28 @@ export const calculatorData: Category[] = [
     calculators: [
       {
         id: "bpm",
-        name: "BPM Calculator",
+        name: "BPM calculator",
         description: "Calculate beats per minute",
         icon: "🥁",
         category: "music"
       },
       {
         id: "chord-finder",
-        name: "Chord Finder",
+        name: "Chord finder",
         description: "Find chord progressions",
         icon: "🎸",
         category: "music"
       },
       {
         id: "frequency",
-        name: "Frequency Calculator",
+        name: "Frequency calculator",
         description: "Calculate note frequencies",
         icon: "🎹",
         category: "music"
       },
       {
         id: "scale-finder",
-        name: "Scale Finder",
+        name: "Scale finder",
         description: "Find musical scales",
         icon: "🎼",
         category: "music"
@@ -2455,98 +2455,98 @@ export const calculatorData: Category[] = [
       },
       {
         id: "interval",
-        name: "Interval Calculator",
+        name: "Interval calculator",
         description: "Calculate musical intervals",
         icon: "🎶",
         category: "music"
       },
       {
         id: "song-key",
-        name: "Song Key Finder",
+        name: "Song key finder",
         description: "Determine song key",
         icon: "🔑",
         category: "music"
       },
       {
         id: "delay-time",
-        name: "Delay Time",
+        name: "Delay time calculator",
         description: "Calculate delay/reverb timing",
         icon: "🔊",
         category: "music"
       },
       {
         id: "sample-rate",
-        name: "Sample Rate",
+        name: "Sample rate calculator",
         description: "Calculate audio sample rates",
         icon: "💿",
         category: "music"
       },
       {
         id: "db-calculator",
-        name: "dB Calculator",
+        name: "dB calculator",
         description: "Calculate decibel levels",
         icon: "🔉",
         category: "music"
       },
       {
         id: "song-length",
-        name: "Song Length",
+        name: "Song length",
         description: "Calculate song duration from BPM",
         icon: "⏱️",
         category: "music"
       },
       {
         id: "lyrics-per-minute",
-        name: "Lyrics per Minute",
+        name: "Lyrics per minute calculator",
         description: "Calculate lyric delivery rate",
         icon: "📝",
         category: "music"
       },
       {
         id: "practice-time",
-        name: "Practice Time",
+        name: "Practice time",
         description: "Calculate practice hours needed",
         icon: "⏰",
         category: "music"
       },
       {
         id: "recording-time",
-        name: "Recording Time",
+        name: "Recording time",
         description: "Calculate recording session time",
         icon: "🎙️",
         category: "music"
       },
       {
         id: "mixing-levels",
-        name: "Mixing Levels",
+        name: "Mixing levels",
         description: "Calculate audio mixing levels",
         icon: "🎚️",
         category: "music"
       },
       {
         id: "mastering",
-        name: "Mastering Loudness",
+        name: "Mastering loudness",
         description: "Calculate mastering LUFS",
         icon: "📊",
         category: "music"
       },
       {
         id: "copyright",
-        name: "Copyright Calculator",
+        name: "Copyright calculator",
         description: "Calculate copyright duration",
         icon: "©",
         category: "music"
       },
       {
         id: "royalty",
-        name: "Royalty Calculator",
+        name: "Royalty calculator",
         description: "Calculate music royalties",
         icon: "💰",
         category: "music"
       },
       {
         id: "setlist",
-        name: "Concert Setlist",
+        name: "Concert setlist",
         description: "Calculate setlist duration",
         icon: "🎤",
         category: "music"
@@ -2561,133 +2561,133 @@ export const calculatorData: Category[] = [
     calculators: [
       {
         id: "carbon-footprint",
-        name: "Carbon Footprint",
+        name: "Carbon footprint",
         description: "Calculate your carbon footprint",
         icon: "🌱",
         category: "environment"
       },
       {
         id: "solar-savings",
-        name: "Solar Savings",
+        name: "Solar savings",
         description: "Calculate solar panel savings",
         icon: "☀️",
         category: "environment"
       },
       {
         id: "water-usage",
-        name: "Water Usage",
+        name: "Water usage",
         description: "Calculate household water usage",
         icon: "💧",
         category: "environment"
       },
       {
         id: "recycling",
-        name: "Recycling Impact",
+        name: "Recycling impact",
         description: "Calculate recycling benefits",
         icon: "♻️",
         category: "environment"
       },
       {
         id: "energy-usage",
-        name: "Energy Usage",
+        name: "Energy usage",
         description: "Calculate home energy consumption",
         icon: "⚡",
         category: "environment"
       },
       {
         id: "tree-planting",
-        name: "Tree Planting",
+        name: "Tree planting",
         description: "Calculate tree carbon offset",
         icon: "🌳",
         category: "environment"
       },
       {
         id: "compost-impact",
-        name: "Compost Impact",
+        name: "Compost impact",
         description: "Calculate composting benefits",
         icon: "🍂",
         category: "environment"
       },
       {
         id: "plastic-waste",
-        name: "Plastic Waste",
+        name: "Plastic waste",
         description: "Calculate plastic waste impact",
         icon: "🥤",
         category: "environment"
       },
       {
         id: "led-savings",
-        name: "LED Savings",
+        name: "LED savings",
         description: "Calculate LED bulb savings",
         icon: "💡",
         category: "environment"
       },
       {
         id: "eco-score",
-        name: "Eco Score",
+        name: "Eco score",
         description: "Calculate environmental impact score",
         icon: "🌿",
         category: "environment"
       },
       {
         id: "ev-savings",
-        name: "Electric Vehicle Savings",
+        name: "Electric vehicle savings",
         description: "Calculate EV environmental savings",
         icon: "🔌",
         category: "environment"
       },
       {
         id: "insulation-savings",
-        name: "Insulation Savings",
+        name: "Insulation savings",
         description: "Calculate insulation energy savings",
         icon: "🏠",
         category: "environment"
       },
       {
         id: "weatherization",
-        name: "Weatherization Calculator",
+        name: "Weatherization calculator",
         description: "Calculate weatherization benefits",
         icon: "❄️",
         category: "environment"
       },
       {
         id: "rainwater-harvest",
-        name: "Rainwater Harvesting",
+        name: "Rainwater harvesting",
         description: "Calculate rainwater collection potential",
         icon: "💧",
         category: "environment"
       },
       {
         id: "greywater",
-        name: "Greywater System",
+        name: "Greywater system",
         description: "Calculate greywater reuse",
         icon: "♻️",
         category: "environment"
       },
       {
         id: "wind-power",
-        name: "Wind Power Calculator",
+        name: "Wind power calculator",
         description: "Calculate wind energy potential",
         icon: "💨",
         category: "environment"
       },
       {
         id: "geothermal",
-        name: "Geothermal Savings",
+        name: "Geothermal savings",
         description: "Calculate geothermal savings",
         icon: "🌡️",
         category: "environment"
       },
       {
         id: "energy-audit",
-        name: "Home Energy Audit",
+        name: "Home energy audit",
         description: "Calculate home energy efficiency",
         icon: "🔍",
         category: "environment"
       },
       {
         id: "sustainable-living",
-        name: "Sustainable Living Score",
+        name: "Sustainable living score", 
         description: "Calculate sustainability score",
         icon: "🌱",
         category: "environment"
@@ -2696,139 +2696,139 @@ export const calculatorData: Category[] = [
   },
   {
     id: "pet-care",
-    name: "Pet Care",
+    name: "Pet care",
     description: "Pet health and care calculators",
     icon: "🐾",
     calculators: [
       {
         id: "pet-age",
-        name: "Pet Age Calculator",
+        name: "Pet age calculator",
         description: "Convert pet age to human years",
         icon: "🐶",
         category: "pet-care"
       },
       {
         id: "pet-food",
-        name: "Pet Food Calculator",
+        name: "Pet food calculator",
         description: "Calculate daily food portions",
         icon: "🍖",
         category: "pet-care"
       },
       {
         id: "pet-weight",
-        name: "Pet Weight Tracker",
+        name: "Pet weight tracker",
         description: "Track ideal pet weight",
         icon: "⚖️",
         category: "pet-care"
       },
       {
         id: "pet-calorie",
-        name: "Pet Calorie Needs",
+        name: "Pet calorie needs",
         description: "Calculate pet calorie requirements",
         icon: "🥩",
         category: "pet-care"
       },
       {
         id: "pregnancy-pet",
-        name: "Pet Pregnancy",
+        name: "Pet pregnancy",
         description: "Calculate pet pregnancy timeline",
         icon: "🐱",
         category: "pet-care"
       },
       {
         id: "medication",
-        name: "Pet Medication",
+        name: "Pet medication",
         description: "Calculate pet medication dosage",
         icon: "💊",
         category: "pet-care"
       },
       {
         id: "aquarium-size",
-        name: "Aquarium Size",
+        name: "Aquarium size",
         description: "Calculate tank size for fish",
         icon: "🐠",
         category: "pet-care"
       },
       {
         id: "pet-cost",
-        name: "Pet Cost Calculator",
+        name: "Pet cost calculator",
         description: "Calculate lifetime pet costs",
         icon: "💰",
         category: "pet-care"
       },
       {
         id: "litter-box",
-        name: "Litter Box Calculator",
+        name: "Litter box calculator",
         description: "Calculate litter needs",
         icon: "🪣",
         category: "pet-care"
       },
       {
         id: "vaccination",
-        name: "Vaccination Schedule",
+        name: "Vaccination schedule",
         description: "Track pet vaccination dates",
         icon: "💉",
         category: "pet-care"
       },
       {
         id: "breed-size",
-        name: "Breed Size Estimator",
+        name: "Breed size estimator",
         description: "Estimate adult pet size",
         icon: "📏",
         category: "pet-care"
       },
       {
         id: "pet-insurance",
-        name: "Pet Insurance Calculator",
+        name: "Pet insurance calculator",
         description: "Calculate pet insurance costs",
         icon: "🛡️",
         category: "pet-care"
       },
       {
         id: "grooming",
-        name: "Grooming Schedule",
+        name: "Grooming schedule",
         description: "Plan pet grooming schedule",
         icon: "✂️",
         category: "pet-care"
       },
       {
         id: "exercise-needs",
-        name: "Pet Exercise Needs",
+        name: "Pet exercise needs",
         description: "Calculate pet exercise requirements",
         icon: "🏃",
         category: "pet-care"
       },
       {
         id: "travel-pets",
-        name: "Travel with Pets",
+        name: "Travel with pets",
         description: "Calculate pet travel needs",
         icon: "✈️",
         category: "pet-care"
       },
       {
         id: "adoption-cost",
-        name: "Pet Adoption Cost",
+        name: "Pet adoption cost",
         description: "Calculate adoption expenses",
         icon: "🏠",
         category: "pet-care"
       },
       {
         id: "boarding",
-        name: "Pet Boarding Cost",
+        name: "Pet boarding cost",
         description: "Calculate boarding costs",
         icon: "🏨",
         category: "pet-care"
       },
       {
         id: "training-time",
-        name: "Training Time",
+        name: "Training time",
         description: "Calculate training schedule",
         icon: "🎓",
         category: "pet-care"
       },
       {
         id: "emergency-fund",
-        name: "Pet Emergency Fund",
+        name: "Pet emergency fund",
         description: "Calculate emergency fund needs",
         icon: "🆘",
         category: "pet-care"
