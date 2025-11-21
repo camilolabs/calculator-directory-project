@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
     alternates: {
       canonical: url,
     },
-    robots: { index: true, follow: true },
+    robots: { index: false, follow: false },
     openGraph: {
       title,
       description,

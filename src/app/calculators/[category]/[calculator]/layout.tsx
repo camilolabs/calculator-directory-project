@@ -41,7 +41,7 @@ export async function generateMetadata({
     title,
     description,
     alternates: { canonical: url },
-    robots: { index: true, follow: true },
+    robots: { index: false, follow: false },
     openGraph: { title, description, url, type: "article", siteName: "Calcupik" },
     twitter: { card: "summary", title, description },
   };

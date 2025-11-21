@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "Browse Calculator Categories: Finance, Health, Math",
   description:
     "Explore all calculator categories and find tools for finance, health, math, and more.",
-  robots: { index: true, follow: true },
+  robots: { index: false, follow: false },
   alternates: { canonical: "/calculators" },
   openGraph: {
     title: "Browse Calculator Categories: Finance, Health, Math",
