@@ -1,0 +1,1679 @@
+{
+  "count": 279,
+  "items": [
+    {
+      "id": "debt-payoff",
+      "name": "Debt Payoff",
+      "category": "finance",
+      "path": "/calculators/finance/debt-payoff"
+    },
+    {
+      "id": "credit-card",
+      "name": "Credit Card Payoff",
+      "category": "finance",
+      "path": "/calculators/finance/credit-card"
+    },
+    {
+      "id": "apr",
+      "name": "APR Calculator",
+      "category": "finance",
+      "path": "/calculators/finance/apr"
+    },
+    {
+      "id": "amortization",
+      "name": "Amortization Schedule",
+      "category": "finance",
+      "path": "/calculators/finance/amortization"
+    },
+    {
+      "id": "inflation",
+      "name": "Inflation Calculator",
+      "category": "finance",
+      "path": "/calculators/finance/inflation"
+    },
+    {
+      "id": "net-worth",
+      "name": "Net Worth Calculator",
+      "category": "finance",
+      "path": "/calculators/finance/net-worth"
+    },
+    {
+      "id": "emergency-fund",
+      "name": "Emergency Fund",
+      "category": "finance",
+      "path": "/calculators/finance/emergency-fund"
+    },
+    {
+      "id": "401k",
+      "name": "401(k) Calculator",
+      "category": "finance",
+      "path": "/calculators/finance/401k"
+    },
+    {
+      "id": "tip",
+      "name": "Tip Calculator",
+      "category": "finance",
+      "path": "/calculators/finance/tip"
+    },
+    {
+      "id": "blood-pressure",
+      "name": "Blood Pressure Tracker",
+      "category": "health",
+      "path": "/calculators/health/blood-pressure"
+    },
+    {
+      "id": "hydration",
+      "name": "Hydration Calculator",
+      "category": "health",
+      "path": "/calculators/health/hydration"
+    },
+    {
+      "id": "body-age",
+      "name": "Body Age Calculator",
+      "category": "health",
+      "path": "/calculators/health/body-age"
+    },
+    {
+      "id": "meal-planner",
+      "name": "Meal Planner",
+      "category": "health",
+      "path": "/calculators/health/meal-planner"
+    },
+    {
+      "id": "bmr",
+      "name": "BMR Calculator",
+      "category": "health",
+      "path": "/calculators/health/bmr"
+    },
+    {
+      "id": "carbs",
+      "name": "Carbs Calculator",
+      "category": "health",
+      "path": "/calculators/health/carbs"
+    },
+    {
+      "id": "steps",
+      "name": "Step Counter Goal",
+      "category": "health",
+      "path": "/calculators/health/steps"
+    },
+    {
+      "id": "waist-hip",
+      "name": "Waist-to-Hip Ratio",
+      "category": "health",
+      "path": "/calculators/health/waist-hip"
+    },
+    {
+      "id": "body-comp",
+      "name": "Body Composition",
+      "category": "health",
+      "path": "/calculators/health/body-comp"
+    },
+    {
+      "id": "prime",
+      "name": "Prime Number Checker",
+      "category": "math",
+      "path": "/calculators/math/prime"
+    },
+    {
+      "id": "logarithm",
+      "name": "Logarithm Calculator",
+      "category": "math",
+      "path": "/calculators/math/logarithm"
+    },
+    {
+      "id": "scientific-notation",
+      "name": "Scientific Notation",
+      "category": "math",
+      "path": "/calculators/math/scientific-notation"
+    },
+    {
+      "id": "quadratic",
+      "name": "Quadratic Equation",
+      "category": "math",
+      "path": "/calculators/math/quadratic"
+    },
+    {
+      "id": "permutation",
+      "name": "Permutation & Combination",
+      "category": "math",
+      "path": "/calculators/math/permutation"
+    },
+    {
+      "id": "standard-deviation",
+      "name": "Standard Deviation",
+      "category": "math",
+      "path": "/calculators/math/standard-deviation"
+    },
+    {
+      "id": "probability",
+      "name": "Probability Calculator",
+      "category": "math",
+      "path": "/calculators/math/probability"
+    },
+    {
+      "id": "area-perimeter",
+      "name": "Area & Perimeter",
+      "category": "math",
+      "path": "/calculators/math/area-perimeter"
+    },
+    {
+      "id": "slope",
+      "name": "Slope Calculator",
+      "category": "math",
+      "path": "/calculators/math/slope"
+    },
+    {
+      "id": "gravity",
+      "name": "Gravity Calculator",
+      "category": "science",
+      "path": "/calculators/science/gravity"
+    },
+    {
+      "id": "momentum",
+      "name": "Momentum Calculator",
+      "category": "science",
+      "path": "/calculators/science/momentum"
+    },
+    {
+      "id": "power",
+      "name": "Power Calculator",
+      "category": "science",
+      "path": "/calculators/science/power"
+    },
+    {
+      "id": "work",
+      "name": "Work Calculator",
+      "category": "science",
+      "path": "/calculators/science/work"
+    },
+    {
+      "id": "acceleration",
+      "name": "Acceleration Calculator",
+      "category": "science",
+      "path": "/calculators/science/acceleration"
+    },
+    {
+      "id": "projectile",
+      "name": "Projectile Motion",
+      "category": "science",
+      "path": "/calculators/science/projectile"
+    },
+    {
+      "id": "gas-laws",
+      "name": "Gas Laws Calculator",
+      "category": "science",
+      "path": "/calculators/science/gas-laws"
+    },
+    {
+      "id": "stoichiometry",
+      "name": "Stoichiometry",
+      "category": "science",
+      "path": "/calculators/science/stoichiometry"
+    },
+    {
+      "id": "kinematics",
+      "name": "Kinematics Calculator",
+      "category": "science",
+      "path": "/calculators/science/kinematics"
+    },
+    {
+      "id": "angle",
+      "name": "Angle Converter",
+      "category": "conversion",
+      "path": "/calculators/conversion/angle"
+    },
+    {
+      "id": "frequency",
+      "name": "Frequency Converter",
+      "category": "conversion",
+      "path": "/calculators/conversion/frequency"
+    },
+    {
+      "id": "fuel",
+      "name": "Fuel Economy Converter",
+      "category": "conversion",
+      "path": "/calculators/conversion/fuel"
+    },
+    {
+      "id": "torque",
+      "name": "Torque Converter",
+      "category": "conversion",
+      "path": "/calculators/conversion/torque"
+    },
+    {
+      "id": "power-conv",
+      "name": "Power Converter",
+      "category": "conversion",
+      "path": "/calculators/conversion/power-conv"
+    },
+    {
+      "id": "luminosity",
+      "name": "Luminosity Converter",
+      "category": "conversion",
+      "path": "/calculators/conversion/luminosity"
+    },
+    {
+      "id": "density-conv",
+      "name": "Density Converter",
+      "category": "conversion",
+      "path": "/calculators/conversion/density-conv"
+    },
+    {
+      "id": "viscosity",
+      "name": "Viscosity Converter",
+      "category": "conversion",
+      "path": "/calculators/conversion/viscosity"
+    },
+    {
+      "id": "insulation",
+      "name": "Insulation Calculator",
+      "category": "construction",
+      "path": "/calculators/construction/insulation"
+    },
+    {
+      "id": "lumber",
+      "name": "Lumber Calculator",
+      "category": "construction",
+      "path": "/calculators/construction/lumber"
+    },
+    {
+      "id": "deck",
+      "name": "Deck Calculator",
+      "category": "construction",
+      "path": "/calculators/construction/deck"
+    },
+    {
+      "id": "siding",
+      "name": "Siding Calculator",
+      "category": "construction",
+      "path": "/calculators/construction/siding"
+    },
+    {
+      "id": "gutter",
+      "name": "Gutter Calculator",
+      "category": "construction",
+      "path": "/calculators/construction/gutter"
+    },
+    {
+      "id": "window",
+      "name": "Window Calculator",
+      "category": "construction",
+      "path": "/calculators/construction/window"
+    },
+    {
+      "id": "door",
+      "name": "Door Calculator",
+      "category": "construction",
+      "path": "/calculators/construction/door"
+    },
+    {
+      "id": "foundation",
+      "name": "Foundation Calculator",
+      "category": "construction",
+      "path": "/calculators/construction/foundation"
+    },
+    {
+      "id": "landscape",
+      "name": "Landscape Calculator",
+      "category": "construction",
+      "path": "/calculators/construction/landscape"
+    },
+    {
+      "id": "test-predictor",
+      "name": "Test Score Predictor",
+      "category": "education",
+      "path": "/calculators/education/test-predictor"
+    },
+    {
+      "id": "study-break",
+      "name": "Study Break Timer",
+      "category": "education",
+      "path": "/calculators/education/study-break"
+    },
+    {
+      "id": "assignment-planner",
+      "name": "Assignment Planner",
+      "category": "education",
+      "path": "/calculators/education/assignment-planner"
+    },
+    {
+      "id": "exam-prep",
+      "name": "Exam Preparation",
+      "category": "education",
+      "path": "/calculators/education/exam-prep"
+    },
+    {
+      "id": "learning-pace",
+      "name": "Learning Pace",
+      "category": "education",
+      "path": "/calculators/education/learning-pace"
+    },
+    {
+      "id": "attendance",
+      "name": "Attendance Tracker",
+      "category": "education",
+      "path": "/calculators/education/attendance"
+    },
+    {
+      "id": "homework-time",
+      "name": "Homework Time",
+      "category": "education",
+      "path": "/calculators/education/homework-time"
+    },
+    {
+      "id": "academic-performance",
+      "name": "Academic Performance",
+      "category": "education",
+      "path": "/calculators/education/academic-performance"
+    },
+    {
+      "id": "semester-planner",
+      "name": "Semester Planner",
+      "category": "education",
+      "path": "/calculators/education/semester-planner"
+    },
+    {
+      "id": "anniversary",
+      "name": "Anniversary Calculator",
+      "category": "time",
+      "path": "/calculators/time/anniversary"
+    },
+    {
+      "id": "week-number",
+      "name": "Week Number",
+      "category": "time",
+      "path": "/calculators/time/week-number"
+    },
+    {
+      "id": "lunar",
+      "name": "Lunar Calendar",
+      "category": "time",
+      "path": "/calculators/time/lunar"
+    },
+    {
+      "id": "work-anniversary",
+      "name": "Work Anniversary",
+      "category": "time",
+      "path": "/calculators/time/work-anniversary"
+    },
+    {
+      "id": "project-timeline",
+      "name": "Project Timeline",
+      "category": "time",
+      "path": "/calculators/time/project-timeline"
+    },
+    {
+      "id": "deadline",
+      "name": "Deadline Calculator",
+      "category": "time",
+      "path": "/calculators/time/deadline"
+    },
+    {
+      "id": "time-tracker",
+      "name": "Time Tracker",
+      "category": "time",
+      "path": "/calculators/time/time-tracker"
+    },
+    {
+      "id": "billing-hours",
+      "name": "Billing Hours",
+      "category": "time",
+      "path": "/calculators/time/billing-hours"
+    },
+    {
+      "id": "retirement-countdown",
+      "name": "Retirement Countdown",
+      "category": "time",
+      "path": "/calculators/time/retirement-countdown"
+    },
+    {
+      "id": "meal-prep",
+      "name": "Meal Prep Calculator",
+      "category": "cooking",
+      "path": "/calculators/cooking/meal-prep"
+    },
+    {
+      "id": "grocery",
+      "name": "Grocery Calculator",
+      "category": "cooking",
+      "path": "/calculators/cooking/grocery"
+    },
+    {
+      "id": "sous-vide",
+      "name": "Sous Vide Time",
+      "category": "cooking",
+      "path": "/calculators/cooking/sous-vide"
+    },
+    {
+      "id": "fermentation",
+      "name": "Fermentation Timer",
+      "category": "cooking",
+      "path": "/calculators/cooking/fermentation"
+    },
+    {
+      "id": "rising-time",
+      "name": "Dough Rising Time",
+      "category": "cooking",
+      "path": "/calculators/cooking/rising-time"
+    },
+    {
+      "id": "marinating",
+      "name": "Marinating Time",
+      "category": "cooking",
+      "path": "/calculators/cooking/marinating"
+    },
+    {
+      "id": "food-cost",
+      "name": "Food Cost Calculator",
+      "category": "cooking",
+      "path": "/calculators/cooking/food-cost"
+    },
+    {
+      "id": "batch-cooking",
+      "name": "Batch Cooking",
+      "category": "cooking",
+      "path": "/calculators/cooking/batch-cooking"
+    },
+    {
+      "id": "meal-planning",
+      "name": "Weekly Meal Planning",
+      "category": "cooking",
+      "path": "/calculators/cooking/meal-planning"
+    },
+    {
+      "id": "cash-flow",
+      "name": "Cash Flow Calculator",
+      "category": "business",
+      "path": "/calculators/business/cash-flow"
+    },
+    {
+      "id": "roi-advanced",
+      "name": "ROI Advanced",
+      "category": "business",
+      "path": "/calculators/business/roi-advanced"
+    },
+    {
+      "id": "customer-lifetime",
+      "name": "Customer Lifetime Value",
+      "category": "business",
+      "path": "/calculators/business/customer-lifetime"
+    },
+    {
+      "id": "conversion-rate",
+      "name": "Conversion Rate",
+      "category": "business",
+      "path": "/calculators/business/conversion-rate"
+    },
+    {
+      "id": "employee-turnover",
+      "name": "Employee Turnover",
+      "category": "business",
+      "path": "/calculators/business/employee-turnover"
+    },
+    {
+      "id": "revenue-projection",
+      "name": "Revenue Projection",
+      "category": "business",
+      "path": "/calculators/business/revenue-projection"
+    },
+    {
+      "id": "expense-tracker",
+      "name": "Expense Tracker",
+      "category": "business",
+      "path": "/calculators/business/expense-tracker"
+    },
+    {
+      "id": "invoice",
+      "name": "Invoice Calculator",
+      "category": "business",
+      "path": "/calculators/business/invoice"
+    },
+    {
+      "id": "productivity",
+      "name": "Productivity Calculator",
+      "category": "business",
+      "path": "/calculators/business/productivity"
+    },
+    {
+      "id": "fuel-cost",
+      "name": "Fuel Cost Calculator",
+      "category": "automotive",
+      "path": "/calculators/automotive/fuel-cost"
+    },
+    {
+      "id": "mpg",
+      "name": "MPG Calculator",
+      "category": "automotive",
+      "path": "/calculators/automotive/mpg"
+    },
+    {
+      "id": "lease",
+      "name": "Car Lease Calculator",
+      "category": "automotive",
+      "path": "/calculators/automotive/lease"
+    },
+    {
+      "id": "auto-loan",
+      "name": "Auto Loan Calculator",
+      "category": "automotive",
+      "path": "/calculators/automotive/auto-loan"
+    },
+    {
+      "id": "tire-size",
+      "name": "Tire Size Calculator",
+      "category": "automotive",
+      "path": "/calculators/automotive/tire-size"
+    },
+    {
+      "id": "horsepower",
+      "name": "Horsepower Calculator",
+      "category": "automotive",
+      "path": "/calculators/automotive/horsepower"
+    },
+    {
+      "id": "0-60",
+      "name": "0-60 Time Calculator",
+      "category": "automotive",
+      "path": "/calculators/automotive/0-60"
+    },
+    {
+      "id": "ev-range",
+      "name": "EV Range Calculator",
+      "category": "automotive",
+      "path": "/calculators/automotive/ev-range"
+    },
+    {
+      "id": "maintenance",
+      "name": "Maintenance Schedule",
+      "category": "automotive",
+      "path": "/calculators/automotive/maintenance"
+    },
+    {
+      "id": "emission",
+      "name": "Carbon Emissions",
+      "category": "automotive",
+      "path": "/calculators/automotive/emission"
+    },
+    {
+      "id": "insurance-cost",
+      "name": "Insurance Cost",
+      "category": "automotive",
+      "path": "/calculators/automotive/insurance-cost"
+    },
+    {
+      "id": "car-depreciation",
+      "name": "Car Depreciation",
+      "category": "automotive",
+      "path": "/calculators/automotive/car-depreciation"
+    },
+    {
+      "id": "road-trip",
+      "name": "Road Trip Planner",
+      "category": "automotive",
+      "path": "/calculators/automotive/road-trip"
+    },
+    {
+      "id": "toll",
+      "name": "Toll Calculator",
+      "category": "automotive",
+      "path": "/calculators/automotive/toll"
+    },
+    {
+      "id": "parking-cost",
+      "name": "Parking Cost",
+      "category": "automotive",
+      "path": "/calculators/automotive/parking-cost"
+    },
+    {
+      "id": "registration",
+      "name": "Registration Fees",
+      "category": "automotive",
+      "path": "/calculators/automotive/registration"
+    },
+    {
+      "id": "car-comparison",
+      "name": "Car Comparison",
+      "category": "automotive",
+      "path": "/calculators/automotive/car-comparison"
+    },
+    {
+      "id": "gas-vs-electric",
+      "name": "Gas vs Electric",
+      "category": "automotive",
+      "path": "/calculators/automotive/gas-vs-electric"
+    },
+    {
+      "id": "trade-in",
+      "name": "Trade-In Value",
+      "category": "automotive",
+      "path": "/calculators/automotive/trade-in"
+    },
+    {
+      "id": "home-affordability",
+      "name": "Home Affordability",
+      "category": "real-estate",
+      "path": "/calculators/real-estate/home-affordability"
+    },
+    {
+      "id": "rent-vs-buy",
+      "name": "Rent vs Buy",
+      "category": "real-estate",
+      "path": "/calculators/real-estate/rent-vs-buy"
+    },
+    {
+      "id": "property-tax",
+      "name": "Property Tax",
+      "category": "real-estate",
+      "path": "/calculators/real-estate/property-tax"
+    },
+    {
+      "id": "cap-rate",
+      "name": "Cap Rate Calculator",
+      "category": "real-estate",
+      "path": "/calculators/real-estate/cap-rate"
+    },
+    {
+      "id": "rental-yield",
+      "name": "Rental Yield",
+      "category": "real-estate",
+      "path": "/calculators/real-estate/rental-yield"
+    },
+    {
+      "id": "closing-costs",
+      "name": "Closing Costs",
+      "category": "real-estate",
+      "path": "/calculators/real-estate/closing-costs"
+    },
+    {
+      "id": "square-footage",
+      "name": "Square Footage",
+      "category": "real-estate",
+      "path": "/calculators/real-estate/square-footage"
+    },
+    {
+      "id": "mortgage-points",
+      "name": "Mortgage Points",
+      "category": "real-estate",
+      "path": "/calculators/real-estate/mortgage-points"
+    },
+    {
+      "id": "refinance",
+      "name": "Refinance Calculator",
+      "category": "real-estate",
+      "path": "/calculators/real-estate/refinance"
+    },
+    {
+      "id": "hoa-fees",
+      "name": "HOA Fees Impact",
+      "category": "real-estate",
+      "path": "/calculators/real-estate/hoa-fees"
+    },
+    {
+      "id": "investment-property",
+      "name": "Investment Property",
+      "category": "real-estate",
+      "path": "/calculators/real-estate/investment-property"
+    },
+    {
+      "id": "flip",
+      "name": "House Flip Calculator",
+      "category": "real-estate",
+      "path": "/calculators/real-estate/flip"
+    },
+    {
+      "id": "airbnb-income",
+      "name": "Airbnb Income",
+      "category": "real-estate",
+      "path": "/calculators/real-estate/airbnb-income"
+    },
+    {
+      "id": "home-equity",
+      "name": "Home Equity",
+      "category": "real-estate",
+      "path": "/calculators/real-estate/home-equity"
+    },
+    {
+      "id": "down-payment",
+      "name": "Down Payment",
+      "category": "real-estate",
+      "path": "/calculators/real-estate/down-payment"
+    },
+    {
+      "id": "pmi",
+      "name": "PMI Calculator",
+      "category": "real-estate",
+      "path": "/calculators/real-estate/pmi"
+    },
+    {
+      "id": "land-area",
+      "name": "Land Area Calculator",
+      "category": "real-estate",
+      "path": "/calculators/real-estate/land-area"
+    },
+    {
+      "id": "renovation",
+      "name": "Renovation Cost",
+      "category": "real-estate",
+      "path": "/calculators/real-estate/renovation"
+    },
+    {
+      "id": "appraisal",
+      "name": "Appraisal Value",
+      "category": "real-estate",
+      "path": "/calculators/real-estate/appraisal"
+    },
+    {
+      "id": "trip-cost",
+      "name": "Trip Cost Calculator",
+      "category": "travel",
+      "path": "/calculators/travel/trip-cost"
+    },
+    {
+      "id": "flight-carbon",
+      "name": "Flight Carbon",
+      "category": "travel",
+      "path": "/calculators/travel/flight-carbon"
+    },
+    {
+      "id": "travel-time",
+      "name": "Travel Time",
+      "category": "travel",
+      "path": "/calculators/travel/travel-time"
+    },
+    {
+      "id": "trip-split",
+      "name": "Trip Split Calculator",
+      "category": "travel",
+      "path": "/calculators/travel/trip-split"
+    },
+    {
+      "id": "distance",
+      "name": "Distance Calculator",
+      "category": "travel",
+      "path": "/calculators/travel/distance"
+    },
+    {
+      "id": "luggage-weight",
+      "name": "Luggage Weight",
+      "category": "travel",
+      "path": "/calculators/travel/luggage-weight"
+    },
+    {
+      "id": "jet-lag",
+      "name": "Jet Lag Calculator",
+      "category": "travel",
+      "path": "/calculators/travel/jet-lag"
+    },
+    {
+      "id": "visa-days",
+      "name": "Visa Days Counter",
+      "category": "travel",
+      "path": "/calculators/travel/visa-days"
+    },
+    {
+      "id": "packing-list",
+      "name": "Packing List",
+      "category": "travel",
+      "path": "/calculators/travel/packing-list"
+    },
+    {
+      "id": "travel-insurance",
+      "name": "Travel Insurance",
+      "category": "travel",
+      "path": "/calculators/travel/travel-insurance"
+    },
+    {
+      "id": "budget-planner",
+      "name": "Travel Budget Planner",
+      "category": "travel",
+      "path": "/calculators/travel/budget-planner"
+    },
+    {
+      "id": "currency-trip",
+      "name": "Trip Currency Exchange",
+      "category": "travel",
+      "path": "/calculators/travel/currency-trip"
+    },
+    {
+      "id": "timezone-meeting",
+      "name": "Time Zone Meeting",
+      "category": "travel",
+      "path": "/calculators/travel/timezone-meeting"
+    },
+    {
+      "id": "travel-rewards",
+      "name": "Travel Rewards",
+      "category": "travel",
+      "path": "/calculators/travel/travel-rewards"
+    },
+    {
+      "id": "passport-validity",
+      "name": "Passport Validity",
+      "category": "travel",
+      "path": "/calculators/travel/passport-validity"
+    },
+    {
+      "id": "road-trip-stops",
+      "name": "Road Trip Stops",
+      "category": "travel",
+      "path": "/calculators/travel/road-trip-stops"
+    },
+    {
+      "id": "accommodation",
+      "name": "Accommodation Cost",
+      "category": "travel",
+      "path": "/calculators/travel/accommodation"
+    },
+    {
+      "id": "daily-expenses",
+      "name": "Daily Travel Expenses",
+      "category": "travel",
+      "path": "/calculators/travel/daily-expenses"
+    },
+    {
+      "id": "itinerary",
+      "name": "Itinerary Planner",
+      "category": "travel",
+      "path": "/calculators/travel/itinerary"
+    },
+    {
+      "id": "plant-spacing",
+      "name": "Plant Spacing",
+      "category": "gardening",
+      "path": "/calculators/gardening/plant-spacing"
+    },
+    {
+      "id": "soil-volume",
+      "name": "Soil Volume",
+      "category": "gardening",
+      "path": "/calculators/gardening/soil-volume"
+    },
+    {
+      "id": "mulch",
+      "name": "Mulch Calculator",
+      "category": "gardening",
+      "path": "/calculators/gardening/mulch"
+    },
+    {
+      "id": "watering",
+      "name": "Watering Schedule",
+      "category": "gardening",
+      "path": "/calculators/gardening/watering"
+    },
+    {
+      "id": "fertilizer",
+      "name": "Fertilizer Calculator",
+      "category": "gardening",
+      "path": "/calculators/gardening/fertilizer"
+    },
+    {
+      "id": "compost",
+      "name": "Compost Calculator",
+      "category": "gardening",
+      "path": "/calculators/gardening/compost"
+    },
+    {
+      "id": "seed-quantity",
+      "name": "Seed Quantity",
+      "category": "gardening",
+      "path": "/calculators/gardening/seed-quantity"
+    },
+    {
+      "id": "harvest-date",
+      "name": "Harvest Date",
+      "category": "gardening",
+      "path": "/calculators/gardening/harvest-date"
+    },
+    {
+      "id": "grow-lights",
+      "name": "Grow Light Calculator",
+      "category": "gardening",
+      "path": "/calculators/gardening/grow-lights"
+    },
+    {
+      "id": "garden-area",
+      "name": "Garden Area",
+      "category": "gardening",
+      "path": "/calculators/gardening/garden-area"
+    },
+    {
+      "id": "zone-finder",
+      "name": "Hardiness Zone Finder",
+      "category": "gardening",
+      "path": "/calculators/gardening/zone-finder"
+    },
+    {
+      "id": "frost-date",
+      "name": "Frost Date Calculator",
+      "category": "gardening",
+      "path": "/calculators/gardening/frost-date"
+    },
+    {
+      "id": "growing-season",
+      "name": "Growing Season",
+      "category": "gardening",
+      "path": "/calculators/gardening/growing-season"
+    },
+    {
+      "id": "greenhouse",
+      "name": "Greenhouse Calculator",
+      "category": "gardening",
+      "path": "/calculators/gardening/greenhouse"
+    },
+    {
+      "id": "rain-barrel",
+      "name": "Rain Barrel Calculator",
+      "category": "gardening",
+      "path": "/calculators/gardening/rain-barrel"
+    },
+    {
+      "id": "irrigation",
+      "name": "Irrigation Calculator",
+      "category": "gardening",
+      "path": "/calculators/gardening/irrigation"
+    },
+    {
+      "id": "seed-starting",
+      "name": "Seed Starting Date",
+      "category": "gardening",
+      "path": "/calculators/gardening/seed-starting"
+    },
+    {
+      "id": "companion-plants",
+      "name": "Companion Planting",
+      "category": "gardening",
+      "path": "/calculators/gardening/companion-plants"
+    },
+    {
+      "id": "yield-estimator",
+      "name": "Yield Estimator",
+      "category": "gardening",
+      "path": "/calculators/gardening/yield-estimator"
+    },
+    {
+      "id": "beam-deflection",
+      "name": "Beam Deflection",
+      "category": "engineering",
+      "path": "/calculators/engineering/beam-deflection"
+    },
+    {
+      "id": "gear-ratio",
+      "name": "Gear Ratio",
+      "category": "engineering",
+      "path": "/calculators/engineering/gear-ratio"
+    },
+    {
+      "id": "torque",
+      "name": "Torque Calculator",
+      "category": "engineering",
+      "path": "/calculators/engineering/torque"
+    },
+    {
+      "id": "wire-gauge",
+      "name": "Wire Gauge",
+      "category": "engineering",
+      "path": "/calculators/engineering/wire-gauge"
+    },
+    {
+      "id": "stress-strain",
+      "name": "Stress & Strain",
+      "category": "engineering",
+      "path": "/calculators/engineering/stress-strain"
+    },
+    {
+      "id": "flow-rate",
+      "name": "Flow Rate",
+      "category": "engineering",
+      "path": "/calculators/engineering/flow-rate"
+    },
+    {
+      "id": "heat-transfer",
+      "name": "Heat Transfer",
+      "category": "engineering",
+      "path": "/calculators/engineering/heat-transfer"
+    },
+    {
+      "id": "spring-constant",
+      "name": "Spring Constant",
+      "category": "engineering",
+      "path": "/calculators/engineering/spring-constant"
+    },
+    {
+      "id": "belt-length",
+      "name": "Belt Length",
+      "category": "engineering",
+      "path": "/calculators/engineering/belt-length"
+    },
+    {
+      "id": "moment-inertia",
+      "name": "Moment of Inertia",
+      "category": "engineering",
+      "path": "/calculators/engineering/moment-inertia"
+    },
+    {
+      "id": "voltage-drop",
+      "name": "Voltage Drop",
+      "category": "engineering",
+      "path": "/calculators/engineering/voltage-drop"
+    },
+    {
+      "id": "pipe-sizing",
+      "name": "Pipe Sizing",
+      "category": "engineering",
+      "path": "/calculators/engineering/pipe-sizing"
+    },
+    {
+      "id": "hvac-load",
+      "name": "HVAC Load",
+      "category": "engineering",
+      "path": "/calculators/engineering/hvac-load"
+    },
+    {
+      "id": "electrical-load",
+      "name": "Electrical Load",
+      "category": "engineering",
+      "path": "/calculators/engineering/electrical-load"
+    },
+    {
+      "id": "compression-ratio",
+      "name": "Compression Ratio",
+      "category": "engineering",
+      "path": "/calculators/engineering/compression-ratio"
+    },
+    {
+      "id": "hydraulic-pressure",
+      "name": "Hydraulic Pressure",
+      "category": "engineering",
+      "path": "/calculators/engineering/hydraulic-pressure"
+    },
+    {
+      "id": "structural-load",
+      "name": "Structural Load",
+      "category": "engineering",
+      "path": "/calculators/engineering/structural-load"
+    },
+    {
+      "id": "weld-strength",
+      "name": "Weld Strength",
+      "category": "engineering",
+      "path": "/calculators/engineering/weld-strength"
+    },
+    {
+      "id": "bearing-load",
+      "name": "Bearing Load",
+      "category": "engineering",
+      "path": "/calculators/engineering/bearing-load"
+    },
+    {
+      "id": "1rm",
+      "name": "One-Rep Max",
+      "category": "sports",
+      "path": "/calculators/sports/1rm"
+    },
+    {
+      "id": "swim-pace",
+      "name": "Swimming Pace",
+      "category": "sports",
+      "path": "/calculators/sports/swim-pace"
+    },
+    {
+      "id": "cycling-power",
+      "name": "Cycling Power",
+      "category": "sports",
+      "path": "/calculators/sports/cycling-power"
+    },
+    {
+      "id": "vo2-max",
+      "name": "VO2 Max",
+      "category": "sports",
+      "path": "/calculators/sports/vo2-max"
+    },
+    {
+      "id": "race-time",
+      "name": "Race Time Predictor",
+      "category": "sports",
+      "path": "/calculators/sports/race-time"
+    },
+    {
+      "id": "vertical-jump",
+      "name": "Vertical Jump",
+      "category": "sports",
+      "path": "/calculators/sports/vertical-jump"
+    },
+    {
+      "id": "golf-handicap",
+      "name": "Golf Handicap",
+      "category": "sports",
+      "path": "/calculators/sports/golf-handicap"
+    },
+    {
+      "id": "batting-average",
+      "name": "Batting Average",
+      "category": "sports",
+      "path": "/calculators/sports/batting-average"
+    },
+    {
+      "id": "free-throw",
+      "name": "Free Throw %",
+      "category": "sports",
+      "path": "/calculators/sports/free-throw"
+    },
+    {
+      "id": "training-zones",
+      "name": "Training Zones",
+      "category": "sports",
+      "path": "/calculators/sports/training-zones"
+    },
+    {
+      "id": "protein-athletes",
+      "name": "Protein for Athletes",
+      "category": "sports",
+      "path": "/calculators/sports/protein-athletes"
+    },
+    {
+      "id": "carb-loading",
+      "name": "Carb Loading",
+      "category": "sports",
+      "path": "/calculators/sports/carb-loading"
+    },
+    {
+      "id": "hydration-sports",
+      "name": "Sports Hydration",
+      "category": "sports",
+      "path": "/calculators/sports/hydration-sports"
+    },
+    {
+      "id": "recovery-time",
+      "name": "Recovery Time",
+      "category": "sports",
+      "path": "/calculators/sports/recovery-time"
+    },
+    {
+      "id": "training-load",
+      "name": "Training Load",
+      "category": "sports",
+      "path": "/calculators/sports/training-load"
+    },
+    {
+      "id": "speed-calculator",
+      "name": "Speed Calculator",
+      "category": "sports",
+      "path": "/calculators/sports/speed-calculator"
+    },
+    {
+      "id": "splits",
+      "name": "Distance Splits",
+      "category": "sports",
+      "path": "/calculators/sports/splits"
+    },
+    {
+      "id": "power-weight",
+      "name": "Power-to-Weight Ratio",
+      "category": "sports",
+      "path": "/calculators/sports/power-weight"
+    },
+    {
+      "id": "exercise-calories",
+      "name": "Exercise Calories",
+      "category": "sports",
+      "path": "/calculators/sports/exercise-calories"
+    },
+    {
+      "id": "depth-of-field",
+      "name": "Depth of Field",
+      "category": "photography",
+      "path": "/calculators/photography/depth-of-field"
+    },
+    {
+      "id": "exposure",
+      "name": "Exposure Calculator",
+      "category": "photography",
+      "path": "/calculators/photography/exposure"
+    },
+    {
+      "id": "field-of-view",
+      "name": "Field of View",
+      "category": "photography",
+      "path": "/calculators/photography/field-of-view"
+    },
+    {
+      "id": "print-size",
+      "name": "Print Size",
+      "category": "photography",
+      "path": "/calculators/photography/print-size"
+    },
+    {
+      "id": "aspect-ratio",
+      "name": "Aspect Ratio",
+      "category": "photography",
+      "path": "/calculators/photography/aspect-ratio"
+    },
+    {
+      "id": "hyperfocal",
+      "name": "Hyperfocal Distance",
+      "category": "photography",
+      "path": "/calculators/photography/hyperfocal"
+    },
+    {
+      "id": "flash-guide",
+      "name": "Flash Guide Number",
+      "category": "photography",
+      "path": "/calculators/photography/flash-guide"
+    },
+    {
+      "id": "timelapse",
+      "name": "Timelapse Calculator",
+      "category": "photography",
+      "path": "/calculators/photography/timelapse"
+    },
+    {
+      "id": "megapixels",
+      "name": "Megapixel Calculator",
+      "category": "photography",
+      "path": "/calculators/photography/megapixels"
+    },
+    {
+      "id": "lens-converter",
+      "name": "Lens Crop Factor",
+      "category": "photography",
+      "path": "/calculators/photography/lens-converter"
+    },
+    {
+      "id": "storage",
+      "name": "Storage Calculator",
+      "category": "photography",
+      "path": "/calculators/photography/storage"
+    },
+    {
+      "id": "sensor-size",
+      "name": "Sensor Size Comparison",
+      "category": "photography",
+      "path": "/calculators/photography/sensor-size"
+    },
+    {
+      "id": "diffraction",
+      "name": "Diffraction Limit",
+      "category": "photography",
+      "path": "/calculators/photography/diffraction"
+    },
+    {
+      "id": "macro-magnification",
+      "name": "Macro Magnification",
+      "category": "photography",
+      "path": "/calculators/photography/macro-magnification"
+    },
+    {
+      "id": "star-trails",
+      "name": "Star Trails Calculator",
+      "category": "photography",
+      "path": "/calculators/photography/star-trails"
+    },
+    {
+      "id": "sunset-time",
+      "name": "Sunset Time",
+      "category": "photography",
+      "path": "/calculators/photography/sunset-time"
+    },
+    {
+      "id": "panorama",
+      "name": "Panorama Calculator",
+      "category": "photography",
+      "path": "/calculators/photography/panorama"
+    },
+    {
+      "id": "video-bitrate",
+      "name": "Video Bitrate",
+      "category": "photography",
+      "path": "/calculators/photography/video-bitrate"
+    },
+    {
+      "id": "lens-equivalence",
+      "name": "Lens Equivalence",
+      "category": "photography",
+      "path": "/calculators/photography/lens-equivalence"
+    },
+    {
+      "id": "bpm",
+      "name": "BPM Calculator",
+      "category": "music",
+      "path": "/calculators/music/bpm"
+    },
+    {
+      "id": "chord-finder",
+      "name": "Chord Finder",
+      "category": "music",
+      "path": "/calculators/music/chord-finder"
+    },
+    {
+      "id": "frequency",
+      "name": "Frequency Calculator",
+      "category": "music",
+      "path": "/calculators/music/frequency"
+    },
+    {
+      "id": "scale-finder",
+      "name": "Scale Finder",
+      "category": "music",
+      "path": "/calculators/music/scale-finder"
+    },
+    {
+      "id": "metronome",
+      "name": "Metronome",
+      "category": "music",
+      "path": "/calculators/music/metronome"
+    },
+    {
+      "id": "interval",
+      "name": "Interval Calculator",
+      "category": "music",
+      "path": "/calculators/music/interval"
+    },
+    {
+      "id": "song-key",
+      "name": "Song Key Finder",
+      "category": "music",
+      "path": "/calculators/music/song-key"
+    },
+    {
+      "id": "delay-time",
+      "name": "Delay Time",
+      "category": "music",
+      "path": "/calculators/music/delay-time"
+    },
+    {
+      "id": "sample-rate",
+      "name": "Sample Rate",
+      "category": "music",
+      "path": "/calculators/music/sample-rate"
+    },
+    {
+      "id": "db-calculator",
+      "name": "dB Calculator",
+      "category": "music",
+      "path": "/calculators/music/db-calculator"
+    },
+    {
+      "id": "song-length",
+      "name": "Song Length",
+      "category": "music",
+      "path": "/calculators/music/song-length"
+    },
+    {
+      "id": "lyrics-per-minute",
+      "name": "Lyrics per Minute",
+      "category": "music",
+      "path": "/calculators/music/lyrics-per-minute"
+    },
+    {
+      "id": "practice-time",
+      "name": "Practice Time",
+      "category": "music",
+      "path": "/calculators/music/practice-time"
+    },
+    {
+      "id": "recording-time",
+      "name": "Recording Time",
+      "category": "music",
+      "path": "/calculators/music/recording-time"
+    },
+    {
+      "id": "mixing-levels",
+      "name": "Mixing Levels",
+      "category": "music",
+      "path": "/calculators/music/mixing-levels"
+    },
+    {
+      "id": "mastering",
+      "name": "Mastering Loudness",
+      "category": "music",
+      "path": "/calculators/music/mastering"
+    },
+    {
+      "id": "copyright",
+      "name": "Copyright Calculator",
+      "category": "music",
+      "path": "/calculators/music/copyright"
+    },
+    {
+      "id": "royalty",
+      "name": "Royalty Calculator",
+      "category": "music",
+      "path": "/calculators/music/royalty"
+    },
+    {
+      "id": "setlist",
+      "name": "Concert Setlist",
+      "category": "music",
+      "path": "/calculators/music/setlist"
+    },
+    {
+      "id": "carbon-footprint",
+      "name": "Carbon Footprint",
+      "category": "environment",
+      "path": "/calculators/environment/carbon-footprint"
+    },
+    {
+      "id": "solar-savings",
+      "name": "Solar Savings",
+      "category": "environment",
+      "path": "/calculators/environment/solar-savings"
+    },
+    {
+      "id": "water-usage",
+      "name": "Water Usage",
+      "category": "environment",
+      "path": "/calculators/environment/water-usage"
+    },
+    {
+      "id": "recycling",
+      "name": "Recycling Impact",
+      "category": "environment",
+      "path": "/calculators/environment/recycling"
+    },
+    {
+      "id": "energy-usage",
+      "name": "Energy Usage",
+      "category": "environment",
+      "path": "/calculators/environment/energy-usage"
+    },
+    {
+      "id": "tree-planting",
+      "name": "Tree Planting",
+      "category": "environment",
+      "path": "/calculators/environment/tree-planting"
+    },
+    {
+      "id": "compost-impact",
+      "name": "Compost Impact",
+      "category": "environment",
+      "path": "/calculators/environment/compost-impact"
+    },
+    {
+      "id": "plastic-waste",
+      "name": "Plastic Waste",
+      "category": "environment",
+      "path": "/calculators/environment/plastic-waste"
+    },
+    {
+      "id": "led-savings",
+      "name": "LED Savings",
+      "category": "environment",
+      "path": "/calculators/environment/led-savings"
+    },
+    {
+      "id": "eco-score",
+      "name": "Eco Score",
+      "category": "environment",
+      "path": "/calculators/environment/eco-score"
+    },
+    {
+      "id": "ev-savings",
+      "name": "Electric Vehicle Savings",
+      "category": "environment",
+      "path": "/calculators/environment/ev-savings"
+    },
+    {
+      "id": "insulation-savings",
+      "name": "Insulation Savings",
+      "category": "environment",
+      "path": "/calculators/environment/insulation-savings"
+    },
+    {
+      "id": "weatherization",
+      "name": "Weatherization Calculator",
+      "category": "environment",
+      "path": "/calculators/environment/weatherization"
+    },
+    {
+      "id": "rainwater-harvest",
+      "name": "Rainwater Harvesting",
+      "category": "environment",
+      "path": "/calculators/environment/rainwater-harvest"
+    },
+    {
+      "id": "greywater",
+      "name": "Greywater System",
+      "category": "environment",
+      "path": "/calculators/environment/greywater"
+    },
+    {
+      "id": "wind-power",
+      "name": "Wind Power Calculator",
+      "category": "environment",
+      "path": "/calculators/environment/wind-power"
+    },
+    {
+      "id": "geothermal",
+      "name": "Geothermal Savings",
+      "category": "environment",
+      "path": "/calculators/environment/geothermal"
+    },
+    {
+      "id": "energy-audit",
+      "name": "Home Energy Audit",
+      "category": "environment",
+      "path": "/calculators/environment/energy-audit"
+    },
+    {
+      "id": "sustainable-living",
+      "name": "Sustainable Living Score",
+      "category": "environment",
+      "path": "/calculators/environment/sustainable-living"
+    },
+    {
+      "id": "pet-age",
+      "name": "Pet Age Calculator",
+      "category": "pet-care",
+      "path": "/calculators/pet-care/pet-age"
+    },
+    {
+      "id": "pet-food",
+      "name": "Pet Food Calculator",
+      "category": "pet-care",
+      "path": "/calculators/pet-care/pet-food"
+    },
+    {
+      "id": "pet-weight",
+      "name": "Pet Weight Tracker",
+      "category": "pet-care",
+      "path": "/calculators/pet-care/pet-weight"
+    },
+    {
+      "id": "pet-calorie",
+      "name": "Pet Calorie Needs",
+      "category": "pet-care",
+      "path": "/calculators/pet-care/pet-calorie"
+    },
+    {
+      "id": "pregnancy-pet",
+      "name": "Pet Pregnancy",
+      "category": "pet-care",
+      "path": "/calculators/pet-care/pregnancy-pet"
+    },
+    {
+      "id": "medication",
+      "name": "Pet Medication",
+      "category": "pet-care",
+      "path": "/calculators/pet-care/medication"
+    },
+    {
+      "id": "aquarium-size",
+      "name": "Aquarium Size",
+      "category": "pet-care",
+      "path": "/calculators/pet-care/aquarium-size"
+    },
+    {
+      "id": "pet-cost",
+      "name": "Pet Cost Calculator",
+      "category": "pet-care",
+      "path": "/calculators/pet-care/pet-cost"
+    },
+    {
+      "id": "litter-box",
+      "name": "Litter Box Calculator",
+      "category": "pet-care",
+      "path": "/calculators/pet-care/litter-box"
+    },
+    {
+      "id": "vaccination",
+      "name": "Vaccination Schedule",
+      "category": "pet-care",
+      "path": "/calculators/pet-care/vaccination"
+    },
+    {
+      "id": "breed-size",
+      "name": "Breed Size Estimator",
+      "category": "pet-care",
+      "path": "/calculators/pet-care/breed-size"
+    },
+    {
+      "id": "pet-insurance",
+      "name": "Pet Insurance Calculator",
+      "category": "pet-care",
+      "path": "/calculators/pet-care/pet-insurance"
+    },
+    {
+      "id": "grooming",
+      "name": "Grooming Schedule",
+      "category": "pet-care",
+      "path": "/calculators/pet-care/grooming"
+    },
+    {
+      "id": "exercise-needs",
+      "name": "Pet Exercise Needs",
+      "category": "pet-care",
+      "path": "/calculators/pet-care/exercise-needs"
+    },
+    {
+      "id": "travel-pets",
+      "name": "Travel with Pets",
+      "category": "pet-care",
+      "path": "/calculators/pet-care/travel-pets"
+    },
+    {
+      "id": "adoption-cost",
+      "name": "Pet Adoption Cost",
+      "category": "pet-care",
+      "path": "/calculators/pet-care/adoption-cost"
+    },
+    {
+      "id": "boarding",
+      "name": "Pet Boarding Cost",
+      "category": "pet-care",
+      "path": "/calculators/pet-care/boarding"
+    },
+    {
+      "id": "training-time",
+      "name": "Training Time",
+      "category": "pet-care",
+      "path": "/calculators/pet-care/training-time"
+    },
+    {
+      "id": "emergency-fund",
+      "name": "Pet Emergency Fund",
+      "category": "pet-care",
+      "path": "/calculators/pet-care/emergency-fund"
+    }
+  ]
+}

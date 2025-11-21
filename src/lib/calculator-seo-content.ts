@@ -268,3 +268,55 @@ export const calculatorSEOContent: Record<string, SEOContent> = {
 export function getCalculatorSEO(calculatorId: string): SEOContent | undefined {
   return calculatorSEOContent[calculatorId];
 }
+
+// Fallback generator: returns SEO content when a calculator has no curated entry
+export function getSEOOrFallback(
+  calculatorId: string,
+  calculatorName: string,
+  categoryId: string,
+  categoryName: string
+): SEOContent {
+  const curated = getCalculatorSEO(calculatorId);
+  if (curated) return curated;
+
+  const name = calculatorName.trim();
+  const cat = categoryName.trim();
+  const base = name.toLowerCase().includes("calculator") ? name : `${name} Calculator`;
+
+  const description = `Use the free ${base} to compute accurate results quickly. Ideal for ${cat.toLowerCase()} tasks, this tool is designed to be fast, reliable, and easy to use — perfect for learning, planning, and everyday decisions.`;
+
+  const keywords = [
+    `${name.toLowerCase()} calculator`,
+    `${cat.toLowerCase()} calculator`,
+    `${name.toLowerCase()} online`,
+    `free ${name.toLowerCase()} calculator`,
+    `how to calculate ${name.toLowerCase()}`,
+  ];
+
+  const useCases = [
+    `Solve ${name.toLowerCase()} problems step-by-step`,
+    `Compare scenarios and understand outcomes`,
+    `Plan and validate ${cat.toLowerCase()} decisions`,
+    `Quick checks for homework or work tasks`,
+  ];
+
+  const benefits = [
+    "Instant, accurate calculations",
+    "Clean interface and easy inputs",
+    "Works on mobile and desktop",
+    "Helpful context and tips",
+    "Free to use, no signup",
+  ];
+
+  const howItWorks = `Enter the required inputs and the ${base} applies the standard formula and logic for ${cat.toLowerCase()} to compute the result. Adjust values to explore different scenarios.`;
+
+  const tips = [
+    "Double‑check units and input ranges",
+    "Use realistic values for better insights",
+    "Save key scenarios to compare later",
+    "Refine inputs incrementally to see trends",
+    "Share results with others for feedback",
+  ];
+
+  return { description, keywords, useCases, benefits, howItWorks, tips };
+}

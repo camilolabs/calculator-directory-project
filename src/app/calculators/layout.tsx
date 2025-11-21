@@ -1,14 +1,29 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "380+ Free Calculators | Browse All Categories",
-  description: "Browse 380+ free online calculators across 20 categories. Finance, health, math, science, conversion, construction, and more. Fast, accurate, easy-to-use calculators.",
+  title: "Browse Calculator Categories: Finance, Health, Math",
+  description:
+    "Explore all calculator categories and find tools for finance, health, math, and more.",
+  robots: { index: true, follow: true },
+  alternates: { canonical: "/calculators" },
+  openGraph: {
+    title: "Browse Calculator Categories: Finance, Health, Math",
+    description:
+      "Explore all calculator categories and find tools for finance, health, math, and more.",
+    url: "/calculators",
+    type: "website",
+    siteName: "Calcupik",
+  },
+  twitter: {
+    card: "summary",
+    title: "Browse Calculator Categories: Finance, Health, Math",
+    description:
+      "Explore all calculator categories and find tools for finance, health, math, and more.",
+  },
 };
 
 export default function CalculatorsLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <>{children}</>;
+}: Readonly<{ children: React.ReactNode }>) {
+  return children;
 }

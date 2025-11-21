@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { getCategory, getAllCategories } from "@/lib/calculator-data";
 import { ArrowLeft } from "lucide-react";
+import SEOJsonLd from "@/components/SEOJsonLd";
 
 export function generateStaticParams() {
   const categories = getAllCategories();
@@ -11,7 +12,67 @@ export function generateStaticParams() {
   }));
 }
 
-export default function CategoryPage({ params }: { params: { category: string } }) {
+function trimTo(input: string, max: number): string {
+  if (input.length <= max) return input;
+  const cut = input.slice(0, max);
+  const lastSpace = cut.lastIndexOf(" ");
+  return (lastSpace > 0 ? cut.slice(0, lastSpace) : cut).trim();
+}
+
+function ensureRange(input: string, min: number, max: number, padSuffix: string): string {
+  let out = input.trim();
+  if (out.length < min) {
+    const padded = `${out}${padSuffix}`;
+    out = padded.length <= max ? padded : trimTo(padded, max);
+  }
+  if (out.length > max) out = trimTo(out, max);
+  return out;
+}
+
+export async function generateMetadata({ params }: any) {
+  const category = getCategory(params.category);
+  if (!category) {
+    return {
+      title: "Calculators",
+      description: "Browse free online calculators. Fast, accurate, and easy to use.",
+    };
+  }
+
+  const count = category.calculators.length;
+  const primaryKeyword = `${category.name} calculators`;
+  const baseTitle = `${primaryKeyword}: Free Online Tools`;
+  const title = ensureRange(baseTitle, 50, 60, " | Free Calculators");
+
+  const baseDescription = `${category.description} Explore ${count} free ${category.name.toLowerCase()} calculators — fast, accurate, and easy to use.`;
+  const descCandidate = baseDescription.replace(/\s+/g, " ").trim();
+  const description = ensureRange(descCandidate, 150, 160, " Compare, calculate, and visualize results instantly.");
+
+  const url = `/calculators/${category.id}`;
+
+  return {
+    title,
+    description,
+    keywords: [primaryKeyword],
+    alternates: {
+      canonical: url,
+    },
+    robots: { index: true, follow: true },
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "website",
+      siteName: "Calcupik",
+    },
+    twitter: {
+      card: "summary",
+      title,
+      description,
+    },
+  };
+}
+
+export default function CategoryPage({ params }: any) {
   const category = getCategory(params.category);
 
   if (!category) {
@@ -23,10 +84,13 @@ export default function CategoryPage({ params }: { params: { category: string } 
       {/* Header */}
       <header className="border-b">
         <div className="container mx-auto px-4 py-6">
-          <Link href="/calculators" className="inline-flex items-center gap-2 text-lg font-semibold hover:opacity-80 transition-opacity">
-            <ArrowLeft className="h-5 w-5" />
-            Back to All Calculators
-          </Link>
+          <nav className="text-sm text-muted-foreground">
+            <Link href="/" prefetch={false} className="hover:text-foreground">Home</Link>
+            <span className="mx-2">›</span>
+            <Link href="/calculators" prefetch={false} className="hover:text-foreground">Calculators</Link>
+            <span className="mx-2">›</span>
+            <span className="text-foreground font-medium">{category.name}</span>
+          </nav>
         </div>
       </header>
 
@@ -74,12 +138,34 @@ export default function CategoryPage({ params }: { params: { category: string } 
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t py-8 mt-12">
-        <div className="container mx-auto px-4 text-center text-muted-foreground">
-          <p>© 2024 Calculator Hub. All calculators are free to use.</p>
-        </div>
-      </footer>
+      {/* JSON-LD: Breadcrumbs & ItemList */}
+      <div className="sr-only" aria-hidden="true">
+        <SEOJsonLd
+          json={{
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: `${process.env.NEXT_PUBLIC_SITE_URL ?? ""}/` },
+              { "@type": "ListItem", position: 2, name: "Calculators", item: `${process.env.NEXT_PUBLIC_SITE_URL ?? ""}/calculators` },
+              { "@type": "ListItem", position: 3, name: category.name, item: `${process.env.NEXT_PUBLIC_SITE_URL ?? ""}/calculators/${category.id}` },
+            ],
+          }}
+        />
+        <SEOJsonLd
+          json={{
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            itemListElement: category.calculators.map((c, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: c.name,
+              url: `${process.env.NEXT_PUBLIC_SITE_URL ?? ""}/calculators/${category.id}/${c.id}`,
+            })),
+          }}
+        />
+      </div>
+
+      {/* Footer handled globally in RootLayout */}
     </div>
   );
 }

@@ -1,46 +1,49 @@
 "use client";
 
+import { use } from "react";
 import { notFound } from "next/navigation";
 import { getCalculator, getCategory } from "@/lib/calculator-data";
 import { calculatorConfigs } from "@/lib/calculator-configs";
-import { getCalculatorSEO } from "@/lib/calculator-seo-content";
+import { getCalculatorSEO, getSEOOrFallback } from "@/lib/calculator-seo-content";
+import { getRelatedCalculators } from "@/lib/related-calculators";
+import { getFallbackConfig } from "@/lib/calculator-config-fallback";
 import { CalculatorLayout } from "@/components/calculators/CalculatorLayout";
 import { GenericCalculator } from "@/components/calculators/GenericCalculator";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { CheckCircle2, Lightbulb, Target, Zap } from "lucide-react";
+import SEOJsonLd from "@/components/SEOJsonLd";
 
 export default function CalculatorPage({
   params,
 }: {
-  params: { category: string; calculator: string };
+  params: Promise<{ category: string; calculator: string }>;
 }) {
-  const calculator = getCalculator(params.category, params.calculator);
-  const category = getCategory(params.category);
-  const seoContent = getCalculatorSEO(params.calculator);
+  const { category: categoryId, calculator: calculatorId } = use(params);
+  const category = getCategory(categoryId);
+  const calculator = getCalculator(categoryId, calculatorId);
 
-  if (!calculator || !category) {
+  if (!category || !calculator) {
     notFound();
   }
 
-  const config = calculatorConfigs[params.calculator];
+  const seoContent = getSEOOrFallback(
+    calculator.id,
+    calculator.name,
+    category.id,
+    category.name
+  );
 
-  if (!config) {
-    return (
-      <CalculatorLayout
-        title={calculator.name}
-        description={calculator.description}
-        icon={calculator.icon}
-        categoryName={category.name}
-        categoryId={category.id}
-      >
-        <div className="text-center py-12">
-          <p className="text-lg text-muted-foreground">
-            This calculator is coming soon!
-          </p>
-        </div>
-      </CalculatorLayout>
-    );
-  }
+  const config = calculatorConfigs[calculatorId] ?? getFallbackConfig(
+    calculatorId,
+    calculator.name,
+    category.name
+  );
+  const related = getRelatedCalculators(category.id, calculator.id, 6);
+  const origin = process.env.NEXT_PUBLIC_SITE_URL ?? "";
+  const pagePath = `/calculators/${category.id}/${calculator.id}`;
+  const pageUrl = `${origin}${pagePath}`;
+
+  // No "coming soon" branch — fallback config ensures usability
 
   return (
     <CalculatorLayout
@@ -50,6 +53,17 @@ export default function CalculatorPage({
       categoryName={category.name}
       categoryId={category.id}
     >
+      {/* Breadcrumbs */}
+      <nav className="text-sm mb-6 text-muted-foreground">
+        <a href="/" className="hover:text-foreground">Home</a>
+        <span className="mx-2">›</span>
+        <a href="/calculators" className="hover:text-foreground">Calculators</a>
+        <span className="mx-2">›</span>
+        <a href={`/calculators/${category.id}`} className="hover:text-foreground">{category.name}</a>
+        <span className="mx-2">›</span>
+        <span className="text-foreground font-medium">{calculator.name}</span>
+      </nav>
+
       <GenericCalculator config={config} />
 
       {/* SEO Content Section */}
@@ -149,6 +163,68 @@ export default function CalculatorPage({
               Related searches: {seoContent.keywords.join(", ")}
             </p>
           </div>
+
+          {/* Related Calculators */}
+          {related.length > 0 && (
+            <section>
+              <h3 className="text-xl font-semibold mt-8 mb-4">Related Calculators</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {related.map((item) => (
+                  <a
+                    key={item.id}
+                    href={`/calculators/${item.categoryId}/${item.id}`}
+                    className="flex items-center gap-3 p-4 border rounded-lg hover:shadow-sm transition-shadow"
+                  >
+                    <span className="text-2xl">{item.icon}</span>
+                    <span className="font-medium">{item.name}</span>
+                  </a>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* JSON-LD: Breadcrumbs */}
+          <SEOJsonLd
+            json={{
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Home", item: `${origin}/` },
+                { "@type": "ListItem", position: 2, name: "Calculators", item: `${origin}/calculators` },
+                { "@type": "ListItem", position: 3, name: category.name, item: `${origin}/calculators/${category.id}` },
+                { "@type": "ListItem", position: 4, name: calculator.name, item: pageUrl },
+              ],
+            }}
+          />
+
+          {/* JSON-LD: WebApplication (Calculator) */}
+          <SEOJsonLd
+            json={{
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              name: calculator.name,
+              description: seoContent?.description ?? calculator.description,
+              applicationCategory: "Calculator",
+              operatingSystem: "Web",
+              url: pageUrl,
+            }}
+          />
+
+          {/* JSON-LD: ItemList (Related) */}
+          {related.length > 0 && (
+            <SEOJsonLd
+              json={{
+                "@context": "https://schema.org",
+                "@type": "ItemList",
+                itemListElement: related.map((item, index) => ({
+                  "@type": "ListItem",
+                  position: index + 1,
+                  name: item.name,
+                  url: `${origin}/calculators/${item.categoryId}/${item.id}`,
+                })),
+              }}
+            />
+          )}
         </div>
       )}
     </CalculatorLayout>

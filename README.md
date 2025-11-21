@@ -49,3 +49,40 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Deploy on Cloudflare Pages
+
+This project is compatible with Cloudflare Pages using the official Next.js adapter `@cloudflare/next-on-pages` (runs at the edge).
+
+### Quick Steps
+
+- Add scripts (already included):
+  - `npm run cf:build` – builds with Next on Pages and outputs to `.vercel/output`.
+  - `npm run cf:preview` – local preview via Wrangler.
+  - `npm run cf:deploy` – deploy via Wrangler (optional; CI/Git recommended).
+
+### Cloudflare Pages (Git-integrated)
+
+1. Create a new Pages project in Cloudflare and connect your repository.
+2. Configure the build settings:
+   - Build command: `npx @cloudflare/next-on-pages@latest build`
+   - Output directory: `.vercel/output/static`
+   - Functions directory: `.vercel/output/functions`
+3. Environment variables:
+   - Set `NEXT_PUBLIC_SITE_URL` to your production domain (e.g., `https://calcupik.com`).
+4. Deploy: Pages will build on every push to your selected branch and serve globally at Cloudflare’s edge.
+
+### Local Preview
+
+```bash
+npm run cf:build
+npm run cf:preview
+```
+
+This serves the built app locally using the same output structure as Cloudflare Pages.
+
+### Notes
+
+- Most code runs in the edge runtime; avoid Node-only APIs at request time.
+- Static asset caching headers are configured in `next.config.ts` and respected by Cloudflare’s CDN.
+- If you need custom domains, configure them in Pages settings and ensure HTTPS is activated.

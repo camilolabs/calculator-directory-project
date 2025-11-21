@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { getAllCategories, searchCalculators } from "@/lib/calculator-data";
-import { Search } from "lucide-react";
+import { Search, Calculator } from "lucide-react";
 
 export default function CalculatorsPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -17,8 +17,11 @@ export default function CalculatorsPage() {
       {/* Header */}
       <header className="border-b">
         <div className="container mx-auto px-4 py-6">
-          <Link href="/" className="text-2xl font-bold hover:opacity-80 transition-opacity">
-            Calculator Hub
+          <Link href="/" prefetch={false} className="hover:opacity-80 transition-opacity">
+            <span className="flex items-center gap-2">
+              <Calculator className="h-6 w-6" />
+              <span className="text-2xl font-bold">Calcupik</span>
+            </span>
           </Link>
         </div>
       </header>
@@ -92,7 +95,7 @@ export default function CalculatorsPage() {
           <h2 className="text-3xl font-bold mb-8 text-center">Browse by Category</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {categories.map((category) => (
-              <Link key={category.id} href={`/calculators/${category.id}`}>
+              <Link key={category.id} href={`/calculators/${category.id}`} prefetch={false}>
                 <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer group">
                   <CardHeader>
                     <div className="flex items-center gap-3 mb-2">
@@ -115,12 +118,7 @@ export default function CalculatorsPage() {
         </section>
       )}
 
-      {/* Footer */}
-      <footer className="border-t py-8 mt-12">
-        <div className="container mx-auto px-4 text-center text-muted-foreground">
-          <p>© 2024 Calculator Hub. All calculators are free to use.</p>
-        </div>
-      </footer>
+      {/* Footer handled globally in RootLayout */}
     </div>
   );
 }

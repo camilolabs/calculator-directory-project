@@ -1,6 +1,6 @@
-// Calculator configurations for all 100 calculators
+// Calculator configurations for all 100 calculatorscamilolabs/calculator-directory-project
 
-// Unit conversion helper
+// Unit conversion helpercamilolabs/calculator-directory-projectcamilolabs/calculator-directory-projectcamilolabs/calculator-directory-project
 const convertToInches = (value: string, unit: string): number => {
   const val = parseFloat(value) || 0;
   switch (unit) {
@@ -303,6 +303,129 @@ export const calculatorConfigs: Record<string, any> = {
     },
   },
 
+  // Added: Finance calculators with real configurations
+  apr: {
+    fields: [
+      { id: "rate", label: "Nominal Rate (%)", type: "number", placeholder: "12", step: 0.01, min: 0 },
+      { id: "freq", label: "Compounds per Year", type: "select", options: [
+        { value: "12", label: "12 - Monthly" },
+        { value: "4", label: "4 - Quarterly" },
+        { value: "2", label: "2 - Semi-Annual" },
+        { value: "1", label: "1 - Annual" },
+      ]},
+    ],
+    calculate: (values: Record<string, string>) => {
+      const r = (parseFloat(values.rate) || 0) / 100;
+      const n = parseInt(values.freq || "12", 10) || 12;
+      const ear = Math.pow(1 + r / n, n) - 1; // Effective Annual Rate
+      return [
+        { label: "Effective Annual Rate (APR)", value: `${(ear * 100).toFixed(2)}%` },
+      ];
+    },
+  },
+
+  amortization: {
+    fields: [
+      { id: "principal", label: "Loan Amount ($)", type: "number", placeholder: "250000", min: 0 },
+      { id: "rate", label: "Annual Interest Rate (%)", type: "number", placeholder: "5", step: 0.01, min: 0 },
+      { id: "years", label: "Term (years)", type: "number", placeholder: "30", min: 1 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const P = parseFloat(values.principal) || 0;
+      const r = (parseFloat(values.rate) || 0) / 100 / 12;
+      const n = (parseFloat(values.years) || 0) * 12;
+      if (r === 0 || n === 0) {
+        const payment = n > 0 ? P / n : 0;
+        return [
+          { label: "Monthly Payment", value: `$${payment.toFixed(2)}` },
+          { label: "Total Payment", value: `$${(payment * n).toFixed(2)}` },
+          { label: "Total Interest", value: `$${(payment * n - P).toFixed(2)}` },
+        ];
+      }
+      const M = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+      const totalPayment = M * n;
+      const totalInterest = totalPayment - P;
+      return [
+        { label: "Monthly Payment", value: `$${M.toFixed(2)}` },
+        { label: "Total Payment", value: `$${totalPayment.toFixed(2)}` },
+        { label: "Total Interest", value: `$${totalInterest.toFixed(2)}` },
+      ];
+    },
+  },
+
+  tip: {
+    fields: [
+      { id: "bill", label: "Bill ($)", type: "number", placeholder: "100", min: 0 },
+      { id: "tip", label: "Tip %", type: "number", placeholder: "15", min: 0, max: 100 },
+      { id: "people", label: "People", type: "number", placeholder: "2", min: 1 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const bill = parseFloat(values.bill) || 0;
+      const tipPct = (parseFloat(values.tip) || 0) / 100;
+      const people = Math.max(1, parseInt(values.people || "1", 10));
+      const tipAmount = bill * tipPct;
+      const total = bill + tipAmount;
+      return [
+        { label: "Tip", value: `$${tipAmount.toFixed(2)}` },
+        { label: "Total", value: `$${total.toFixed(2)}` },
+        { label: "Per Person", value: `$${(total / people).toFixed(2)}` },
+      ];
+    },
+  },
+
+  inflation: {
+    fields: [
+      { id: "amount", label: "Current Price ($)", type: "number", placeholder: "100", min: 0 },
+      { id: "rate", label: "Inflation Rate (%)", type: "number", placeholder: "3", step: 0.01, min: 0 },
+      { id: "years", label: "Years", type: "number", placeholder: "5", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const A = parseFloat(values.amount) || 0;
+      const r = (parseFloat(values.rate) || 0) / 100;
+      const t = parseFloat(values.years) || 0;
+      const future = A * Math.pow(1 + r, t);
+      const change = future - A;
+      const pct = A > 0 ? (change / A) * 100 : 0;
+      return [
+        { label: "Future Price", value: `$${future.toFixed(2)}` },
+        { label: "Increase", value: `$${change.toFixed(2)}` },
+        { label: "Total Inflation", value: `${pct.toFixed(2)}%` },
+      ];
+    },
+  },
+
+  "net-worth": {
+    fields: [
+      { id: "assets", label: "Total Assets ($)", type: "number", placeholder: "250000", min: 0 },
+      { id: "liabilities", label: "Total Liabilities ($)", type: "number", placeholder: "150000", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const assets = parseFloat(values.assets) || 0;
+      const liabilities = parseFloat(values.liabilities) || 0;
+      const net = assets - liabilities;
+      const debtRatio = assets > 0 ? (liabilities / assets) * 100 : 0;
+      return [
+        { label: "Net Worth", value: `$${net.toFixed(2)}` },
+        { label: "Debt-to-Asset Ratio", value: `${debtRatio.toFixed(2)}%` },
+      ];
+    },
+  },
+
+  "emergency-fund": {
+    fields: [
+      { id: "monthly", label: "Monthly Expenses ($)", type: "number", placeholder: "3000", min: 0 },
+      { id: "months", label: "Months of Coverage", type: "number", placeholder: "6", min: 1 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const monthly = parseFloat(values.monthly) || 0;
+      const months = Math.max(1, parseFloat(values.months) || 1);
+      const fund = monthly * months;
+      return [
+        { label: "Recommended Emergency Fund", value: `$${fund.toFixed(2)}` },
+      ];
+    },
+  },
+
   // HEALTH CALCULATORS
   bmi: {
     fields: [
@@ -447,6 +570,883 @@ export const calculatorConfigs: Record<string, any> = {
         { label: "In Cups (8 oz)", value: `${cups.toFixed(1)} cups` },
       ];
     },
+  },
+
+  hydration: {
+    fields: [
+      { id: "weight", label: "Weight (lbs)", type: "number", placeholder: "150", min: 0 },
+      { id: "activity", label: "Activity Minutes/Day", type: "number", placeholder: "30", min: 0 },
+      { id: "climate", label: "Climate", type: "select", options: [
+        { value: "1", label: "Temperate" },
+        { value: "1.1", label: "Warm" },
+        { value: "1.2", label: "Hot" },
+      ]},
+    ],
+    calculate: (values: Record<string, string>) => {
+      const weight = parseFloat(values.weight) || 0;
+      const activity = parseFloat(values.activity) || 0;
+      const climateFactor = parseFloat(values.climate) || 1;
+      const baseOz = weight * 0.5;
+      const extraOz = (activity / 30) * 12;
+      const totalOz = (baseOz + extraOz) * climateFactor;
+      const liters = totalOz * 0.0295735;
+      return [
+        { label: "Daily Hydration Goal", value: `${totalOz.toFixed(0)} oz (${liters.toFixed(2)} L)` },
+        { label: "Baseline (weight)", value: `${baseOz.toFixed(0)} oz` },
+        { label: "Extra (activity)", value: `${extraOz.toFixed(0)} oz` },
+        { label: "Climate Factor", value: `${climateFactor}x` },
+      ];
+    },
+  },
+
+  bmr: {
+    fields: [
+      { id: "age", label: "Age", type: "number", placeholder: "30", min: 1 },
+      { id: "gender", label: "Gender", type: "select", options: [
+        { value: "male", label: "Male" },
+        { value: "female", label: "Female" },
+      ]},
+      { id: "weight", label: "Weight (lbs)", type: "number", placeholder: "150", min: 0 },
+      { id: "height", label: "Height", type: "unit", placeholder: "65", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const weightKg = (parseFloat(values.weight) || 0) * 0.453592;
+      const heightInches = convertToInches(values.height, values.height_unit || "in");
+      const heightCm = heightInches * 2.54;
+      const age = parseFloat(values.age) || 0;
+      const gender = values.gender;
+      let bmr = 0;
+      if (gender === "male") {
+        bmr = 10 * weightKg + 6.25 * heightCm - 5 * age + 5;
+      } else {
+        bmr = 10 * weightKg + 6.25 * heightCm - 5 * age - 161;
+      }
+      return [
+        { label: "BMR (Mifflin-St Jeor)", value: `${bmr.toFixed(0)} cal/day` },
+      ];
+    },
+  },
+
+  carbs: {
+    fields: [
+      { id: "calories", label: "Daily Calories", type: "number", placeholder: "2000", min: 0 },
+      { id: "carbs", label: "Carbs %", type: "number", placeholder: "50", min: 0, max: 100 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const calories = parseFloat(values.calories) || 0;
+      const carbsPct = Math.min(100, Math.max(0, parseFloat(values.carbs) || 0));
+      const carbsCals = calories * (carbsPct / 100);
+      const carbsGrams = carbsCals / 4;
+      return [
+        { label: "Carbs Target", value: `${carbsGrams.toFixed(0)} g (${carbsCals.toFixed(0)} cal)` },
+      ];
+    },
+  },
+
+  steps: {
+    fields: [
+      { id: "steps", label: "Steps", type: "number", placeholder: "10000", min: 0 },
+      { id: "stride", label: "Stride Length", type: "unit", placeholder: "30", min: 1 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const steps = Math.max(0, parseFloat(values.steps) || 0);
+      const strideInches = convertToInches(values.stride, values.stride_unit || "in");
+      const distanceInches = steps * strideInches;
+      const miles = distanceInches / (12 * 5280);
+      const km = miles * 1.60934;
+      return [
+        { label: "Distance", value: `${miles.toFixed(2)} mi (${km.toFixed(2)} km)` },
+        { label: "Stride Used", value: `${strideInches.toFixed(1)} inches` },
+      ];
+    },
+  },
+
+  "waist-hip": {
+    fields: [
+      { id: "gender", label: "Gender", type: "select", options: [
+        { value: "male", label: "Male" },
+        { value: "female", label: "Female" },
+      ]},
+      { id: "waist", label: "Waist Circumference", type: "unit", placeholder: "34", min: 0 },
+      { id: "hip", label: "Hip Circumference", type: "unit", placeholder: "40", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const waistInches = convertToInches(values.waist, values.waist_unit || "in");
+      const hipInches = convertToInches(values.hip, values.hip_unit || "in");
+      if (hipInches <= 0) {
+        return [{ label: "Error", value: "Hip must be greater than 0" }];
+      }
+      const ratio = waistInches / hipInches;
+      const gender = values.gender;
+      let risk = "Low";
+      if (gender === "male") {
+        if (ratio >= 1.0) risk = "High";
+        else if (ratio >= 0.9) risk = "Moderate";
+      } else {
+        if (ratio >= 0.9) risk = "High";
+        else if (ratio >= 0.85) risk = "Moderate";
+      }
+      return [
+        { label: "Waist-to-Hip Ratio", value: ratio.toFixed(2) },
+        { label: "Risk Category", value: risk },
+        { label: "Waist Used", value: `${waistInches.toFixed(1)} inches` },
+        { label: "Hip Used", value: `${hipInches.toFixed(1)} inches` },
+      ];
+    },
+  },
+
+  // MATH CALCULATORS
+  prime: {
+    fields: [
+      { id: "n", label: "Number", type: "number", placeholder: "97", min: 0 }
+    ],
+    calculate: (values: Record<string, string>) => {
+      const n = Math.floor(parseFloat(values.n) || 0);
+      const isPrime = (() => {
+        if (n < 2) return false;
+        if (n % 2 === 0) return n === 2;
+        const limit = Math.floor(Math.sqrt(n));
+        for (let i = 3; i <= limit; i += 2) {
+          if (n % i === 0) return false;
+        }
+        return true;
+      })();
+      return [
+        { label: "Is Prime?", value: isPrime ? "Yes" : "No" },
+        { label: "Checked Number", value: n }
+      ];
+    }
+  },
+
+  logarithm: {
+    fields: [
+      { id: "value", label: "Value", type: "number", placeholder: "100", min: 0 },
+      { id: "base", label: "Base", type: "number", placeholder: "10", min: 2 }
+    ],
+    calculate: (values: Record<string, string>) => {
+      const x = parseFloat(values.value) || 0;
+      const b = parseFloat(values.base) || 10;
+      if (x <= 0 || b <= 0 || b === 1) {
+        return [{ label: "Error", value: "Value>0, base>0 and ≠1" }];
+      }
+      const result = Math.log(x) / Math.log(b);
+      return [
+        { label: `log_${b}(${x})`, value: result.toFixed(6) },
+        { label: "Natural log (ln)", value: Math.log(x).toFixed(6) },
+      ];
+    }
+  },
+
+  "scientific-notation": {
+    fields: [
+      { id: "number", label: "Number", type: "number", placeholder: "123456", step: 0.000001 }
+    ],
+    calculate: (values: Record<string, string>) => {
+      const x = parseFloat(values.number) || 0;
+      if (x === 0) return [{ label: "Scientific Notation", value: "0 × 10^0" }];
+      const sign = x < 0 ? -1 : 1;
+      const ax = Math.abs(x);
+      const exp = Math.floor(Math.log10(ax));
+      const mantissa = (ax / Math.pow(10, exp)) * sign;
+      return [
+        { label: "Mantissa", value: mantissa.toFixed(6) },
+        { label: "Exponent", value: exp },
+        { label: "Notation", value: `${mantissa.toFixed(6)} × 10^${exp}` }
+      ];
+    }
+  },
+
+  quadratic: {
+    fields: [
+      { id: "a", label: "a", type: "number", placeholder: "1" },
+      { id: "b", label: "b", type: "number", placeholder: "-3" },
+      { id: "c", label: "c", type: "number", placeholder: "2" }
+    ],
+    calculate: (values: Record<string, string>) => {
+      const a = parseFloat(values.a) || 0;
+      const b = parseFloat(values.b) || 0;
+      const c = parseFloat(values.c) || 0;
+      if (a === 0) return [{ label: "Error", value: "a must be non-zero" }];
+      const disc = b * b - 4 * a * c;
+      if (disc < 0) {
+        const real = (-b / (2 * a)).toFixed(4);
+        const imag = (Math.sqrt(-disc) / (2 * a)).toFixed(4);
+        return [
+          { label: "Root 1", value: `${real} + ${imag}i` },
+          { label: "Root 2", value: `${real} - ${imag}i` },
+          { label: "Discriminant", value: disc.toFixed(4) }
+        ];
+      }
+      const x1 = (-b + Math.sqrt(disc)) / (2 * a);
+      const x2 = (-b - Math.sqrt(disc)) / (2 * a);
+      return [
+        { label: "Root 1", value: x1.toFixed(6) },
+        { label: "Root 2", value: x2.toFixed(6) },
+        { label: "Discriminant", value: disc.toFixed(4) }
+      ];
+    }
+  },
+
+  permutation: {
+    fields: [
+      { id: "n", label: "n (total)", type: "number", placeholder: "6", min: 0 },
+      { id: "r", label: "r (choose)", type: "number", placeholder: "2", min: 0 }
+    ],
+    calculate: (values: Record<string, string>) => {
+      const n = Math.floor(parseFloat(values.n) || 0);
+      const r = Math.floor(parseFloat(values.r) || 0);
+      if (n < 0 || r < 0 || r > n) return [{ label: "Error", value: "Ensure 0≤r≤n" }];
+      const fact = (k: number) => {
+        let f = 1;
+        for (let i = 2; i <= k; i++) f *= i;
+        return f;
+      };
+      const nPr = fact(n) / fact(n - r);
+      const nCr = nPr / fact(r);
+      return [
+        { label: "Permutations (nPr)", value: nPr.toLocaleString() },
+        { label: "Combinations (nCr)", value: nCr.toLocaleString() }
+      ];
+    }
+  },
+
+  "standard-deviation": {
+    fields: [
+      { id: "values", label: "Values (comma-separated)", type: "text", placeholder: "10, 12, 8, 11, 9" }
+    ],
+    calculate: (values: Record<string, string>) => {
+      const arr = (values.values || "")
+        .split(/[,\s]+/)
+        .map((v) => parseFloat(v))
+        .filter((v) => !isNaN(v));
+      if (arr.length === 0) return [{ label: "Error", value: "Enter numeric values" }];
+      const mean = arr.reduce((a, b) => a + b, 0) / arr.length;
+      const variance = arr.reduce((sum, v) => sum + Math.pow(v - mean, 2), 0) / arr.length;
+      const sd = Math.sqrt(variance);
+      return [
+        { label: "Mean", value: mean.toFixed(4) },
+        { label: "Variance", value: variance.toFixed(4) },
+        { label: "Std Dev", value: sd.toFixed(4) }
+      ];
+    }
+  },
+
+  probability: {
+    fields: [
+      { id: "trials", label: "Trials (n)", type: "number", placeholder: "10", min: 0 },
+      { id: "successes", label: "Successes (k)", type: "number", placeholder: "3", min: 0 },
+      { id: "p", label: "Success Probability (p)", type: "number", placeholder: "0.5", step: 0.01, min: 0, max: 1 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const n = Math.floor(parseFloat(values.trials) || 0);
+      const k = Math.floor(parseFloat(values.successes) || 0);
+      const p = Math.min(1, Math.max(0, parseFloat(values.p) || 0));
+      if (k > n) return [{ label: "Error", value: "k must be ≤ n" }];
+      const fact = (x: number) => {
+        let f = 1;
+        for (let i = 2; i <= x; i++) f *= i;
+        return f;
+      };
+      const comb = fact(n) / (fact(k) * fact(n - k));
+      const prob = comb * Math.pow(p, k) * Math.pow(1 - p, n - k);
+      return [
+        { label: "Binomial Probability", value: prob.toPrecision(6) },
+        { label: "Combinations (nCk)", value: comb.toLocaleString() }
+      ];
+    }
+  },
+
+  "area-perimeter": {
+    fields: [
+      { id: "shape", label: "Shape", type: "select", options: [
+        { value: "rectangle", label: "Rectangle" },
+        { value: "circle", label: "Circle" },
+        { value: "triangle", label: "Right Triangle" },
+      ]},
+      { id: "a", label: "A / Length / Radius", type: "number", placeholder: "10", min: 0 },
+      { id: "b", label: "B / Width", type: "number", placeholder: "5", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const shape = values.shape || "rectangle";
+      const a = parseFloat(values.a) || 0;
+      const b = parseFloat(values.b) || 0;
+      if (shape === "rectangle") {
+        return [
+          { label: "Area", value: (a * b).toFixed(2) },
+          { label: "Perimeter", value: (2 * (a + b)).toFixed(2) },
+        ];
+      } else if (shape === "circle") {
+        const area = Math.PI * a * a;
+        const circumference = 2 * Math.PI * a;
+        return [
+          { label: "Area", value: area.toFixed(2) },
+          { label: "Circumference", value: circumference.toFixed(2) },
+        ];
+      } else {
+        const area = (a * b) / 2;
+        const hyp = Math.sqrt(a * a + b * b);
+        return [
+          { label: "Area", value: area.toFixed(2) },
+          { label: "Perimeter", value: (a + b + hyp).toFixed(2) },
+        ];
+      }
+    }
+  },
+
+  slope: {
+    fields: [
+      { id: "x1", label: "x1", type: "number", placeholder: "1" },
+      { id: "y1", label: "y1", type: "number", placeholder: "2" },
+      { id: "x2", label: "x2", type: "number", placeholder: "4" },
+      { id: "y2", label: "y2", type: "number", placeholder: "8" },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const x1 = parseFloat(values.x1) || 0;
+      const y1 = parseFloat(values.y1) || 0;
+      const x2 = parseFloat(values.x2) || 0;
+      const y2 = parseFloat(values.y2) || 0;
+      if (x2 === x1) return [{ label: "Slope", value: "undefined (vertical line)" }];
+      const m = (y2 - y1) / (x2 - x1);
+      const b = y1 - m * x1;
+      return [
+        { label: "Slope (m)", value: m.toFixed(6) },
+        { label: "Intercept (b)", value: b.toFixed(6) },
+        { label: "Equation", value: `y = ${m.toFixed(3)}x + ${b.toFixed(3)}` },
+      ];
+    }
+  },
+
+  // SCIENCE CALCULATORS
+  gravity: {
+    fields: [
+      { id: "m1", label: "Mass 1 (kg)", type: "number", placeholder: "1000", min: 0 },
+      { id: "m2", label: "Mass 2 (kg)", type: "number", placeholder: "500", min: 0 },
+      { id: "r", label: "Distance (m)", type: "number", placeholder: "10", min: 0.0001, step: 0.0001 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const G = 6.67430e-11;
+      const m1 = parseFloat(values.m1) || 0;
+      const m2 = parseFloat(values.m2) || 0;
+      const r = parseFloat(values.r) || 0;
+      if (r <= 0) return [{ label: "Error", value: "Distance must be > 0" }];
+      const F = (G * m1 * m2) / (r * r);
+      return [
+        { label: "Gravitational Force", value: `${F.toExponential(6)} N` }
+      ];
+    }
+  },
+
+  momentum: {
+    fields: [
+      { id: "mass", label: "Mass (kg)", type: "number", placeholder: "70", min: 0 },
+      { id: "velocity", label: "Velocity (m/s)", type: "number", placeholder: "5", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const m = parseFloat(values.mass) || 0;
+      const v = parseFloat(values.velocity) || 0;
+      const p = m * v;
+      return [{ label: "Momentum", value: `${p.toFixed(3)} kg·m/s` }];
+    }
+  },
+
+  power: {
+    fields: [
+      { id: "work", label: "Work (J)", type: "number", placeholder: "500", min: 0 },
+      { id: "time", label: "Time (s)", type: "number", placeholder: "10", min: 0.0001, step: 0.0001 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const W = parseFloat(values.work) || 0;
+      const t = parseFloat(values.time) || 0;
+      if (t <= 0) return [{ label: "Error", value: "Time must be > 0" }];
+      const P = W / t;
+      return [{ label: "Power", value: `${P.toFixed(3)} W` }];
+    }
+  },
+
+  work: {
+    fields: [
+      { id: "force", label: "Force (N)", type: "number", placeholder: "100", min: 0 },
+      { id: "distance", label: "Distance (m)", type: "number", placeholder: "5", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const F = parseFloat(values.force) || 0;
+      const d = parseFloat(values.distance) || 0;
+      const W = F * d;
+      return [{ label: "Work", value: `${W.toFixed(3)} J` }];
+    }
+  },
+
+  acceleration: {
+    fields: [
+      { id: "v1", label: "Initial Velocity (m/s)", type: "number", placeholder: "0" },
+      { id: "v2", label: "Final Velocity (m/s)", type: "number", placeholder: "20" },
+      { id: "time", label: "Time (s)", type: "number", placeholder: "4", min: 0.0001, step: 0.0001 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const v1 = parseFloat(values.v1) || 0;
+      const v2 = parseFloat(values.v2) || 0;
+      const t = parseFloat(values.time) || 0;
+      if (t <= 0) return [{ label: "Error", value: "Time must be > 0" }];
+      const a = (v2 - v1) / t;
+      return [{ label: "Acceleration", value: `${a.toFixed(3)} m/s²` }];
+    }
+  },
+
+  projectile: {
+    fields: [
+      { id: "speed", label: "Speed (m/s)", type: "number", placeholder: "30", min: 0 },
+      { id: "angle", label: "Launch Angle (deg)", type: "number", placeholder: "45", min: 0, max: 90 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const v = parseFloat(values.speed) || 0;
+      const deg = parseFloat(values.angle) || 0;
+      const g = 9.80665;
+      const rad = (deg * Math.PI) / 180;
+      const range = (v * v * Math.sin(2 * rad)) / g;
+      const maxHeight = (v * v * Math.pow(Math.sin(rad), 2)) / (2 * g);
+      const time = (2 * v * Math.sin(rad)) / g;
+      return [
+        { label: "Range", value: `${range.toFixed(2)} m` },
+        { label: "Max Height", value: `${maxHeight.toFixed(2)} m` },
+        { label: "Flight Time", value: `${time.toFixed(2)} s` },
+      ];
+    }
+  },
+
+  // CONVERSION CALCULATORS
+  angle: {
+    fields: [
+      { id: "degrees", label: "Degrees (°)", type: "number", placeholder: "180" },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const deg = parseFloat(values.degrees) || 0;
+      const rad = (deg * Math.PI) / 180;
+      return [
+        { label: "Radians", value: rad.toFixed(6) },
+        { label: "Turns", value: (deg / 360).toFixed(6) },
+      ];
+    }
+  },
+
+  frequency: {
+    fields: [
+      { id: "hz", label: "Frequency (Hz)", type: "number", placeholder: "60", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const hz = parseFloat(values.hz) || 0;
+      const rpm = hz * 60;
+      const period = hz > 0 ? 1 / hz : 0;
+      return [
+        { label: "RPM", value: rpm.toFixed(2) },
+        { label: "Period (s)", value: period ? period.toFixed(6) : "∞" },
+      ];
+    }
+  },
+
+  fuel: {
+    fields: [
+      { id: "mpg", label: "Fuel Economy (MPG)", type: "number", placeholder: "30", min: 0.1, step: 0.1 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const mpg = parseFloat(values.mpg) || 0;
+      if (mpg <= 0) return [{ label: "Error", value: "MPG must be > 0" }];
+      const lPer100km = 235.214 / mpg;
+      return [
+        { label: "L/100km", value: lPer100km.toFixed(2) },
+      ];
+    }
+  },
+
+  torque: {
+    fields: [
+      { id: "nm", label: "Torque (N·m)", type: "number", placeholder: "300", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const nm = parseFloat(values.nm) || 0;
+      const ftlb = nm * 0.737562149;
+      return [
+        { label: "ft·lb", value: ftlb.toFixed(2) },
+      ];
+    }
+  },
+
+  "power-conv": {
+    fields: [
+      { id: "w", label: "Power (W)", type: "number", placeholder: "1000", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const w = parseFloat(values.w) || 0;
+      const hp = w / 745.699872;
+      return [
+        { label: "Horsepower", value: hp.toFixed(4) },
+      ];
+    }
+  },
+
+  luminosity: {
+    fields: [
+      { id: "lumens", label: "Lumens (lm)", type: "number", placeholder: "800", min: 0 },
+      { id: "area", label: "Area (m²)", type: "number", placeholder: "10", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const lm = parseFloat(values.lumens) || 0;
+      const area = parseFloat(values.area) || 0;
+      if (area <= 0) return [{ label: "Error", value: "Area must be > 0" }];
+      const lux = lm / area;
+      return [
+        { label: "Illuminance (lux)", value: lux.toFixed(2) },
+      ];
+    }
+  },
+
+  "density-conv": {
+    fields: [
+      { id: "kgm3", label: "Density (kg/m³)", type: "number", placeholder: "1000", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const kgm3 = parseFloat(values.kgm3) || 0;
+      const gcm3 = kgm3 / 1000;
+      return [
+        { label: "g/cm³", value: gcm3.toFixed(6) },
+      ];
+    }
+  },
+
+  viscosity: {
+    fields: [
+      { id: "pas", label: "Viscosity (Pa·s)", type: "number", placeholder: "0.001", step: 0.0001, min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const pas = parseFloat(values.pas) || 0;
+      const cP = pas * 1000; // 1 Pa·s = 1000 cP
+      return [
+        { label: "Centipoise (cP)", value: cP.toFixed(2) },
+      ];
+    }
+  },
+
+  // TIME CALCULATORS
+  anniversary: {
+    fields: [
+      { id: "date", label: "Anniversary Date (YYYY-MM-DD)", type: "text", placeholder: "2015-06-01" },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const dt = new Date(values.date || "");
+      if (isNaN(dt.getTime())) return [{ label: "Error", value: "Invalid date" }];
+      const now = new Date();
+      const years = now.getFullYear() - dt.getFullYear() - ((now < new Date(now.getFullYear(), dt.getMonth(), dt.getDate())) ? 1 : 0);
+      const days = Math.floor((now.getTime() - dt.getTime()) / (1000 * 60 * 60 * 24));
+      return [
+        { label: "Years", value: years },
+        { label: "Days", value: days }
+      ];
+    }
+  },
+
+  "week-number": {
+    fields: [
+      { id: "date", label: "Date (YYYY-MM-DD)", type: "text", placeholder: "2025-01-15" },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const d = new Date(values.date || "");
+      if (isNaN(d.getTime())) return [{ label: "Error", value: "Invalid date" }];
+      // ISO week number
+      const target = new Date(d.valueOf());
+      const dayNr = (d.getDay() + 6) % 7; // Monday=0
+      target.setDate(d.getDate() - dayNr + 3);
+      const firstThursday = new Date(target.getFullYear(), 0, 4);
+      const week = 1 + Math.round(((target.getTime() - firstThursday.getTime()) / 86400000 - 3 + ((firstThursday.getDay() + 6) % 7)) / 7);
+      return [{ label: "ISO Week #", value: week }];
+    }
+  },
+
+  deadline: {
+    fields: [
+      { id: "date", label: "Deadline (YYYY-MM-DD)", type: "text", placeholder: "2025-12-31" },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const d = new Date(values.date || "");
+      if (isNaN(d.getTime())) return [{ label: "Error", value: "Invalid date" }];
+      const now = new Date();
+      const ms = d.getTime() - now.getTime();
+      const days = Math.ceil(ms / 86400000);
+      return [{ label: "Days Remaining", value: days }];
+    }
+  },
+
+  "project-timeline": {
+    fields: [
+      { id: "start", label: "Start (YYYY-MM-DD)", type: "text", placeholder: "2025-01-01" },
+      { id: "duration", label: "Duration (days)", type: "number", placeholder: "90", min: 1 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const start = new Date(values.start || "");
+      const duration = Math.floor(parseFloat(values.duration) || 0);
+      if (isNaN(start.getTime()) || duration <= 0) return [{ label: "Error", value: "Invalid start or duration" }];
+      const end = new Date(start);
+      end.setDate(end.getDate() + duration);
+      return [
+        { label: "End Date", value: end.toISOString().slice(0, 10) },
+      ];
+    }
+  },
+
+  "billing-hours": {
+    fields: [
+      { id: "rate", label: "Hourly Rate ($)", type: "number", placeholder: "100", min: 0 },
+      { id: "hours", label: "Hours", type: "number", placeholder: "20", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const rate = parseFloat(values.rate) || 0;
+      const hours = parseFloat(values.hours) || 0;
+      const total = rate * hours;
+      return [{ label: "Bill", value: `$${total.toFixed(2)}` }];
+    }
+  },
+
+  // COOKING CALCULATORS
+
+  
+
+  
+
+  
+
+  
+
+  "food-cost": {
+    fields: [
+      { id: "total", label: "Total Recipe Cost ($)", type: "number", placeholder: "12.50", min: 0, step: 0.01 },
+      { id: "servings", label: "Servings", type: "number", placeholder: "4", min: 1 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const total = parseFloat(values.total) || 0;
+      const servings = Math.max(1, Math.floor(parseFloat(values.servings) || 1));
+      const perServing = servings > 0 ? total / servings : 0;
+      return [
+        { label: "Per Serving", value: `$${perServing.toFixed(2)}` },
+        { label: "Total Cost", value: `$${total.toFixed(2)}` },
+      ];
+    }
+  },
+
+  // BUSINESS CALCULATORS
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  invoice: {
+    fields: [
+      { id: "rate", label: "Hourly Rate ($)", type: "number", placeholder: "100", min: 0 },
+      { id: "hours", label: "Hours", type: "number", placeholder: "20", min: 0 },
+      { id: "tax", label: "Tax (%)", type: "number", placeholder: "0", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const rate = parseFloat(values.rate) || 0;
+      const hours = parseFloat(values.hours) || 0;
+      const taxPct = (parseFloat(values.tax) || 0) / 100;
+      const subtotal = rate * hours;
+      const tax = subtotal * taxPct;
+      const total = subtotal + tax;
+      return [
+        { label: "Subtotal", value: `$${subtotal.toFixed(2)}` },
+        { label: "Tax", value: `$${tax.toFixed(2)}` },
+        { label: "Total", value: `$${total.toFixed(2)}` },
+      ];
+    }
+  },
+
+  "customer-lifetime": {
+    fields: [
+      { id: "aov", label: "Avg Order Value ($)", type: "number", placeholder: "50", min: 0 },
+      { id: "margin", label: "Gross Margin (%)", type: "number", placeholder: "60", min: 0, max: 100 },
+      { id: "repeat", label: "Repeat Purchases", type: "number", placeholder: "5", min: 0 },
+      { id: "cac", label: "CAC ($)", type: "number", placeholder: "20", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const aov = parseFloat(values.aov) || 0;
+      const margin = (parseFloat(values.margin) || 0) / 100;
+      const repeat = Math.max(0, Math.floor(parseFloat(values.repeat) || 0));
+      const cac = parseFloat(values.cac) || 0;
+      const ltv = aov * margin * repeat;
+      const ratio = cac > 0 ? ltv / cac : 0;
+      return [
+        { label: "CLV", value: `$${ltv.toFixed(2)}` },
+        { label: "LTV:CAC", value: ratio.toFixed(2) },
+      ];
+    }
+  },
+
+  // CONSTRUCTION CALCULATORS
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  lumber: {
+    fields: [
+      { id: "thickness", label: "Thickness (in)", type: "number", placeholder: "2", min: 0.5 },
+      { id: "width", label: "Width (in)", type: "number", placeholder: "6", min: 1 },
+      { id: "length", label: "Length (ft)", type: "number", placeholder: "10", min: 1 },
+      { id: "count", label: "Boards", type: "number", placeholder: "12", min: 1 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const t = parseFloat(values.thickness) || 0;
+      const w = parseFloat(values.width) || 0;
+      const l = parseFloat(values.length) || 0;
+      const c = Math.max(1, Math.floor(parseFloat(values.count) || 1));
+      const bf = (t * w * l * c) / 12;
+      return [{ label: "Board Feet", value: bf.toFixed(2) }];
+    }
+  },
+
+  foundation: {
+    fields: [
+      { id: "length", label: "Length (ft)", type: "number", placeholder: "30", min: 0 },
+      { id: "width", label: "Width (ft)", type: "number", placeholder: "20", min: 0 },
+      { id: "thickness", label: "Thickness (in)", type: "number", placeholder: "8", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const L = parseFloat(values.length) || 0;
+      const W = parseFloat(values.width) || 0;
+      const T_in = parseFloat(values.thickness) || 0;
+      const ft3 = L * W * (T_in / 12);
+      const yd3 = ft3 / 27;
+      return [{ label: "Concrete (yd³)", value: yd3.toFixed(2) }];
+    }
+  },
+
+  // REAL ESTATE CALCULATORS
+  "cap-rate": {
+    fields: [
+      { id: "noi", label: "NOI ($/yr)", type: "number", placeholder: "24000", min: 0 },
+      { id: "value", label: "Property Value ($)", type: "number", placeholder: "400000", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const noi = parseFloat(values.noi) || 0;
+      const value = parseFloat(values.value) || 0;
+      const cap = value > 0 ? (noi / value) * 100 : 0;
+      return [{ label: "Cap Rate", value: `${cap.toFixed(2)}%` }];
+    }
+  },
+
+  "rental-yield": {
+    fields: [
+      { id: "rent", label: "Annual Rent ($)", type: "number", placeholder: "24000", min: 0 },
+      { id: "price", label: "Property Price ($)", type: "number", placeholder: "400000", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const rent = parseFloat(values.rent) || 0;
+      const price = parseFloat(values.price) || 0;
+      const yieldPct = price > 0 ? (rent / price) * 100 : 0;
+      return [{ label: "Yield", value: `${yieldPct.toFixed(2)}%` }];
+    }
+  },
+
+  "property-tax": {
+    fields: [
+      { id: "value", label: "Assessed Value ($)", type: "number", placeholder: "350000", min: 0 },
+      { id: "rate", label: "Tax Rate (%)", type: "number", placeholder: "1.2", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const value = parseFloat(values.value) || 0;
+      const ratePct = (parseFloat(values.rate) || 0) / 100;
+      const tax = value * ratePct;
+      return [{ label: "Annual Tax", value: `$${tax.toFixed(2)}` }];
+    }
+  },
+
+  "square-footage": {
+    fields: [
+      { id: "length", label: "Length (ft)", type: "number", placeholder: "20", min: 0 },
+      { id: "width", label: "Width (ft)", type: "number", placeholder: "15", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const L = parseFloat(values.length) || 0;
+      const W = parseFloat(values.width) || 0;
+      const sqft = L * W;
+      const sqm = sqft * 0.092903;
+      return [
+        { label: "Area (ft²)", value: sqft.toFixed(2) },
+        { label: "Area (m²)", value: sqm.toFixed(2) },
+      ];
+    }
+  },
+
+  "closing-costs": {
+    fields: [
+      { id: "price", label: "Home Price ($)", type: "number", placeholder: "450000", min: 0 },
+      { id: "pct", label: "Closing Cost (%)", type: "number", placeholder: "3", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const price = parseFloat(values.price) || 0;
+      const pct = (parseFloat(values.pct) || 0) / 100;
+      const cost = price * pct;
+      return [{ label: "Estimated Closing Costs", value: `$${cost.toFixed(2)}` }];
+    }
+  },
+
+  "mortgage-points": {
+    fields: [
+      { id: "loan", label: "Loan Amount ($)", type: "number", placeholder: "350000", min: 0 },
+      { id: "points", label: "Points (%)", type: "number", placeholder: "1", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const loan = parseFloat(values.loan) || 0;
+      const pointsPct = (parseFloat(values.points) || 0) / 100;
+      const cost = loan * pointsPct;
+      return [{ label: "Points Cost", value: `$${cost.toFixed(2)}` }];
+    }
+  },
+
+  "rent-vs-buy": {
+    fields: [
+      { id: "rent", label: "Monthly Rent ($)", type: "number", placeholder: "2200", min: 0 },
+      { id: "mortgage", label: "Monthly Mortgage PITI ($)", type: "number", placeholder: "2600", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const rent = parseFloat(values.rent) || 0;
+      const mort = parseFloat(values.mortgage) || 0;
+      const diff = mort - rent;
+      return [
+        { label: "Monthly Difference", value: `$${diff.toFixed(2)}` },
+        { label: "Cheaper Option", value: diff > 0 ? "Rent" : diff < 0 ? "Buy" : "Equal" },
+      ];
+    }
+  },
+
+  "home-equity": {
+    fields: [
+      { id: "value", label: "Home Value ($)", type: "number", placeholder: "500000", min: 0 },
+      { id: "balance", label: "Loan Balance ($)", type: "number", placeholder: "350000", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const value = parseFloat(values.value) || 0;
+      const balance = parseFloat(values.balance) || 0;
+      const equity = value - balance;
+      const ltv = value > 0 ? (balance / value) * 100 : 0;
+      return [
+        { label: "Equity", value: `$${equity.toFixed(2)}` },
+        { label: "LTV", value: `${ltv.toFixed(2)}%` },
+      ];
+    }
   },
 
   "ideal-weight": {

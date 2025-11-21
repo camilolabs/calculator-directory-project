@@ -1,0 +1,6 @@
+# Actualiza este archivo con tu ID de editor de AdSense.
+# Formato: dominio, pub-XXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+# Ejemplo:
+# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+
+# Reemplaza pub-0000000000000000 por tu ID real en AdSense.

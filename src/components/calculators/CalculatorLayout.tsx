@@ -50,12 +50,7 @@ export function CalculatorLayout({
         </Card>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t py-8 mt-12">
-        <div className="container mx-auto px-4 text-center text-muted-foreground">
-          <p>© 2024 Calculator Hub. All calculators are free to use.</p>
-        </div>
-      </footer>
+      {/* Footer handled globally in RootLayout */}
     </div>
   );
 }
