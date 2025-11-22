@@ -1,11 +1,9 @@
 import { notFound } from "next/navigation";
 import { getCalculator, getCategory, getAllCategories } from "@/lib/calculator-data";
-import { calculatorConfigs } from "@/lib/calculator-configs";
 import { getCalculatorSEO, getSEOOrFallback } from "@/lib/calculator-seo-content";
 import { getRelatedCalculators } from "@/lib/related-calculators";
-import { getFallbackConfig } from "@/lib/calculator-config-fallback";
 import { CalculatorLayout } from "@/components/calculators/CalculatorLayout";
-import { GenericCalculator } from "@/components/calculators/GenericCalculator";
+import { CalculatorClientWrapper } from "@/components/calculators/CalculatorClientWrapper";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { CheckCircle2, Lightbulb, Target, Zap } from "lucide-react";
 import SEOJsonLd from "@/components/SEOJsonLd";
@@ -46,17 +44,10 @@ export default async function CalculatorPage({
     category.name
   );
 
-  const config = calculatorConfigs[calculatorId] ?? getFallbackConfig(
-    calculatorId,
-    calculator.name,
-    category.name
-  );
   const related = getRelatedCalculators(category.id, calculator.id, 6);
   const origin = process.env.NEXT_PUBLIC_SITE_URL ?? "";
   const pagePath = `/calculators/${category.id}/${calculator.id}`;
   const pageUrl = `${origin}${pagePath}`;
-
-  // No "coming soon" branch — fallback config ensures usability
 
   return (
     <CalculatorLayout
@@ -77,7 +68,11 @@ export default async function CalculatorPage({
         <span className="text-foreground font-medium">{calculator.name}</span>
       </nav>
 
-      <GenericCalculator config={config} />
+      <CalculatorClientWrapper
+        calculatorId={calculator.id}
+        calculatorName={calculator.name}
+        categoryName={category.name}
+      />
 
       {/* SEO Content Section */}
       {seoContent && (
