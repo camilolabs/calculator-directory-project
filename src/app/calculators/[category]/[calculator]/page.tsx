@@ -2,7 +2,7 @@
 
 import { use } from "react";
 import { notFound } from "next/navigation";
-import { getCalculator, getCategory } from "@/lib/calculator-data";
+import { getCalculator, getCategory, getAllCategories } from "@/lib/calculator-data";
 import { calculatorConfigs } from "@/lib/calculator-configs";
 import { getCalculatorSEO, getSEOOrFallback } from "@/lib/calculator-seo-content";
 import { getRelatedCalculators } from "@/lib/related-calculators";
@@ -12,6 +12,22 @@ import { GenericCalculator } from "@/components/calculators/GenericCalculator";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { CheckCircle2, Lightbulb, Target, Zap } from "lucide-react";
 import SEOJsonLd from "@/components/SEOJsonLd";
+
+export function generateStaticParams() {
+  const categories = getAllCategories();
+  const paths: { category: string; calculator: string }[] = [];
+
+  for (const category of categories) {
+    for (const calc of category.calculators) {
+      paths.push({
+        category: category.id,
+        calculator: calc.id,
+      });
+    }
+  }
+
+  return paths;
+}
 
 export default function CalculatorPage({
   params,
