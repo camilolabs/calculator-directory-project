@@ -5,6 +5,7 @@ import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
 import CookieConsent from "@/components/CookieConsent";
 import CookiePreferencesLink from "@/components/CookiePreferencesLink";
+const siteOrigin = process.env.CF_PAGES_URL ?? process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 export const metadata: Metadata = {
   title: {
@@ -13,9 +14,7 @@ export const metadata: Metadata = {
   },
   description:
     "Explore free online calculators across categories. Fast and accurate.",
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3001"
-  ),
+  metadataBase: new URL(siteOrigin),
   robots: { index: false, follow: false },
   alternates: { canonical: "/" },
   openGraph: {
