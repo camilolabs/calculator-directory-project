@@ -5,8 +5,9 @@ const LOADER = path.resolve(__dirname, 'src/visual-edits/component-tagger-loader
 const isDev = process.env.NODE_ENV === 'development';
 
 const nextConfig: NextConfig = {
-  output: "standalone",
+  output: "export",  // Changed from "standalone" to "export" for Cloudflare Pages
   images: {
+    unoptimized: true,  // Required for static export
     remotePatterns: [
       {
         protocol: 'https',
