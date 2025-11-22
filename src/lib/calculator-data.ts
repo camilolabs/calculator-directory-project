@@ -51,7 +51,7 @@ export const calculatorData: Category[] = [
       },
       {
         id: "compound-interest",
-        name: "Compound interest calculator", 
+        name: "Compound interest calculator",
         description: "Calculate compound interest on savings",
         icon: "💵",
         category: "finance"
@@ -128,7 +128,7 @@ export const calculatorData: Category[] = [
       },
       {
         id: "net-worth",
-        name: "Net worth calculator", 
+        name: "Net worth calculator",
         description: "Calculate total net worth",
         icon: "💎",
         category: "finance"
@@ -213,7 +213,7 @@ export const calculatorData: Category[] = [
       },
       {
         id: "heart-rate",
-        name: "Heart rate calculator",  
+        name: "Heart rate calculator",
         description: "Calculate target heart rate zones",
         icon: "❤️",
         category: "health"
@@ -269,7 +269,7 @@ export const calculatorData: Category[] = [
       },
       {
         id: "carbs",
-        name: "Carbs calculator", 
+        name: "Carbs calculator",
         description: "Calculate daily carb intake",
         icon: "🍞",
         category: "health"
@@ -389,7 +389,7 @@ export const calculatorData: Category[] = [
       },
       {
         id: "scientific-notation",
-        name: "Scientific notation",  
+        name: "Scientific notation",
         description: "Convert to scientific notation",
         icon: "🔬",
         category: "math"
@@ -467,7 +467,7 @@ export const calculatorData: Category[] = [
       },
       {
         id: "density",
-        name: "Density calculator", 
+        name: "Density calculator",
         description: "Calculate density, mass, and volume",
         icon: "🧊",
         category: "science"
@@ -481,7 +481,7 @@ export const calculatorData: Category[] = [
       },
       {
         id: "wavelength",
-        name: "Wavelength calculator",      
+        name: "Wavelength calculator",
         description: "Calculate wavelength and frequency",
         icon: "〰️",
         category: "science"
@@ -502,7 +502,7 @@ export const calculatorData: Category[] = [
       },
       {
         id: "ph",
-        name: "pH calculator",    
+        name: "pH calculator",
         description: "Calculate pH and pOH values",
         icon: "🧪",
         category: "science"
@@ -622,7 +622,7 @@ export const calculatorData: Category[] = [
       },
       {
         id: "speed",
-        name: "Speed converter",  
+        name: "Speed converter",
         description: "Convert between speed units",
         icon: "🏃",
         category: "conversion"
@@ -706,7 +706,7 @@ export const calculatorData: Category[] = [
       },
       {
         id: "density-conv",
-        name: "Density converter",  
+        name: "Density converter",
         description: "Convert density units",
         icon: "🧊",
         category: "conversion"
@@ -932,7 +932,7 @@ export const calculatorData: Category[] = [
       },
       {
         id: "scholarship",
-        name: "Scholarship calculator", 
+        name: "Scholarship calculator",
         description: "Calculate scholarship awards",
         icon: "💰",
         category: "education"
@@ -946,7 +946,7 @@ export const calculatorData: Category[] = [
       },
       {
         id: "study-break",
-        name: "Study break timer",  
+        name: "Study break timer",
         description: "Calculate optimal study breaks",
         icon: "☕",
         category: "education"
@@ -1052,7 +1052,7 @@ export const calculatorData: Category[] = [
       },
       {
         id: "work-hours",
-        name: "Work hours",       
+        name: "Work hours",
         description: "Calculate work hours and overtime",
         icon: "⏲️",
         category: "time"
@@ -1066,7 +1066,7 @@ export const calculatorData: Category[] = [
       },
       {
         id: "sleep",
-        name: "Sleep calculator",         
+        name: "Sleep calculator",
         description: "Calculate optimal sleep and wake times",
         icon: "😴",
         category: "time"
@@ -1087,14 +1087,14 @@ export const calculatorData: Category[] = [
       },
       {
         id: "week-number",
-        name: "Week number",  
+        name: "Week number",
         description: "Calculate week number of year",
         icon: "📅",
         category: "time"
       },
       {
         id: "lunar",
-        name: "Lunar calendar",         
+        name: "Lunar calendar",
         description: "Convert to lunar calendar dates",
         icon: "🌙",
         category: "time"
@@ -1115,7 +1115,7 @@ export const calculatorData: Category[] = [
       },
       {
         id: "deadline",
-        name: "Deadline calculator",  
+        name: "Deadline calculator",
         description: "Calculate time until deadline",
         icon: "⏳",
         category: "time"
@@ -1136,7 +1136,7 @@ export const calculatorData: Category[] = [
       },
       {
         id: "retirement-countdown",
-        name: "Retirement countdown", 
+        name: "Retirement countdown",
         description: "Calculate time until retirement",
         icon: "🏖️",
         category: "time"
@@ -1165,21 +1165,21 @@ export const calculatorData: Category[] = [
       },
       {
         id: "portion",
-        name: "Portion calculator", 
+        name: "Portion calculator",
         description: "Calculate servings and portions",
         icon: "🍽️",
         category: "cooking"
       },
       {
         id: "nutrition",
-        name: "Nutrition calculator", 
+        name: "Nutrition calculator",
         description: "Calculate nutritional values",
         icon: "🥗",
         category: "cooking"
       },
       {
         id: "baking",
-        name: "Baking converter", 
+        name: "Baking converter",
         description: "Convert baking measurements",
         icon: "🧁",
         category: "cooking"
@@ -1193,77 +1193,77 @@ export const calculatorData: Category[] = [
       },
       {
         id: "pizza",
-        name: "Pizza dough",  
+        name: "Pizza dough",
         description: "Calculate pizza dough ingredients",
         icon: "🍕",
         category: "cooking"
       },
       {
         id: "cocktail",
-        name: "Cocktail ratio",  
+        name: "Cocktail ratio",
         description: "Scale cocktail recipes",
         icon: "🍸",
         category: "cooking"
       },
       {
         id: "coffee",
-        name: "Coffee ratio",  
+        name: "Coffee ratio",
         description: "Calculate coffee to water ratio",
         icon: "☕",
         category: "cooking"
       },
       {
         id: "bread",
-        name: "Bread baker's %",  
+        name: "Bread baker's %",
         description: "Calculate baker's percentage",
         icon: "🍞",
         category: "cooking"
       },
       {
         id: "meal-prep",
-        name: "Meal prep calculator", 
+        name: "Meal prep calculator",
         description: "Calculate meal prep portions",
         icon: "🥡",
         category: "cooking"
       },
       {
         id: "grocery",
-        name: "Grocery calculator",   
+        name: "Grocery calculator",
         description: "Calculate grocery list quantities",
         icon: "🛒",
         category: "cooking"
       },
       {
         id: "sous-vide",
-        name: "Sous vide time",  
+        name: "Sous vide time",
         description: "Calculate sous vide cooking time",
         icon: "🥩",
         category: "cooking"
       },
       {
         id: "fermentation",
-        name: "Fermentation timer",  
+        name: "Fermentation timer",
         description: "Calculate fermentation time",
         icon: "🫙",
         category: "cooking"
       },
       {
         id: "rising-time",
-        name: "Dough rising time",    
+        name: "Dough rising time",
         description: "Calculate bread rising time",
         icon: "🍞",
         category: "cooking"
       },
       {
         id: "marinating",
-        name: "Marinating time",    
+        name: "Marinating time",
         description: "Calculate optimal marinating time",
         icon: "🥩",
         category: "cooking"
       },
       {
         id: "food-cost",
-        name: "Food cost calculator",    
+        name: "Food cost calculator",
         description: "Calculate recipe food costs",
         icon: "💰",
         category: "cooking"
@@ -1623,7 +1623,7 @@ export const calculatorData: Category[] = [
       },
       {
         id: "mortgage-points",
-        name: "Mortgage points",  
+        name: "Mortgage points",
         description: "Calculate mortgage points value",
         icon: "💵",
         category: "real-estate"
@@ -1891,7 +1891,7 @@ export const calculatorData: Category[] = [
       },
       {
         id: "compost",
-        name: "Compost calculator",   
+        name: "Compost calculator",
         description: "Calculate compost mix ratios",
         icon: "♻️",
         category: "gardening"
@@ -2095,7 +2095,7 @@ export const calculatorData: Category[] = [
       },
       {
         id: "compression-ratio",
-        name: "Compression ratio",  
+        name: "Compression ratio",
         description: "Calculate engine compression ratio",
         icon: "🔩",
         category: "engineering"
@@ -2687,7 +2687,7 @@ export const calculatorData: Category[] = [
       },
       {
         id: "sustainable-living",
-        name: "Sustainable living score", 
+        name: "Sustainable living score",
         description: "Calculate sustainability score",
         icon: "🌱",
         category: "environment"
@@ -2821,30 +2821,12 @@ export const calculatorData: Category[] = [
       },
       {
         id: "training-time",
-        name: "Training time",
-        description: "Calculate training schedule",
-        icon: "🎓",
-        category: "pet-care"
-      },
-      {
-        id: "emergency-fund",
-        name: "Pet emergency fund",
-        description: "Calculate emergency fund needs",
-        icon: "🆘",
-        category: "pet-care"
       }
-    ]
-  }
-];
-
-export function getCategory(categoryId: string): Category | undefined {
-  return calculatorData.find(cat => cat.id === categoryId);
-}
 
 export function getCalculator(categoryId: string, calculatorId: string): Calculator | undefined {
-  const category = getCategory(categoryId);
-  return category?.calculators.find(calc => calc.id === calculatorId);
-}
+    const category = getCategory(categoryId);
+    return category?.calculators.find(calc => calc.id === calculatorId);
+  }
 
 export function getAllCategories(): Category[] {
   return calculatorData;
@@ -2853,7 +2835,7 @@ export function getAllCategories(): Category[] {
 export function searchCalculators(query: string): Calculator[] {
   const lowerQuery = query.toLowerCase();
   const results: Calculator[] = [];
-  
+
   calculatorData.forEach(category => {
     category.calculators.forEach(calculator => {
       if (
@@ -2865,6 +2847,6 @@ export function searchCalculators(query: string): Calculator[] {
       }
     });
   });
-  
+
   return results;
 }

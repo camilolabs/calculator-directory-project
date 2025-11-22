@@ -131,13 +131,15 @@ export const calculatorConfigs: Record<string, any> = {
       { id: "principal", label: "Initial Amount ($)", type: "number", placeholder: "5000", min: 0 },
       { id: "rate", label: "Annual Interest Rate (%)", type: "number", placeholder: "5", step: 0.1 },
       { id: "years", label: "Time Period (years)", type: "number", placeholder: "10", min: 1 },
-      { id: "compound", label: "Compound Frequency", type: "select", options: [
-        { value: "1", label: "Annually" },
-        { value: "2", label: "Semi-annually" },
-        { value: "4", label: "Quarterly" },
-        { value: "12", label: "Monthly" },
-        { value: "365", label: "Daily" },
-      ]},
+      {
+        id: "compound", label: "Compound Frequency", type: "select", options: [
+          { value: "1", label: "Annually" },
+          { value: "2", label: "Semi-annually" },
+          { value: "4", label: "Quarterly" },
+          { value: "12", label: "Monthly" },
+          { value: "365", label: "Daily" },
+        ]
+      },
     ],
     calculate: (values: Record<string, string>) => {
       const P = parseFloat(values.principal) || 0;
@@ -206,11 +208,13 @@ export const calculatorConfigs: Record<string, any> = {
   tax: {
     fields: [
       { id: "income", label: "Annual Income ($)", type: "number", placeholder: "75000", min: 0 },
-      { id: "status", label: "Filing Status", type: "select", options: [
-        { value: "single", label: "Single" },
-        { value: "married", label: "Married Filing Jointly" },
-        { value: "head", label: "Head of Household" },
-      ]},
+      {
+        id: "status", label: "Filing Status", type: "select", options: [
+          { value: "single", label: "Single" },
+          { value: "married", label: "Married Filing Jointly" },
+          { value: "head", label: "Head of Household" },
+        ]
+      },
       { id: "deductions", label: "Deductions ($)", type: "number", placeholder: "12000", min: 0 },
     ],
     calculate: (values: Record<string, string>) => {
@@ -249,11 +253,11 @@ export const calculatorConfigs: Record<string, any> = {
     ],
     calculate: (values: Record<string, string>) => {
       const income = parseFloat(values.income) || 0;
-      const expenses = (parseFloat(values.housing) || 0) + 
-                      (parseFloat(values.utilities) || 0) +
-                      (parseFloat(values.food) || 0) +
-                      (parseFloat(values.transport) || 0) +
-                      (parseFloat(values.other) || 0);
+      const expenses = (parseFloat(values.housing) || 0) +
+        (parseFloat(values.utilities) || 0) +
+        (parseFloat(values.food) || 0) +
+        (parseFloat(values.transport) || 0) +
+        (parseFloat(values.other) || 0);
       const remaining = income - expenses;
       const savingsRate = (remaining / income) * 100;
       return [
@@ -268,20 +272,24 @@ export const calculatorConfigs: Record<string, any> = {
   currency: {
     fields: [
       { id: "amount", label: "Amount", type: "number", placeholder: "100", min: 0 },
-      { id: "from", label: "From Currency", type: "select", options: [
-        { value: "USD", label: "USD - US Dollar" },
-        { value: "EUR", label: "EUR - Euro" },
-        { value: "GBP", label: "GBP - British Pound" },
-        { value: "JPY", label: "JPY - Japanese Yen" },
-        { value: "CAD", label: "CAD - Canadian Dollar" },
-      ]},
-      { id: "to", label: "To Currency", type: "select", options: [
-        { value: "USD", label: "USD - US Dollar" },
-        { value: "EUR", label: "EUR - Euro" },
-        { value: "GBP", label: "GBP - British Pound" },
-        { value: "JPY", label: "JPY - Japanese Yen" },
-        { value: "CAD", label: "CAD - Canadian Dollar" },
-      ]},
+      {
+        id: "from", label: "From Currency", type: "select", options: [
+          { value: "USD", label: "USD - US Dollar" },
+          { value: "EUR", label: "EUR - Euro" },
+          { value: "GBP", label: "GBP - British Pound" },
+          { value: "JPY", label: "JPY - Japanese Yen" },
+          { value: "CAD", label: "CAD - Canadian Dollar" },
+        ]
+      },
+      {
+        id: "to", label: "To Currency", type: "select", options: [
+          { value: "USD", label: "USD - US Dollar" },
+          { value: "EUR", label: "EUR - Euro" },
+          { value: "GBP", label: "GBP - British Pound" },
+          { value: "JPY", label: "JPY - Japanese Yen" },
+          { value: "CAD", label: "CAD - Canadian Dollar" },
+        ]
+      },
     ],
     calculate: (values: Record<string, string>) => {
       const amount = parseFloat(values.amount) || 0;
@@ -307,12 +315,14 @@ export const calculatorConfigs: Record<string, any> = {
   apr: {
     fields: [
       { id: "rate", label: "Nominal Rate (%)", type: "number", placeholder: "12", step: 0.01, min: 0 },
-      { id: "freq", label: "Compounds per Year", type: "select", options: [
-        { value: "12", label: "12 - Monthly" },
-        { value: "4", label: "4 - Quarterly" },
-        { value: "2", label: "2 - Semi-Annual" },
-        { value: "1", label: "1 - Annual" },
-      ]},
+      {
+        id: "freq", label: "Compounds per Year", type: "select", options: [
+          { value: "12", label: "12 - Monthly" },
+          { value: "4", label: "4 - Quarterly" },
+          { value: "2", label: "2 - Semi-Annual" },
+          { value: "1", label: "1 - Annual" },
+        ]
+      },
     ],
     calculate: (values: Record<string, string>) => {
       const r = (parseFloat(values.rate) || 0) / 100;
@@ -452,19 +462,23 @@ export const calculatorConfigs: Record<string, any> = {
   calorie: {
     fields: [
       { id: "age", label: "Age", type: "number", placeholder: "30", min: 1 },
-      { id: "gender", label: "Gender", type: "select", options: [
-        { value: "male", label: "Male" },
-        { value: "female", label: "Female" },
-      ]},
+      {
+        id: "gender", label: "Gender", type: "select", options: [
+          { value: "male", label: "Male" },
+          { value: "female", label: "Female" },
+        ]
+      },
       { id: "weight", label: "Weight (lbs)", type: "number", placeholder: "150", min: 0 },
       { id: "height", label: "Height", type: "unit", placeholder: "65", min: 0 },
-      { id: "activity", label: "Activity Level", type: "select", options: [
-        { value: "1.2", label: "Sedentary" },
-        { value: "1.375", label: "Light Activity" },
-        { value: "1.55", label: "Moderate Activity" },
-        { value: "1.725", label: "Very Active" },
-        { value: "1.9", label: "Extremely Active" },
-      ]},
+      {
+        id: "activity", label: "Activity Level", type: "select", options: [
+          { value: "1.2", label: "Sedentary" },
+          { value: "1.375", label: "Light Activity" },
+          { value: "1.55", label: "Moderate Activity" },
+          { value: "1.725", label: "Very Active" },
+          { value: "1.9", label: "Extremely Active" },
+        ]
+      },
     ],
     calculate: (values: Record<string, string>) => {
       const weight = parseFloat(values.weight) * 0.453592; // to kg
@@ -473,7 +487,7 @@ export const calculatorConfigs: Record<string, any> = {
       const age = parseFloat(values.age) || 0;
       const gender = values.gender;
       const activity = parseFloat(values.activity) || 1.2;
-      
+
       let bmr = 0;
       if (gender === "male") {
         bmr = 10 * weight + 6.25 * height - 5 * age + 5;
@@ -481,7 +495,7 @@ export const calculatorConfigs: Record<string, any> = {
         bmr = 10 * weight + 6.25 * height - 5 * age - 161;
       }
       const tdee = bmr * activity;
-      
+
       return [
         { label: "BMR (Basal Metabolic Rate)", value: `${bmr.toFixed(0)} cal/day` },
         { label: "TDEE (Maintenance)", value: `${tdee.toFixed(0)} cal/day` },
@@ -493,10 +507,12 @@ export const calculatorConfigs: Record<string, any> = {
 
   "body-fat": {
     fields: [
-      { id: "gender", label: "Gender", type: "select", options: [
-        { value: "male", label: "Male" },
-        { value: "female", label: "Female" },
-      ]},
+      {
+        id: "gender", label: "Gender", type: "select", options: [
+          { value: "male", label: "Male" },
+          { value: "female", label: "Female" },
+        ]
+      },
       { id: "age", label: "Age", type: "number", placeholder: "30", min: 1 },
       { id: "weight", label: "Weight (lbs)", type: "number", placeholder: "150", min: 0 },
       { id: "height", label: "Height", type: "unit", placeholder: "65", min: 0 },
@@ -507,17 +523,17 @@ export const calculatorConfigs: Record<string, any> = {
       const age = parseFloat(values.age) || 0;
       const gender = values.gender;
       const bmi = (weight / (height * height)) * 703;
-      
+
       let bodyFat = 0;
       if (gender === "male") {
         bodyFat = 1.20 * bmi + 0.23 * age - 16.2;
       } else {
         bodyFat = 1.20 * bmi + 0.23 * age - 5.4;
       }
-      
+
       const fatMass = (bodyFat / 100) * weight;
       const leanMass = weight - fatMass;
-      
+
       return [
         { label: "Body Fat Percentage", value: `${bodyFat.toFixed(1)}%` },
         { label: "Fat Mass", value: `${fatMass.toFixed(1)} lbs` },
@@ -529,19 +545,21 @@ export const calculatorConfigs: Record<string, any> = {
   protein: {
     fields: [
       { id: "weight", label: "Weight (lbs)", type: "number", placeholder: "150", min: 0 },
-      { id: "activity", label: "Activity Level", type: "select", options: [
-        { value: "0.8", label: "Sedentary" },
-        { value: "1.2", label: "Lightly Active" },
-        { value: "1.6", label: "Moderately Active" },
-        { value: "2.0", label: "Very Active (Athlete)" },
-      ]},
+      {
+        id: "activity", label: "Activity Level", type: "select", options: [
+          { value: "0.8", label: "Sedentary" },
+          { value: "1.2", label: "Lightly Active" },
+          { value: "1.6", label: "Moderately Active" },
+          { value: "2.0", label: "Very Active (Athlete)" },
+        ]
+      },
     ],
     calculate: (values: Record<string, string>) => {
       const weight = parseFloat(values.weight) * 0.453592; // to kg
       const factor = parseFloat(values.activity) || 0.8;
       const proteinGrams = weight * factor;
       const proteinCals = proteinGrams * 4;
-      
+
       return [
         { label: "Daily Protein", value: `${proteinGrams.toFixed(0)}g` },
         { label: "Calories from Protein", value: `${proteinCals.toFixed(0)} cal` },
@@ -563,7 +581,7 @@ export const calculatorConfigs: Record<string, any> = {
       const totalOz = baseWater + activityWater;
       const liters = totalOz * 0.0295735;
       const cups = totalOz / 8;
-      
+
       return [
         { label: "Daily Water Intake", value: `${totalOz.toFixed(0)} oz` },
         { label: "In Liters", value: `${liters.toFixed(1)} L` },
@@ -576,11 +594,13 @@ export const calculatorConfigs: Record<string, any> = {
     fields: [
       { id: "weight", label: "Weight (lbs)", type: "number", placeholder: "150", min: 0 },
       { id: "activity", label: "Activity Minutes/Day", type: "number", placeholder: "30", min: 0 },
-      { id: "climate", label: "Climate", type: "select", options: [
-        { value: "1", label: "Temperate" },
-        { value: "1.1", label: "Warm" },
-        { value: "1.2", label: "Hot" },
-      ]},
+      {
+        id: "climate", label: "Climate", type: "select", options: [
+          { value: "1", label: "Temperate" },
+          { value: "1.1", label: "Warm" },
+          { value: "1.2", label: "Hot" },
+        ]
+      },
     ],
     calculate: (values: Record<string, string>) => {
       const weight = parseFloat(values.weight) || 0;
@@ -602,10 +622,12 @@ export const calculatorConfigs: Record<string, any> = {
   bmr: {
     fields: [
       { id: "age", label: "Age", type: "number", placeholder: "30", min: 1 },
-      { id: "gender", label: "Gender", type: "select", options: [
-        { value: "male", label: "Male" },
-        { value: "female", label: "Female" },
-      ]},
+      {
+        id: "gender", label: "Gender", type: "select", options: [
+          { value: "male", label: "Male" },
+          { value: "female", label: "Female" },
+        ]
+      },
       { id: "weight", label: "Weight (lbs)", type: "number", placeholder: "150", min: 0 },
       { id: "height", label: "Height", type: "unit", placeholder: "65", min: 0 },
     ],
@@ -663,10 +685,12 @@ export const calculatorConfigs: Record<string, any> = {
 
   "waist-hip": {
     fields: [
-      { id: "gender", label: "Gender", type: "select", options: [
-        { value: "male", label: "Male" },
-        { value: "female", label: "Female" },
-      ]},
+      {
+        id: "gender", label: "Gender", type: "select", options: [
+          { value: "male", label: "Male" },
+          { value: "female", label: "Female" },
+        ]
+      },
       { id: "waist", label: "Waist Circumference", type: "unit", placeholder: "34", min: 0 },
       { id: "hip", label: "Hip Circumference", type: "unit", placeholder: "40", min: 0 },
     ],
@@ -858,11 +882,13 @@ export const calculatorConfigs: Record<string, any> = {
 
   "area-perimeter": {
     fields: [
-      { id: "shape", label: "Shape", type: "select", options: [
-        { value: "rectangle", label: "Rectangle" },
-        { value: "circle", label: "Circle" },
-        { value: "triangle", label: "Right Triangle" },
-      ]},
+      {
+        id: "shape", label: "Shape", type: "select", options: [
+          { value: "rectangle", label: "Rectangle" },
+          { value: "circle", label: "Circle" },
+          { value: "triangle", label: "Right Triangle" },
+        ]
+      },
       { id: "a", label: "A / Length / Radius", type: "number", placeholder: "10", min: 0 },
       { id: "b", label: "B / Width", type: "number", placeholder: "5", min: 0 },
     ],
@@ -1206,13 +1232,13 @@ export const calculatorConfigs: Record<string, any> = {
 
   // COOKING CALCULATORS
 
-  
 
-  
 
-  
 
-  
+
+
+
+
 
   "food-cost": {
     fields: [
@@ -1232,17 +1258,17 @@ export const calculatorConfigs: Record<string, any> = {
 
   // BUSINESS CALCULATORS
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
 
   invoice: {
     fields: [
@@ -1288,17 +1314,17 @@ export const calculatorConfigs: Record<string, any> = {
 
   // CONSTRUCTION CALCULATORS
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
 
   lumber: {
     fields: [
@@ -1451,16 +1477,18 @@ export const calculatorConfigs: Record<string, any> = {
 
   "ideal-weight": {
     fields: [
-      { id: "gender", label: "Gender", type: "select", options: [
-        { value: "male", label: "Male" },
-        { value: "female", label: "Female" },
-      ]},
+      {
+        id: "gender", label: "Gender", type: "select", options: [
+          { value: "male", label: "Male" },
+          { value: "female", label: "Female" },
+        ]
+      },
       { id: "height", label: "Height", type: "unit", placeholder: "65", min: 0 },
     ],
     calculate: (values: Record<string, string>) => {
       const height = convertToInches(values.height, values.height_unit || "in");
       const gender = values.gender;
-      
+
       // Devine formula
       let idealWeight = 0;
       if (gender === "male") {
@@ -1469,9 +1497,9 @@ export const calculatorConfigs: Record<string, any> = {
         idealWeight = 45.5 + 2.3 * (height - 60);
       }
       idealWeight = idealWeight * 2.20462; // kg to lbs
-      
+
       const range = [idealWeight * 0.9, idealWeight * 1.1];
-      
+
       return [
         { label: "Ideal Weight", value: `${idealWeight.toFixed(1)} lbs` },
         { label: "Healthy Range", value: `${range[0].toFixed(0)} - ${range[1].toFixed(0)} lbs` },
@@ -1488,13 +1516,13 @@ export const calculatorConfigs: Record<string, any> = {
       const lastPeriod = new Date(values.lastPeriod);
       const dueDate = new Date(lastPeriod);
       dueDate.setDate(dueDate.getDate() + 280); // 40 weeks
-      
+
       const today = new Date();
       const daysPregnant = Math.floor((today.getTime() - lastPeriod.getTime()) / (1000 * 60 * 60 * 24));
       const weeks = Math.floor(daysPregnant / 7);
       const days = daysPregnant % 7;
       const daysRemaining = Math.floor((dueDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
-      
+
       return [
         { label: "Due Date", value: dueDate.toLocaleDateString() },
         { label: "Current Progress", value: `${weeks} weeks, ${days} days` },
@@ -1514,14 +1542,14 @@ export const calculatorConfigs: Record<string, any> = {
       const resting = parseFloat(values.resting) || 70;
       const maxHR = 220 - age;
       const reserve = maxHR - resting;
-      
+
       const zones = [
         { name: "Warm Up (50-60%)", range: `${Math.round(maxHR * 0.5)}-${Math.round(maxHR * 0.6)}` },
         { name: "Fat Burn (60-70%)", range: `${Math.round(maxHR * 0.6)}-${Math.round(maxHR * 0.7)}` },
         { name: "Cardio (70-80%)", range: `${Math.round(maxHR * 0.7)}-${Math.round(maxHR * 0.8)}` },
         { name: "Peak (80-90%)", range: `${Math.round(maxHR * 0.8)}-${Math.round(maxHR * 0.9)}` },
       ];
-      
+
       return [
         { label: "Max Heart Rate", value: `${maxHR} bpm` },
         ...zones.map(zone => ({ label: zone.name, value: `${zone.range} bpm` })),
@@ -1541,13 +1569,13 @@ export const calculatorConfigs: Record<string, any> = {
       const distanceMeters = convertToMeters(values.distance, values.distance_unit || "m");
       const distance = distanceMeters / 1609.34; // to miles
       const totalSeconds = (parseFloat(values.hours) || 0) * 3600 +
-                          (parseFloat(values.minutes) || 0) * 60 +
-                          (parseFloat(values.seconds) || 0);
+        (parseFloat(values.minutes) || 0) * 60 +
+        (parseFloat(values.seconds) || 0);
       const paceSeconds = totalSeconds / distance;
       const paceMin = Math.floor(paceSeconds / 60);
       const paceSec = Math.floor(paceSeconds % 60);
       const speedMph = distance / (totalSeconds / 3600);
-      
+
       return [
         { label: "Pace", value: `${paceMin}:${paceSec.toString().padStart(2, '0')} /mile` },
         { label: "Speed", value: `${speedMph.toFixed(2)} mph` },
@@ -1568,15 +1596,15 @@ export const calculatorConfigs: Record<string, any> = {
       const proteinPct = parseFloat(values.protein) || 0;
       const carbsPct = parseFloat(values.carbs) || 0;
       const fatsPct = parseFloat(values.fats) || 0;
-      
+
       const proteinCals = calories * (proteinPct / 100);
       const carbsCals = calories * (carbsPct / 100);
       const fatsCals = calories * (fatsPct / 100);
-      
+
       const proteinGrams = proteinCals / 4;
       const carbsGrams = carbsCals / 4;
       const fatsGrams = fatsCals / 9;
-      
+
       return [
         { label: "Protein", value: `${proteinGrams.toFixed(0)}g (${proteinCals.toFixed(0)} cal)` },
         { label: "Carbs", value: `${carbsGrams.toFixed(0)}g (${carbsCals.toFixed(0)} cal)` },
@@ -1610,12 +1638,14 @@ export const calculatorConfigs: Record<string, any> = {
     fields: [
       { id: "num1", label: "Fraction 1 Numerator", type: "number", placeholder: "1" },
       { id: "den1", label: "Fraction 1 Denominator", type: "number", placeholder: "2" },
-      { id: "operation", label: "Operation", type: "select", options: [
-        { value: "add", label: "Add (+)" },
-        { value: "subtract", label: "Subtract (-)" },
-        { value: "multiply", label: "Multiply (×)" },
-        { value: "divide", label: "Divide (÷)" },
-      ]},
+      {
+        id: "operation", label: "Operation", type: "select", options: [
+          { value: "add", label: "Add (+)" },
+          { value: "subtract", label: "Subtract (-)" },
+          { value: "multiply", label: "Multiply (×)" },
+          { value: "divide", label: "Divide (÷)" },
+        ]
+      },
       { id: "num2", label: "Fraction 2 Numerator", type: "number", placeholder: "1" },
       { id: "den2", label: "Fraction 2 Denominator", type: "number", placeholder: "3" },
     ],
@@ -1625,7 +1655,7 @@ export const calculatorConfigs: Record<string, any> = {
       const num2 = parseFloat(values.num2) || 0;
       const den2 = parseFloat(values.den2) || 1;
       const op = values.operation;
-      
+
       let resultNum = 0, resultDen = 1;
       if (op === "add") {
         resultNum = num1 * den2 + num2 * den1;
@@ -1640,11 +1670,11 @@ export const calculatorConfigs: Record<string, any> = {
         resultNum = num1 * den2;
         resultDen = den1 * num2;
       }
-      
+
       const gcd = (a: number, b: number): number => b === 0 ? Math.abs(a) : gcd(b, a % b);
       const divisor = gcd(resultNum, resultDen);
       const simplified = [resultNum / divisor, resultDen / divisor];
-      
+
       return [
         { label: "Result", value: `${resultNum}/${resultDen}` },
         { label: "Simplified", value: `${simplified[0]}/${simplified[1]}` },
@@ -1661,7 +1691,7 @@ export const calculatorConfigs: Record<string, any> = {
     calculate: (values: Record<string, string>) => {
       const number = parseFloat(values.number) || 0;
       const power = parseFloat(values.power) || 2;
-      const sqrt = Math.pow(number, 1/power);
+      const sqrt = Math.pow(number, 1 / power);
       const squared = Math.pow(number, 2);
       const cubed = Math.pow(number, 3);
       return [
@@ -1679,14 +1709,14 @@ export const calculatorConfigs: Record<string, any> = {
     calculate: (values: Record<string, string>) => {
       const numbers = (values.numbers || "").split(",").map(n => parseFloat(n.trim())).filter(n => !isNaN(n));
       if (numbers.length === 0) return [{ label: "Error", value: "Enter valid numbers" }];
-      
+
       const sum = numbers.reduce((a, b) => a + b, 0);
       const mean = sum / numbers.length;
       const sorted = [...numbers].sort((a, b) => a - b);
-      const median = sorted.length % 2 === 0 
-        ? (sorted[sorted.length/2 - 1] + sorted[sorted.length/2]) / 2 
-        : sorted[Math.floor(sorted.length/2)];
-      
+      const median = sorted.length % 2 === 0
+        ? (sorted[sorted.length / 2 - 1] + sorted[sorted.length / 2]) / 2
+        : sorted[Math.floor(sorted.length / 2)];
+
       return [
         { label: "Mean (Average)", value: mean.toFixed(2) },
         { label: "Median", value: median.toFixed(2) },
@@ -1739,10 +1769,10 @@ export const calculatorConfigs: Record<string, any> = {
       const n = Math.floor(parseFloat(values.number) || 0);
       if (n < 0) return [{ label: "Error", value: "Must be non-negative" }];
       if (n > 170) return [{ label: "Error", value: "Too large" }];
-      
+
       let factorial = 1;
       for (let i = 2; i <= n; i++) factorial *= i;
-      
+
       return [
         { label: "Factorial", value: factorial.toExponential(4) },
         { label: "Expression", value: `${n}!` },
@@ -1758,11 +1788,11 @@ export const calculatorConfigs: Record<string, any> = {
     calculate: (values: Record<string, string>) => {
       const a = Math.floor(parseFloat(values.num1) || 1);
       const b = Math.floor(parseFloat(values.num2) || 1);
-      
+
       const gcd = (x: number, y: number): number => y === 0 ? x : gcd(y, x % y);
       const gcf = gcd(a, b);
       const lcm = (a * b) / gcf;
-      
+
       return [
         { label: "GCF (Greatest Common Factor)", value: gcf },
         { label: "LCM (Least Common Multiple)", value: lcm },
@@ -1778,12 +1808,12 @@ export const calculatorConfigs: Record<string, any> = {
     calculate: (values: Record<string, string>) => {
       const a = parseFloat(values.a) || 0;
       const b = parseFloat(values.b) || 0;
-      
+
       const gcd = (x: number, y: number): number => y === 0 ? Math.abs(x) : gcd(y, x % y);
       const divisor = gcd(a, b);
       const simplified = [a / divisor, b / divisor];
       const decimal = a / b;
-      
+
       return [
         { label: "Original Ratio", value: `${a}:${b}` },
         { label: "Simplified Ratio", value: `${simplified[0]}:${simplified[1]}` },
@@ -1805,10 +1835,10 @@ export const calculatorConfigs: Record<string, any> = {
       const a12 = parseFloat(values.a12) || 0;
       const a21 = parseFloat(values.a21) || 0;
       const a22 = parseFloat(values.a22) || 0;
-      
+
       const det = a11 * a22 - a12 * a21;
       const trace = a11 + a22;
-      
+
       return [
         { label: "Determinant", value: det.toFixed(4) },
         { label: "Trace", value: trace.toFixed(4) },
@@ -2007,14 +2037,16 @@ export const calculatorConfigs: Record<string, any> = {
   length: {
     fields: [
       { id: "value", label: "Value", type: "number", placeholder: "100", min: 0 },
-      { id: "from", label: "From", type: "select", options: [
-        { value: "m", label: "Meters" },
-        { value: "km", label: "Kilometers" },
-        { value: "cm", label: "Centimeters" },
-        { value: "ft", label: "Feet" },
-        { value: "in", label: "Inches" },
-        { value: "mi", label: "Miles" },
-      ]},
+      {
+        id: "from", label: "From", type: "select", options: [
+          { value: "m", label: "Meters" },
+          { value: "km", label: "Kilometers" },
+          { value: "cm", label: "Centimeters" },
+          { value: "ft", label: "Feet" },
+          { value: "in", label: "Inches" },
+          { value: "mi", label: "Miles" },
+        ]
+      },
     ],
     calculate: (values: Record<string, string>) => {
       const value = parseFloat(values.value) || 0;
@@ -2033,12 +2065,14 @@ export const calculatorConfigs: Record<string, any> = {
   weight: {
     fields: [
       { id: "value", label: "Value", type: "number", placeholder: "100", min: 0 },
-      { id: "from", label: "From", type: "select", options: [
-        { value: "kg", label: "Kilograms" },
-        { value: "g", label: "Grams" },
-        { value: "lb", label: "Pounds" },
-        { value: "oz", label: "Ounces" },
-      ]},
+      {
+        id: "from", label: "From", type: "select", options: [
+          { value: "kg", label: "Kilograms" },
+          { value: "g", label: "Grams" },
+          { value: "lb", label: "Pounds" },
+          { value: "oz", label: "Ounces" },
+        ]
+      },
     ],
     calculate: (values: Record<string, string>) => {
       const value = parseFloat(values.value) || 0;
@@ -2057,20 +2091,22 @@ export const calculatorConfigs: Record<string, any> = {
   temperature: {
     fields: [
       { id: "value", label: "Value", type: "number", placeholder: "100" },
-      { id: "from", label: "From", type: "select", options: [
-        { value: "c", label: "Celsius" },
-        { value: "f", label: "Fahrenheit" },
-        { value: "k", label: "Kelvin" },
-      ]},
+      {
+        id: "from", label: "From", type: "select", options: [
+          { value: "c", label: "Celsius" },
+          { value: "f", label: "Fahrenheit" },
+          { value: "k", label: "Kelvin" },
+        ]
+      },
     ],
     calculate: (values: Record<string, string>) => {
       const value = parseFloat(values.value) || 0;
       const from = values.from || "c";
       let c = 0;
       if (from === "c") c = value;
-      else if (from === "f") c = (value - 32) * 5/9;
+      else if (from === "f") c = (value - 32) * 5 / 9;
       else c = value - 273.15;
-      const f = c * 9/5 + 32;
+      const f = c * 9 / 5 + 32;
       const k = c + 273.15;
       return [
         { label: "Celsius", value: `${c.toFixed(2)}°C` },
@@ -2083,12 +2119,14 @@ export const calculatorConfigs: Record<string, any> = {
   volume: {
     fields: [
       { id: "value", label: "Value", type: "number", placeholder: "100", min: 0 },
-      { id: "from", label: "From", type: "select", options: [
-        { value: "l", label: "Liters" },
-        { value: "ml", label: "Milliliters" },
-        { value: "gal", label: "Gallons" },
-        { value: "oz", label: "Fluid Ounces" },
-      ]},
+      {
+        id: "from", label: "From", type: "select", options: [
+          { value: "l", label: "Liters" },
+          { value: "ml", label: "Milliliters" },
+          { value: "gal", label: "Gallons" },
+          { value: "oz", label: "Fluid Ounces" },
+        ]
+      },
     ],
     calculate: (values: Record<string, string>) => {
       const value = parseFloat(values.value) || 0;
@@ -2107,12 +2145,14 @@ export const calculatorConfigs: Record<string, any> = {
   area: {
     fields: [
       { id: "value", label: "Value", type: "number", placeholder: "100", min: 0 },
-      { id: "from", label: "From", type: "select", options: [
-        { value: "m2", label: "Square Meters" },
-        { value: "ft2", label: "Square Feet" },
-        { value: "acre", label: "Acres" },
-        { value: "ha", label: "Hectares" },
-      ]},
+      {
+        id: "from", label: "From", type: "select", options: [
+          { value: "m2", label: "Square Meters" },
+          { value: "ft2", label: "Square Feet" },
+          { value: "acre", label: "Acres" },
+          { value: "ha", label: "Hectares" },
+        ]
+      },
     ],
     calculate: (values: Record<string, string>) => {
       const value = parseFloat(values.value) || 0;
@@ -2131,12 +2171,14 @@ export const calculatorConfigs: Record<string, any> = {
   speed: {
     fields: [
       { id: "value", label: "Value", type: "number", placeholder: "100", min: 0 },
-      { id: "from", label: "From", type: "select", options: [
-        { value: "ms", label: "Meters/Second" },
-        { value: "kmh", label: "Kilometers/Hour" },
-        { value: "mph", label: "Miles/Hour" },
-        { value: "knot", label: "Knots" },
-      ]},
+      {
+        id: "from", label: "From", type: "select", options: [
+          { value: "ms", label: "Meters/Second" },
+          { value: "kmh", label: "Kilometers/Hour" },
+          { value: "mph", label: "Miles/Hour" },
+          { value: "knot", label: "Knots" },
+        ]
+      },
     ],
     calculate: (values: Record<string, string>) => {
       const value = parseFloat(values.value) || 0;
@@ -2155,12 +2197,14 @@ export const calculatorConfigs: Record<string, any> = {
   time: {
     fields: [
       { id: "value", label: "Value", type: "number", placeholder: "60", min: 0 },
-      { id: "from", label: "From", type: "select", options: [
-        { value: "s", label: "Seconds" },
-        { value: "min", label: "Minutes" },
-        { value: "h", label: "Hours" },
-        { value: "d", label: "Days" },
-      ]},
+      {
+        id: "from", label: "From", type: "select", options: [
+          { value: "s", label: "Seconds" },
+          { value: "min", label: "Minutes" },
+          { value: "h", label: "Hours" },
+          { value: "d", label: "Days" },
+        ]
+      },
     ],
     calculate: (values: Record<string, string>) => {
       const value = parseFloat(values.value) || 0;
@@ -2179,13 +2223,15 @@ export const calculatorConfigs: Record<string, any> = {
   data: {
     fields: [
       { id: "value", label: "Value", type: "number", placeholder: "1024", min: 0 },
-      { id: "from", label: "From", type: "select", options: [
-        { value: "b", label: "Bytes" },
-        { value: "kb", label: "Kilobytes" },
-        { value: "mb", label: "Megabytes" },
-        { value: "gb", label: "Gigabytes" },
-        { value: "tb", label: "Terabytes" },
-      ]},
+      {
+        id: "from", label: "From", type: "select", options: [
+          { value: "b", label: "Bytes" },
+          { value: "kb", label: "Kilobytes" },
+          { value: "mb", label: "Megabytes" },
+          { value: "gb", label: "Gigabytes" },
+          { value: "tb", label: "Terabytes" },
+        ]
+      },
     ],
     calculate: (values: Record<string, string>) => {
       const value = parseFloat(values.value) || 0;
@@ -2204,12 +2250,14 @@ export const calculatorConfigs: Record<string, any> = {
   "pressure-conversion": {
     fields: [
       { id: "value", label: "Value", type: "number", placeholder: "1", min: 0 },
-      { id: "from", label: "From", type: "select", options: [
-        { value: "pa", label: "Pascals" },
-        { value: "bar", label: "Bar" },
-        { value: "psi", label: "PSI" },
-        { value: "atm", label: "Atmospheres" },
-      ]},
+      {
+        id: "from", label: "From", type: "select", options: [
+          { value: "pa", label: "Pascals" },
+          { value: "bar", label: "Bar" },
+          { value: "psi", label: "PSI" },
+          { value: "atm", label: "Atmospheres" },
+        ]
+      },
     ],
     calculate: (values: Record<string, string>) => {
       const value = parseFloat(values.value) || 0;
@@ -2228,12 +2276,14 @@ export const calculatorConfigs: Record<string, any> = {
   "energy-conversion": {
     fields: [
       { id: "value", label: "Value", type: "number", placeholder: "1000", min: 0 },
-      { id: "from", label: "From", type: "select", options: [
-        { value: "j", label: "Joules" },
-        { value: "cal", label: "Calories" },
-        { value: "kwh", label: "Kilowatt-hours" },
-        { value: "btu", label: "BTU" },
-      ]},
+      {
+        id: "from", label: "From", type: "select", options: [
+          { value: "j", label: "Joules" },
+          { value: "cal", label: "Calories" },
+          { value: "kwh", label: "Kilowatt-hours" },
+          { value: "btu", label: "BTU" },
+        ]
+      },
     ],
     calculate: (values: Record<string, string>) => {
       const value = parseFloat(values.value) || 0;
@@ -2341,10 +2391,12 @@ export const calculatorConfigs: Record<string, any> = {
     fields: [
       { id: "length", label: "Wall Length", type: "unit", placeholder: "12", min: 0 },
       { id: "height", label: "Wall Height", type: "unit", placeholder: "8", min: 0 },
-      { id: "sheetSize", label: "Sheet Size", type: "select", options: [
-        { value: "32", label: "4x8 (32 sq ft)" },
-        { value: "48", label: "4x12 (48 sq ft)" },
-      ]},
+      {
+        id: "sheetSize", label: "Sheet Size", type: "select", options: [
+          { value: "32", label: "4x8 (32 sq ft)" },
+          { value: "48", label: "4x12 (48 sq ft)" },
+        ]
+      },
     ],
     calculate: (values: Record<string, string>) => {
       const length = convertToFeet(values.length, values.length_unit || "in");
@@ -2614,10 +2666,12 @@ export const calculatorConfigs: Record<string, any> = {
   "essay-length": {
     fields: [
       { id: "words", label: "Word Count", type: "number", placeholder: "1500", min: 0 },
-      { id: "spacing", label: "Spacing", type: "select", options: [
-        { value: "single", label: "Single Spaced" },
-        { value: "double", label: "Double Spaced" },
-      ]},
+      {
+        id: "spacing", label: "Spacing", type: "select", options: [
+          { value: "single", label: "Single Spaced" },
+          { value: "double", label: "Double Spaced" },
+        ]
+      },
     ],
     calculate: (values: Record<string, string>) => {
       const words = parseFloat(values.words) || 0;
@@ -2764,20 +2818,24 @@ export const calculatorConfigs: Record<string, any> = {
   timezone: {
     fields: [
       { id: "time", label: "Time (HH:MM)", type: "text", placeholder: "14:00" },
-      { id: "from", label: "From Timezone", type: "select", options: [
-        { value: "0", label: "UTC" },
-        { value: "-5", label: "EST (UTC-5)" },
-        { value: "-8", label: "PST (UTC-8)" },
-        { value: "1", label: "CET (UTC+1)" },
-        { value: "8", label: "CST (UTC+8)" },
-      ]},
-      { id: "to", label: "To Timezone", type: "select", options: [
-        { value: "0", label: "UTC" },
-        { value: "-5", label: "EST (UTC-5)" },
-        { value: "-8", label: "PST (UTC-8)" },
-        { value: "1", label: "CET (UTC+1)" },
-        { value: "8", label: "CST (UTC+8)" },
-      ]},
+      {
+        id: "from", label: "From Timezone", type: "select", options: [
+          { value: "0", label: "UTC" },
+          { value: "-5", label: "EST (UTC-5)" },
+          { value: "-8", label: "PST (UTC-8)" },
+          { value: "1", label: "CET (UTC+1)" },
+          { value: "8", label: "CST (UTC+8)" },
+        ]
+      },
+      {
+        id: "to", label: "To Timezone", type: "select", options: [
+          { value: "0", label: "UTC" },
+          { value: "-5", label: "EST (UTC-5)" },
+          { value: "-8", label: "PST (UTC-8)" },
+          { value: "1", label: "CET (UTC+1)" },
+          { value: "8", label: "CST (UTC+8)" },
+        ]
+      },
     ],
     calculate: (values: Record<string, string>) => {
       const [hours, minutes] = (values.time || "0:0").split(":").map(Number);
@@ -2925,12 +2983,14 @@ export const calculatorConfigs: Record<string, any> = {
   "cooking-time": {
     fields: [
       { id: "weight", label: "Weight (lbs)", type: "number", placeholder: "5", min: 0.1, step: 0.1 },
-      { id: "type", label: "Meat Type", type: "select", options: [
-        { value: "20", label: "Chicken (20 min/lb)" },
-        { value: "15", label: "Turkey (15 min/lb)" },
-        { value: "25", label: "Beef Roast (25 min/lb)" },
-        { value: "30", label: "Pork Roast (30 min/lb)" },
-      ]},
+      {
+        id: "type", label: "Meat Type", type: "select", options: [
+          { value: "20", label: "Chicken (20 min/lb)" },
+          { value: "15", label: "Turkey (15 min/lb)" },
+          { value: "25", label: "Beef Roast (25 min/lb)" },
+          { value: "30", label: "Pork Roast (30 min/lb)" },
+        ]
+      },
     ],
     calculate: (values: Record<string, string>) => {
       const weight = parseFloat(values.weight) || 0;
@@ -3010,16 +3070,18 @@ export const calculatorConfigs: Record<string, any> = {
 
   "meat-temp": {
     fields: [
-      { id: "meat", label: "Meat Type", type: "select", options: [
-        { value: "165", label: "Chicken/Poultry" },
-        { value: "145", label: "Beef Medium-Rare" },
-        { value: "160", label: "Beef Medium/Pork" },
-        { value: "145", label: "Fish" },
-      ]},
+      {
+        id: "meat", label: "Meat Type", type: "select", options: [
+          { value: "165", label: "Chicken/Poultry" },
+          { value: "145", label: "Beef Medium-Rare" },
+          { value: "160", label: "Beef Medium/Pork" },
+          { value: "145", label: "Fish" },
+        ]
+      },
     ],
     calculate: (values: Record<string, string>) => {
       const tempF = parseFloat(values.meat) || 165;
-      const tempC = (tempF - 32) * 5/9;
+      const tempC = (tempF - 32) * 5 / 9;
       const resting = "Let rest 3-5 minutes";
       return [
         { label: "Safe Temperature", value: `${tempF}°F` },
@@ -3077,11 +3139,13 @@ export const calculatorConfigs: Record<string, any> = {
   coffee: {
     fields: [
       { id: "water", label: "Water (oz)", type: "number", placeholder: "16", min: 1 },
-      { id: "ratio", label: "Coffee to Water Ratio", type: "select", options: [
-        { value: "15", label: "1:15 (Strong)" },
-        { value: "16", label: "1:16 (Medium)" },
-        { value: "17", label: "1:17 (Mild)" },
-      ]},
+      {
+        id: "ratio", label: "Coffee to Water Ratio", type: "select", options: [
+          { value: "15", label: "1:15 (Strong)" },
+          { value: "16", label: "1:16 (Medium)" },
+          { value: "17", label: "1:17 (Mild)" },
+        ]
+      },
     ],
     calculate: (values: Record<string, string>) => {
       const water = parseFloat(values.water) || 16;
@@ -3181,12 +3245,14 @@ export const calculatorConfigs: Record<string, any> = {
   payroll: {
     fields: [
       { id: "salary", label: "Annual Salary ($)", type: "number", placeholder: "60000", min: 0 },
-      { id: "frequency", label: "Pay Frequency", type: "select", options: [
-        { value: "52", label: "Weekly" },
-        { value: "26", label: "Bi-weekly" },
-        { value: "24", label: "Semi-monthly" },
-        { value: "12", label: "Monthly" },
-      ]},
+      {
+        id: "frequency", label: "Pay Frequency", type: "select", options: [
+          { value: "52", label: "Weekly" },
+          { value: "26", label: "Bi-weekly" },
+          { value: "24", label: "Semi-monthly" },
+          { value: "12", label: "Monthly" },
+        ]
+      },
     ],
     calculate: (values: Record<string, string>) => {
       const salary = parseFloat(values.salary) || 0;
@@ -3292,25 +3358,603 @@ export const calculatorConfigs: Record<string, any> = {
         { label: "Annual Depreciation", value: `$${annualDepreciation.toFixed(2)}` },
         { label: "Monthly Depreciation", value: `$${monthlyDepreciation.toFixed(2)}` },
         { label: "Depreciable Amount", value: `$${depreciable.toFixed(2)}` },
-      ];
-    },
-  },
 
-  inventory: {
-    fields: [
-      { id: "cogs", label: "Cost of Goods Sold ($)", type: "number", placeholder: "500000", min: 0 },
-      { id: "avgInventory", label: "Average Inventory ($)", type: "number", placeholder: "50000", min: 0 },
-    ],
-    calculate: (values: Record<string, string>) => {
-      const cogs = parseFloat(values.cogs) || 0;
-      const avgInventory = parseFloat(values.avgInventory) || 1;
-      const turnover = cogs / avgInventory;
-      const daysInventory = 365 / turnover;
-      return [
-        { label: "Inventory Turnover Ratio", value: turnover.toFixed(2) },
-        { label: "Days in Inventory", value: Math.round(daysInventory) },
-        { label: "Annual COGS", value: `$${cogs.toFixed(2)}` },
-      ];
-    },
-  },
+        bread: {
+          fields: [
+            { id: "flour", label: "Flour (g)", type: "number", placeholder: "500", min: 1 },
+            { id: "hydration", label: "Hydration %", type: "number", placeholder: "70", min: 50, max: 100 },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const flour = parseFloat(values.flour) || 500;
+            const hydration = parseFloat(values.hydration) || 70;
+            const water = flour * (hydration / 100);
+            const salt = flour * 0.02; // 2% of flour
+            const yeast = flour * 0.01; // 1% of flour
+            return [
+              { label: "Water", value: `${water.toFixed(0)}g (${hydration}%)` },
+              { label: "Salt", value: `${salt.toFixed(1)}g (2%)` },
+              { label: "Yeast", value: `${yeast.toFixed(1)}g (1%)` },
+              { label: "Total Dough", value: `${(flour + water + salt + yeast).toFixed(0)}g` },
+            ];
+          },
+        },
+
+        // BUSINESS CALCULATORS
+        "profit-margin": {
+          fields: [
+            { id: "revenue", label: "Revenue ($)", type: "number", placeholder: "100000", min: 0 },
+            { id: "cost", label: "Cost ($)", type: "number", placeholder: "60000", min: 0 },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const revenue = parseFloat(values.revenue) || 0;
+            const cost = parseFloat(values.cost) || 0;
+            const profit = revenue - cost;
+            const margin = (profit / revenue) * 100;
+            const markup = (profit / cost) * 100;
+            return [
+              { label: "Gross Profit", value: `$${profit.toFixed(2)}` },
+              { label: "Profit Margin", value: `${margin.toFixed(2)}%` },
+              { label: "Markup", value: `${markup.toFixed(2)}%` },
+            ];
+          },
+        },
+
+        "break-even": {
+          fields: [
+            { id: "fixed", label: "Fixed Costs ($)", type: "number", placeholder: "50000", min: 0 },
+            { id: "price", label: "Price per Unit ($)", type: "number", placeholder: "50", min: 0 },
+            { id: "variable", label: "Variable Cost per Unit ($)", type: "number", placeholder: "20", min: 0 },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const fixed = parseFloat(values.fixed) || 0;
+            const price = parseFloat(values.price) || 0;
+            const variable = parseFloat(values.variable) || 0;
+            const contribution = price - variable;
+            const breakEven = Math.ceil(fixed / contribution);
+            const revenue = breakEven * price;
+            return [
+              { label: "Break-Even Units", value: breakEven },
+              { label: "Break-Even Revenue", value: `$${revenue.toFixed(2)}` },
+              { label: "Contribution Margin", value: `$${contribution.toFixed(2)}` },
+            ];
+          },
+        },
+
+        markup: {
+          fields: [
+            { id: "cost", label: "Cost ($)", type: "number", placeholder: "50", min: 0 },
+            { id: "markup", label: "Markup %", type: "number", placeholder: "50", min: 0 },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const cost = parseFloat(values.cost) || 0;
+            const markup = parseFloat(values.markup) || 0;
+            const price = cost * (1 + markup / 100);
+            const profit = price - cost;
+            const margin = (profit / price) * 100;
+            return [
+              { label: "Selling Price", value: `$${price.toFixed(2)}` },
+              { label: "Profit", value: `$${profit.toFixed(2)}` },
+              { label: "Profit Margin", value: `${margin.toFixed(2)}%` },
+            ];
+          },
+        },
+
+        payroll: {
+          fields: [
+            { id: "salary", label: "Annual Salary ($)", type: "number", placeholder: "60000", min: 0 },
+            {
+              id: "frequency", label: "Pay Frequency", type: "select", options: [
+                { value: "52", label: "Weekly" },
+                { value: "26", label: "Bi-weekly" },
+                { value: "24", label: "Semi-monthly" },
+                { value: "12", label: "Monthly" },
+              ]
+            },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const salary = parseFloat(values.salary) || 0;
+            const frequency = parseFloat(values.frequency) || 26;
+            const gross = salary / frequency;
+            const monthly = salary / 12;
+            return [
+              { label: "Gross per Paycheck", value: `$${gross.toFixed(2)}` },
+              { label: "Monthly Gross", value: `$${monthly.toFixed(2)}` },
+              { label: "Annual Salary", value: `$${salary.toFixed(2)}` },
+            ];
+          },
+        },
+
+        discount: {
+          fields: [
+            { id: "price", label: "Original Price ($)", type: "number", placeholder: "100", min: 0 },
+            { id: "discount", label: "Discount %", type: "number", placeholder: "20", min: 0, max: 100 },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const price = parseFloat(values.price) || 0;
+            const discount = parseFloat(values.discount) || 0;
+            const savings = price * (discount / 100);
+            const final = price - savings;
+            return [
+              { label: "Final Price", value: `$${final.toFixed(2)}` },
+              { label: "You Save", value: `$${savings.toFixed(2)}` },
+              { label: "Discount", value: `${discount}%` },
+            ];
+          },
+        },
+
+        "sales-tax": {
+          fields: [
+            { id: "price", label: "Price ($)", type: "number", placeholder: "100", min: 0 },
+            { id: "tax", label: "Tax Rate %", type: "number", placeholder: "8.5", min: 0, step: 0.1 },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const price = parseFloat(values.price) || 0;
+            const tax = parseFloat(values.tax) || 0;
+            const taxAmount = price * (tax / 100);
+            const total = price + taxAmount;
+            return [
+              { label: "Subtotal", value: `$${price.toFixed(2)}` },
+              { label: "Sales Tax", value: `$${taxAmount.toFixed(2)}` },
+              { label: "Total", value: `$${total.toFixed(2)}` },
+            ];
+          },
+        },
+
+        commission: {
+          fields: [
+            { id: "sales", label: "Total Sales ($)", type: "number", placeholder: "50000", min: 0 },
+            { id: "rate", label: "Commission Rate %", type: "number", placeholder: "5", min: 0, step: 0.1 },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const sales = parseFloat(values.sales) || 0;
+            const rate = parseFloat(values.rate) || 0;
+            const commission = sales * (rate / 100);
+            return [
+              { label: "Commission Earned", value: `$${commission.toFixed(2)}` },
+              { label: "Commission Rate", value: `${rate}%` },
+              { label: "Total Sales", value: `$${sales.toFixed(2)}` },
+            ];
+          },
+        },
+
+        "hourly-rate": {
+          fields: [
+            { id: "annual", label: "Desired Annual Income ($)", type: "number", placeholder: "100000", min: 0 },
+            { id: "hours", label: "Billable Hours/Week", type: "number", placeholder: "30", min: 1 },
+            { id: "weeks", label: "Working Weeks/Year", type: "number", placeholder: "48", min: 1, max: 52 },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const annual = parseFloat(values.annual) || 0;
+            const hours = parseFloat(values.hours) || 0;
+            const weeks = parseFloat(values.weeks) || 48;
+            const totalHours = hours * weeks;
+            const hourlyRate = annual / totalHours;
+            const dailyRate = hourlyRate * 8;
+            return [
+              { label: "Hourly Rate", value: `$${hourlyRate.toFixed(2)}/hr` },
+              { label: "Daily Rate (8 hrs)", value: `$${dailyRate.toFixed(2)}` },
+              { label: "Total Billable Hours", value: totalHours },
+            ];
+          },
+        },
+
+        depreciation: {
+          fields: [
+            { id: "cost", label: "Asset Cost ($)", type: "number", placeholder: "50000", min: 0 },
+            { id: "salvage", label: "Salvage Value ($)", type: "number", placeholder: "5000", min: 0 },
+            { id: "years", label: "Useful Life (years)", type: "number", placeholder: "5", min: 1 },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const cost = parseFloat(values.cost) || 0;
+            const salvage = parseFloat(values.salvage) || 0;
+            const years = parseFloat(values.years) || 1;
+            const depreciable = cost - salvage;
+            const annualDepreciation = depreciable / years;
+            const monthlyDepreciation = annualDepreciation / 12;
+            return [
+              { label: "Annual Depreciation", value: `$${annualDepreciation.toFixed(2)}` },
+              { label: "Monthly Depreciation", value: `$${monthlyDepreciation.toFixed(2)}` },
+              { label: "Depreciable Amount", value: `$${depreciable.toFixed(2)}` },
+            ];
+          },
+        },
+
+        inventory: {
+          fields: [
+            { id: "cogs", label: "Cost of Goods Sold ($)", type: "number", placeholder: "500000", min: 0 },
+            { id: "avgInventory", label: "Average Inventory ($)", type: "number", placeholder: "50000", min: 0 },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const cogs = parseFloat(values.cogs) || 0;
+            const avgInventory = parseFloat(values.avgInventory) || 1;
+            const turnover = cogs / avgInventory;
+            const daysInventory = 365 / turnover;
+            return [
+              { label: "Inventory Turnover Ratio", value: turnover.toFixed(2) },
+              { label: "Days in Inventory", value: Math.round(daysInventory) },
+              { label: "Annual COGS", value: `$${cogs.toFixed(2)}` },
+            ];
+          },
+        },
+
+        // PET CARE CALCULATORS
+        "pet-age": {
+          fields: [
+            { id: "age", label: "Pet's Age (years)", type: "number", placeholder: "5", min: 0 },
+            {
+              id: "type", label: "Pet Type", type: "select", options: [
+                { value: "dog_small", label: "Small Dog (<20 lbs)" },
+                { value: "dog_med", label: "Medium Dog (20-50 lbs)" },
+                { value: "dog_large", label: "Large Dog (>50 lbs)" },
+                { value: "cat", label: "Cat" },
+              ]
+            },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const age = parseFloat(values.age) || 0;
+            const type = values.type || "cat";
+            let humanYears = 0;
+
+            if (type === "cat") {
+              if (age <= 1) humanYears = 15;
+              else if (age <= 2) humanYears = 24;
+              else humanYears = 24 + (age - 2) * 4;
+            } else {
+              // Dogs
+              if (age <= 1) humanYears = 15;
+              else if (age <= 2) humanYears = 24;
+              else {
+                const multiplier = type === "dog_small" ? 4 : type === "dog_med" ? 5 : 6;
+                humanYears = 24 + (age - 2) * multiplier;
+              }
+            }
+            return [
+              { label: "Human Years", value: `${Math.round(humanYears)} years` },
+            ];
+          },
+        },
+
+        "pet-food": {
+          fields: [
+            { id: "weight", label: "Pet Weight (lbs)", type: "number", placeholder: "20", min: 0 },
+            { id: "calories", label: "Food Calories (kcal/cup)", type: "number", placeholder: "350", min: 0 },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const weight = parseFloat(values.weight) || 0;
+            const kcalPerCup = parseFloat(values.calories) || 350;
+            const weightKg = weight * 0.453592;
+            const rer = 70 * Math.pow(weightKg, 0.75);
+            const dailyCals = rer * 1.6;
+            const cups = dailyCals / kcalPerCup;
+            return [
+              { label: "Daily Calories", value: `${Math.round(dailyCals)} kcal` },
+              { label: "Cups per Day", value: `${cups.toFixed(1)} cups` },
+            ];
+          },
+        },
+
+        "pet-weight": {
+          fields: [
+            { id: "current", label: "Current Weight (lbs)", type: "number", placeholder: "30", min: 0 },
+            { id: "target", label: "Target Weight (lbs)", type: "number", placeholder: "25", min: 0 },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const current = parseFloat(values.current) || 0;
+            const target = parseFloat(values.target) || 0;
+            const diff = current - target;
+            const pct = (diff / current) * 100;
+            return [
+              { label: "Weight to Lose/Gain", value: `${Math.abs(diff).toFixed(1)} lbs` },
+              { label: "Percentage Change", value: `${Math.abs(pct).toFixed(1)}%` },
+            ];
+          },
+        },
+
+        "pet-calorie": {
+          fields: [
+            { id: "weight", label: "Weight (lbs)", type: "number", placeholder: "20", min: 0 },
+            {
+              id: "activity", label: "Activity Level", type: "select", options: [
+                { value: "1.2", label: "Inactive/Obese Prone" },
+                { value: "1.6", label: "Average Adult" },
+                { value: "2.0", label: "Active/Working" },
+                { value: "3.0", label: "Puppy/Kitten" },
+              ]
+            },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const weight = parseFloat(values.weight) || 0;
+            const factor = parseFloat(values.activity) || 1.6;
+            const weightKg = weight * 0.453592;
+            const rer = 70 * Math.pow(weightKg, 0.75);
+            const needs = rer * factor;
+            return [
+              { label: "Daily Calories", value: `${Math.round(needs)} kcal` },
+              { label: "RER (Resting)", value: `${Math.round(rer)} kcal` },
+            ];
+          },
+        },
+
+        "pregnancy-pet": {
+          fields: [
+            { id: "days", label: "Days Since Mating", type: "number", placeholder: "10", min: 0 },
+            {
+              id: "type", label: "Pet Type", type: "select", options: [
+                { value: "dog", label: "Dog" },
+                { value: "cat", label: "Cat" },
+              ]
+            },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const days = parseFloat(values.days) || 0;
+            const gestation = 63; // Average for both
+            const remaining = gestation - days;
+            return [
+              { label: "Estimated Due Date", value: `In ${Math.max(0, remaining)} days` },
+              { label: "Gestation Progress", value: `${Math.min(100, (days / gestation) * 100).toFixed(0)}%` },
+            ];
+          },
+        },
+
+        "medication": {
+          fields: [
+            { id: "weight", label: "Pet Weight (lbs)", type: "number", placeholder: "20", min: 0 },
+            { id: "dosage", label: "Dosage (mg/kg)", type: "number", placeholder: "5", min: 0 },
+            { id: "concentration", label: "Concentration (mg/ml)", type: "number", placeholder: "10", min: 0 },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const weight = parseFloat(values.weight) || 0;
+            const dosage = parseFloat(values.dosage) || 0;
+            const concentration = parseFloat(values.concentration) || 1;
+            const weightKg = weight * 0.453592;
+            const totalMg = weightKg * dosage;
+            const ml = totalMg / concentration;
+            return [
+              { label: "Total Dose", value: `${totalMg.toFixed(1)} mg` },
+              { label: "Volume to Administer", value: `${ml.toFixed(2)} ml` },
+            ];
+          },
+        },
+
+        "aquarium-size": {
+          fields: [
+            { id: "length", label: "Length (inches)", type: "number", placeholder: "24", min: 0 },
+            { id: "width", label: "Width (inches)", type: "number", placeholder: "12", min: 0 },
+            { id: "height", label: "Height (inches)", type: "number", placeholder: "16", min: 0 },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const l = parseFloat(values.length) || 0;
+            const w = parseFloat(values.width) || 0;
+            const h = parseFloat(values.height) || 0;
+            const volCuIn = l * w * h;
+            const gallons = volCuIn / 231;
+            const liters = gallons * 3.78541;
+            return [
+              { label: "Volume (Gallons)", value: `${gallons.toFixed(1)} gal` },
+              { label: "Volume (Liters)", value: `${liters.toFixed(1)} L` },
+            ];
+          },
+        },
+
+        "pet-cost": {
+          fields: [
+            { id: "food", label: "Monthly Food ($)", type: "number", placeholder: "50", min: 0 },
+            { id: "vet", label: "Annual Vet ($)", type: "number", placeholder: "300", min: 0 },
+            { id: "other", label: "Other Monthly ($)", type: "number", placeholder: "20", min: 0 },
+            { id: "lifespan", label: "Expected Lifespan (years)", type: "number", placeholder: "12", min: 0 },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const food = parseFloat(values.food) || 0;
+            const vet = parseFloat(values.vet) || 0;
+            const other = parseFloat(values.other) || 0;
+            const lifespan = parseFloat(values.lifespan) || 0;
+            const annual = (food + other) * 12 + vet;
+            const total = annual * lifespan;
+            return [
+              { label: "Annual Cost", value: `$${annual.toFixed(2)}` },
+              { label: "Lifetime Cost", value: `$${total.toFixed(2)}` },
+            ];
+          },
+        },
+
+        "litter-box": {
+          fields: [
+            { id: "cats", label: "Number of Cats", type: "number", placeholder: "2", min: 1 },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const cats = parseFloat(values.cats) || 1;
+            const boxes = cats + 1;
+            return [
+              { label: "Recommended Litter Boxes", value: boxes },
+              { label: "Rule", value: "N + 1 rule" },
+            ];
+          },
+        },
+
+        "vaccination": {
+          fields: [
+            { id: "age", label: "Puppy/Kitten Age (weeks)", type: "number", placeholder: "8", min: 0 },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const age = parseFloat(values.age) || 0;
+            let next = "";
+            if (age < 6) next = "Start at 6-8 weeks";
+            else if (age < 16) next = "Next round due soon (every 3-4 weeks until 16 weeks)";
+            else next = "Booster at 1 year";
+            return [
+              { label: "Status", value: next },
+            ];
+          },
+        },
+
+        "breed-size": {
+          fields: [
+            { id: "weight", label: "Current Weight (lbs)", type: "number", placeholder: "10", min: 0 },
+            { id: "age", label: "Age (weeks)", type: "number", placeholder: "12", min: 0 },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const w = parseFloat(values.weight) || 0;
+            const a = parseFloat(values.age) || 1;
+            // Very rough estimate: (Current Weight / Age in weeks) * 52
+            const adult = (w / a) * 52;
+            return [
+              { label: "Estimated Adult Weight", value: `${adult.toFixed(1)} lbs` },
+              { label: "Note", value: "Rough estimate, varies by breed" },
+            ];
+          },
+        },
+
+        "pet-insurance": {
+          fields: [
+            { id: "monthly", label: "Monthly Premium ($)", type: "number", placeholder: "40", min: 0 },
+            { id: "deductible", label: "Annual Deductible ($)", type: "number", placeholder: "250", min: 0 },
+            { id: "reimbursement", label: "Reimbursement (%)", type: "number", placeholder: "80", min: 0, max: 100 },
+            { id: "bill", label: "Hypothetical Vet Bill ($)", type: "number", placeholder: "2000", min: 0 },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const premium = parseFloat(values.monthly) || 0;
+            const deductible = parseFloat(values.deductible) || 0;
+            const rate = (parseFloat(values.reimbursement) || 0) / 100;
+            const bill = parseFloat(values.bill) || 0;
+
+            const covered = Math.max(0, bill - deductible) * rate;
+            const outOfPocket = bill - covered + (premium * 12); // Annualized cost context
+
+            return [
+              { label: "Insurance Pays", value: `$${covered.toFixed(2)}` },
+              { label: "You Pay (Bill)", value: `$${(bill - covered).toFixed(2)}` },
+              { label: "Annual Cost (Premium + Bill)", value: `$${outOfPocket.toFixed(2)}` },
+            ];
+          },
+        },
+
+        "grooming": {
+          fields: [
+            {
+              id: "breed", label: "Coat Type", type: "select", options: [
+                { value: "short", label: "Short Hair" },
+                { value: "long", label: "Long/Double Coat" },
+                { value: "poodle", label: "Curly/Poodle" },
+              ]
+            },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const type = values.breed;
+            let freq = "";
+            if (type === "short") freq = "Brush weekly, bath monthly";
+            else if (type === "long") freq = "Brush daily, bath monthly";
+            else freq = "Professional groom every 4-6 weeks";
+            return [
+              { label: "Recommended Schedule", value: freq },
+            ];
+          },
+        },
+
+        "exercise-needs": {
+          fields: [
+            {
+              id: "energy", label: "Energy Level", type: "select", options: [
+                { value: "low", label: "Low (Bulldog, etc.)" },
+                { value: "med", label: "Medium (Lab, etc.)" },
+                { value: "high", label: "High (Husky, Border Collie)" },
+              ]
+            },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const level = values.energy;
+            let min = "30";
+            if (level === "med") min = "60";
+            if (level === "high") min = "90+";
+            return [
+              { label: "Daily Exercise", value: `${min} minutes` },
+              { label: "Intensity", value: level === "high" ? "Vigorous activity needed" : "Walks and play" },
+            ];
+          },
+        },
+
+        "travel-pets": {
+          fields: [
+            {
+              id: "mode", label: "Travel Mode", type: "select", options: [
+                { value: "car", label: "Car" },
+                { value: "plane", label: "Plane" },
+              ]
+            },
+            { id: "duration", label: "Duration (hours)", type: "number", placeholder: "4", min: 0 },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const mode = values.mode;
+            const hours = parseFloat(values.duration) || 0;
+            const breaks = mode === "car" ? Math.floor(hours / 3) : 0;
+            return [
+              { label: "Potty/Water Breaks", value: mode === "car" ? `${breaks} stops` : "N/A (Crate)" },
+              { label: "Preparation", value: mode === "plane" ? "Check airline carrier rules" : "Secure crate/harness" },
+            ];
+          },
+        },
+
+        "adoption-cost": {
+          fields: [
+            { id: "fee", label: "Adoption Fee ($)", type: "number", placeholder: "150", min: 0 },
+            { id: "supplies", label: "Initial Supplies ($)", type: "number", placeholder: "200", min: 0 },
+            { id: "vet", label: "Initial Vet Visit ($)", type: "number", placeholder: "100", min: 0 },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const total = (parseFloat(values.fee) || 0) + (parseFloat(values.supplies) || 0) + (parseFloat(values.vet) || 0);
+            return [
+              { label: "Total Startup Cost", value: `$${total.toFixed(2)}` },
+            ];
+          },
+        },
+
+        "boarding": {
+          fields: [
+            { id: "days", label: "Number of Days", type: "number", placeholder: "7", min: 1 },
+            { id: "rate", label: "Daily Rate ($)", type: "number", placeholder: "40", min: 0 },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const days = parseFloat(values.days) || 0;
+            const rate = parseFloat(values.rate) || 0;
+            return [
+              { label: "Total Boarding Cost", value: `$${(days * rate).toFixed(2)}` },
+            ];
+          },
+        },
+
+        "training-time": {
+          fields: [
+            { id: "sessions", label: "Sessions per Week", type: "number", placeholder: "3", min: 1 },
+            { id: "minutes", label: "Minutes per Session", type: "number", placeholder: "15", min: 1 },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const sessions = parseFloat(values.sessions) || 0;
+            const mins = parseFloat(values.minutes) || 0;
+            const total = sessions * mins;
+            return [
+              { label: "Weekly Training", value: `${total} minutes` },
+              { label: "Consistency", value: "Key to success!" },
+            ];
+          },
+        },
+
+        "pet-emergency-fund": {
+          fields: [
+            {
+              id: "risk", label: "Risk Level", type: "select", options: [
+                { value: "low", label: "Low (Young, Healthy)" },
+                { value: "med", label: "Medium (Senior, Breed issues)" },
+                { value: "high", label: "High (Chronic condition)" },
+              ]
+            },
+          ],
+          calculate: (values: Record<string, string>) => {
+            const risk = values.risk;
+            let fund = "1000";
+            if (risk === "med") fund = "2000-3000";
+            if (risk === "high") fund = "5000+";
+            return [
+              { label: "Recommended Fund", value: `$${fund}` },
+            ];
+          },
+        },
 };
