@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { getAllCategories } from "@/lib/calculator-data";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const origin = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3001";
   const now = new Date().toISOString();
