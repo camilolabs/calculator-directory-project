@@ -1,6 +1,3 @@
-"use client";
-
-import { use } from "react";
 import { notFound } from "next/navigation";
 import { getCalculator, getCategory, getAllCategories } from "@/lib/calculator-data";
 import { calculatorConfigs } from "@/lib/calculator-configs";
@@ -29,12 +26,12 @@ export function generateStaticParams() {
   return paths;
 }
 
-export default function CalculatorPage({
+export default async function CalculatorPage({
   params,
 }: {
   params: Promise<{ category: string; calculator: string }>;
 }) {
-  const { category: categoryId, calculator: calculatorId } = use(params);
+  const { category: categoryId, calculator: calculatorId } = await params;
   const category = getCategory(categoryId);
   const calculator = getCalculator(categoryId, calculatorId);
 
