@@ -3358,230 +3358,33 @@ export const calculatorConfigs: Record<string, any> = {
         { label: "Annual Depreciation", value: `$${annualDepreciation.toFixed(2)}` },
         { label: "Monthly Depreciation", value: `$${monthlyDepreciation.toFixed(2)}` },
         { label: "Depreciable Amount", value: `$${depreciable.toFixed(2)}` },
+      ];
+    },
+  },
 
-        bread: {
-          fields: [
-            { id: "flour", label: "Flour (g)", type: "number", placeholder: "500", min: 1 },
-            { id: "hydration", label: "Hydration %", type: "number", placeholder: "70", min: 50, max: 100 },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const flour = parseFloat(values.flour) || 500;
-            const hydration = parseFloat(values.hydration) || 70;
-            const water = flour * (hydration / 100);
-            const salt = flour * 0.02; // 2% of flour
-            const yeast = flour * 0.01; // 1% of flour
-            return [
-              { label: "Water", value: `${water.toFixed(0)}g (${hydration}%)` },
-              { label: "Salt", value: `${salt.toFixed(1)}g (2%)` },
-              { label: "Yeast", value: `${yeast.toFixed(1)}g (1%)` },
-              { label: "Total Dough", value: `${(flour + water + salt + yeast).toFixed(0)}g` },
-            ];
-          },
-        },
-
-        // BUSINESS CALCULATORS
-        "profit-margin": {
-          fields: [
-            { id: "revenue", label: "Revenue ($)", type: "number", placeholder: "100000", min: 0 },
-            { id: "cost", label: "Cost ($)", type: "number", placeholder: "60000", min: 0 },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const revenue = parseFloat(values.revenue) || 0;
-            const cost = parseFloat(values.cost) || 0;
-            const profit = revenue - cost;
-            const margin = (profit / revenue) * 100;
-            const markup = (profit / cost) * 100;
-            return [
-              { label: "Gross Profit", value: `$${profit.toFixed(2)}` },
-              { label: "Profit Margin", value: `${margin.toFixed(2)}%` },
-              { label: "Markup", value: `${markup.toFixed(2)}%` },
-            ];
-          },
-        },
-
-        "break-even": {
-          fields: [
-            { id: "fixed", label: "Fixed Costs ($)", type: "number", placeholder: "50000", min: 0 },
-            { id: "price", label: "Price per Unit ($)", type: "number", placeholder: "50", min: 0 },
-            { id: "variable", label: "Variable Cost per Unit ($)", type: "number", placeholder: "20", min: 0 },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const fixed = parseFloat(values.fixed) || 0;
-            const price = parseFloat(values.price) || 0;
-            const variable = parseFloat(values.variable) || 0;
-            const contribution = price - variable;
-            const breakEven = Math.ceil(fixed / contribution);
-            const revenue = breakEven * price;
-            return [
-              { label: "Break-Even Units", value: breakEven },
-              { label: "Break-Even Revenue", value: `$${revenue.toFixed(2)}` },
-              { label: "Contribution Margin", value: `$${contribution.toFixed(2)}` },
-            ];
-          },
-        },
-
-        markup: {
-          fields: [
-            { id: "cost", label: "Cost ($)", type: "number", placeholder: "50", min: 0 },
-            { id: "markup", label: "Markup %", type: "number", placeholder: "50", min: 0 },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const cost = parseFloat(values.cost) || 0;
-            const markup = parseFloat(values.markup) || 0;
-            const price = cost * (1 + markup / 100);
-            const profit = price - cost;
-            const margin = (profit / price) * 100;
-            return [
-              { label: "Selling Price", value: `$${price.toFixed(2)}` },
-              { label: "Profit", value: `$${profit.toFixed(2)}` },
-              { label: "Profit Margin", value: `${margin.toFixed(2)}%` },
-            ];
-          },
-        },
-
-        payroll: {
-          fields: [
-            { id: "salary", label: "Annual Salary ($)", type: "number", placeholder: "60000", min: 0 },
-            {
-              id: "frequency", label: "Pay Frequency", type: "select", options: [
-                { value: "52", label: "Weekly" },
-                { value: "26", label: "Bi-weekly" },
-                { value: "24", label: "Semi-monthly" },
-                { value: "12", label: "Monthly" },
-              ]
-            },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const salary = parseFloat(values.salary) || 0;
-            const frequency = parseFloat(values.frequency) || 26;
-            const gross = salary / frequency;
-            const monthly = salary / 12;
-            return [
-              { label: "Gross per Paycheck", value: `$${gross.toFixed(2)}` },
-              { label: "Monthly Gross", value: `$${monthly.toFixed(2)}` },
-              { label: "Annual Salary", value: `$${salary.toFixed(2)}` },
-            ];
-          },
-        },
-
-        discount: {
-          fields: [
-            { id: "price", label: "Original Price ($)", type: "number", placeholder: "100", min: 0 },
-            { id: "discount", label: "Discount %", type: "number", placeholder: "20", min: 0, max: 100 },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const price = parseFloat(values.price) || 0;
-            const discount = parseFloat(values.discount) || 0;
-            const savings = price * (discount / 100);
-            const final = price - savings;
-            return [
-              { label: "Final Price", value: `$${final.toFixed(2)}` },
-              { label: "You Save", value: `$${savings.toFixed(2)}` },
-              { label: "Discount", value: `${discount}%` },
-            ];
-          },
-        },
-
-        "sales-tax": {
-          fields: [
-            { id: "price", label: "Price ($)", type: "number", placeholder: "100", min: 0 },
-            { id: "tax", label: "Tax Rate %", type: "number", placeholder: "8.5", min: 0, step: 0.1 },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const price = parseFloat(values.price) || 0;
-            const tax = parseFloat(values.tax) || 0;
-            const taxAmount = price * (tax / 100);
-            const total = price + taxAmount;
-            return [
-              { label: "Subtotal", value: `$${price.toFixed(2)}` },
-              { label: "Sales Tax", value: `$${taxAmount.toFixed(2)}` },
-              { label: "Total", value: `$${total.toFixed(2)}` },
-            ];
-          },
-        },
-
-        commission: {
-          fields: [
-            { id: "sales", label: "Total Sales ($)", type: "number", placeholder: "50000", min: 0 },
-            { id: "rate", label: "Commission Rate %", type: "number", placeholder: "5", min: 0, step: 0.1 },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const sales = parseFloat(values.sales) || 0;
-            const rate = parseFloat(values.rate) || 0;
-            const commission = sales * (rate / 100);
-            return [
-              { label: "Commission Earned", value: `$${commission.toFixed(2)}` },
-              { label: "Commission Rate", value: `${rate}%` },
-              { label: "Total Sales", value: `$${sales.toFixed(2)}` },
-            ];
-          },
-        },
-
-        "hourly-rate": {
-          fields: [
-            { id: "annual", label: "Desired Annual Income ($)", type: "number", placeholder: "100000", min: 0 },
-            { id: "hours", label: "Billable Hours/Week", type: "number", placeholder: "30", min: 1 },
-            { id: "weeks", label: "Working Weeks/Year", type: "number", placeholder: "48", min: 1, max: 52 },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const annual = parseFloat(values.annual) || 0;
-            const hours = parseFloat(values.hours) || 0;
-            const weeks = parseFloat(values.weeks) || 48;
-            const totalHours = hours * weeks;
-            const hourlyRate = annual / totalHours;
-            const dailyRate = hourlyRate * 8;
-            return [
-              { label: "Hourly Rate", value: `$${hourlyRate.toFixed(2)}/hr` },
-              { label: "Daily Rate (8 hrs)", value: `$${dailyRate.toFixed(2)}` },
-              { label: "Total Billable Hours", value: totalHours },
-            ];
-          },
-        },
-
-        depreciation: {
-          fields: [
-            { id: "cost", label: "Asset Cost ($)", type: "number", placeholder: "50000", min: 0 },
-            { id: "salvage", label: "Salvage Value ($)", type: "number", placeholder: "5000", min: 0 },
-            { id: "years", label: "Useful Life (years)", type: "number", placeholder: "5", min: 1 },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const cost = parseFloat(values.cost) || 0;
-            const salvage = parseFloat(values.salvage) || 0;
-            const years = parseFloat(values.years) || 1;
-            const depreciable = cost - salvage;
-            const annualDepreciation = depreciable / years;
-            const monthlyDepreciation = annualDepreciation / 12;
-            return [
-              { label: "Annual Depreciation", value: `$${annualDepreciation.toFixed(2)}` },
-              { label: "Monthly Depreciation", value: `$${monthlyDepreciation.toFixed(2)}` },
-              { label: "Depreciable Amount", value: `$${depreciable.toFixed(2)}` },
-            ];
-          },
-        },
-
-        inventory: {
-          fields: [
-            { id: "cogs", label: "Cost of Goods Sold ($)", type: "number", placeholder: "500000", min: 0 },
-            { id: "avgInventory", label: "Average Inventory ($)", type: "number", placeholder: "50000", min: 0 },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const cogs = parseFloat(values.cogs) || 0;
-            const avgInventory = parseFloat(values.avgInventory) || 1;
-            const turnover = cogs / avgInventory;
-            const daysInventory = 365 / turnover;
-            return [
-              { label: "Inventory Turnover Ratio", value: turnover.toFixed(2) },
-              { label: "Days in Inventory", value: Math.round(daysInventory) },
-              { label: "Annual COGS", value: `$${cogs.toFixed(2)}` },
-            ];
-          },
-        },
+  inventory: {
+    fields: [
+      { id: "cogs", label: "Cost of Goods Sold ($)", type: "number", placeholder: "500000", min: 0 },
+      { id: "avgInventory", label: "Average Inventory ($)", type: "number", placeholder: "50000", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const cogs = parseFloat(values.cogs) || 0;
+      const avgInventory = parseFloat(values.avgInventory) || 1;
+      const turnover = cogs / avgInventory;
+      const daysInventory = 365 / turnover;
+      return [
+        { label: "Inventory Turnover Ratio", value: turnover.toFixed(2) },
+        { label: "Days in Inventory", value: Math.round(daysInventory) },
+        { label: "Annual COGS", value: `$${cogs.toFixed(2)}` },
+      ];
+    },
+  },
 
         // PET CARE CALCULATORS
-        "pet-age": {
-          fields: [
-            { id: "age", label: "Pet's Age (years)", type: "number", placeholder: "5", min: 0 },
-            {
+  "pet-age": {
+    fields: [
+      { id: "age", label: "Pet's Age (years)", type: "number", placeholder: "5", min: 0 },
+      {
               id: "type", label: "Pet Type", type: "select", options: [
                 { value: "dog_small", label: "Small Dog (<20 lbs)" },
                 { value: "dog_med", label: "Medium Dog (20-50 lbs)" },
@@ -3589,13 +3392,13 @@ export const calculatorConfigs: Record<string, any> = {
                 { value: "cat", label: "Cat" },
               ]
             },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const age = parseFloat(values.age) || 0;
-            const type = values.type || "cat";
-            let humanYears = 0;
+    ],
+    calculate: (values: Record<string, string>) => {
+      const age = parseFloat(values.age) || 0;
+      const type = values.type || "cat";
+      let humanYears = 0;
 
-            if (type === "cat") {
+      if (type === "cat") {
               if (age <= 1) humanYears = 15;
               else if (age <= 2) humanYears = 24;
               else humanYears = 24 + (age - 2) * 4;
@@ -3608,52 +3411,52 @@ export const calculatorConfigs: Record<string, any> = {
                 humanYears = 24 + (age - 2) * multiplier;
               }
             }
-            return [
-              { label: "Human Years", value: `${Math.round(humanYears)} years` },
-            ];
-          },
-        },
+      return [
+        { label: "Human Years", value: `${Math.round(humanYears)} years` },
+      ];
+    },
+  },
 
-        "pet-food": {
-          fields: [
-            { id: "weight", label: "Pet Weight (lbs)", type: "number", placeholder: "20", min: 0 },
-            { id: "calories", label: "Food Calories (kcal/cup)", type: "number", placeholder: "350", min: 0 },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const weight = parseFloat(values.weight) || 0;
-            const kcalPerCup = parseFloat(values.calories) || 350;
-            const weightKg = weight * 0.453592;
-            const rer = 70 * Math.pow(weightKg, 0.75);
-            const dailyCals = rer * 1.6;
-            const cups = dailyCals / kcalPerCup;
-            return [
-              { label: "Daily Calories", value: `${Math.round(dailyCals)} kcal` },
-              { label: "Cups per Day", value: `${cups.toFixed(1)} cups` },
-            ];
-          },
-        },
+  "pet-food": {
+    fields: [
+      { id: "weight", label: "Pet Weight (lbs)", type: "number", placeholder: "20", min: 0 },
+      { id: "calories", label: "Food Calories (kcal/cup)", type: "number", placeholder: "350", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const weight = parseFloat(values.weight) || 0;
+      const kcalPerCup = parseFloat(values.calories) || 350;
+      const weightKg = weight * 0.453592;
+      const rer = 70 * Math.pow(weightKg, 0.75);
+      const dailyCals = rer * 1.6;
+      const cups = dailyCals / kcalPerCup;
+      return [
+        { label: "Daily Calories", value: `${Math.round(dailyCals)} kcal` },
+        { label: "Cups per Day", value: `${cups.toFixed(1)} cups` },
+      ];
+    },
+  },
 
-        "pet-weight": {
-          fields: [
-            { id: "current", label: "Current Weight (lbs)", type: "number", placeholder: "30", min: 0 },
-            { id: "target", label: "Target Weight (lbs)", type: "number", placeholder: "25", min: 0 },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const current = parseFloat(values.current) || 0;
-            const target = parseFloat(values.target) || 0;
-            const diff = current - target;
-            const pct = (diff / current) * 100;
-            return [
-              { label: "Weight to Lose/Gain", value: `${Math.abs(diff).toFixed(1)} lbs` },
-              { label: "Percentage Change", value: `${Math.abs(pct).toFixed(1)}%` },
-            ];
-          },
-        },
+  "pet-weight": {
+    fields: [
+      { id: "current", label: "Current Weight (lbs)", type: "number", placeholder: "30", min: 0 },
+      { id: "target", label: "Target Weight (lbs)", type: "number", placeholder: "25", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const current = parseFloat(values.current) || 0;
+      const target = parseFloat(values.target) || 0;
+      const diff = current - target;
+      const pct = (diff / current) * 100;
+      return [
+        { label: "Weight to Lose/Gain", value: `${Math.abs(diff).toFixed(1)} lbs` },
+        { label: "Percentage Change", value: `${Math.abs(pct).toFixed(1)}%` },
+      ];
+    },
+  },
 
-        "pet-calorie": {
-          fields: [
-            { id: "weight", label: "Weight (lbs)", type: "number", placeholder: "20", min: 0 },
-            {
+  "pet-calorie": {
+    fields: [
+      { id: "weight", label: "Weight (lbs)", type: "number", placeholder: "20", min: 0 },
+      {
               id: "activity", label: "Activity Level", type: "select", options: [
                 { value: "1.2", label: "Inactive/Obese Prone" },
                 { value: "1.6", label: "Average Adult" },
@@ -3661,300 +3464,300 @@ export const calculatorConfigs: Record<string, any> = {
                 { value: "3.0", label: "Puppy/Kitten" },
               ]
             },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const weight = parseFloat(values.weight) || 0;
-            const factor = parseFloat(values.activity) || 1.6;
-            const weightKg = weight * 0.453592;
-            const rer = 70 * Math.pow(weightKg, 0.75);
-            const needs = rer * factor;
-            return [
-              { label: "Daily Calories", value: `${Math.round(needs)} kcal` },
-              { label: "RER (Resting)", value: `${Math.round(rer)} kcal` },
-            ];
-          },
-        },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const weight = parseFloat(values.weight) || 0;
+      const factor = parseFloat(values.activity) || 1.6;
+      const weightKg = weight * 0.453592;
+      const rer = 70 * Math.pow(weightKg, 0.75);
+      const needs = rer * factor;
+      return [
+        { label: "Daily Calories", value: `${Math.round(needs)} kcal` },
+        { label: "RER (Resting)", value: `${Math.round(rer)} kcal` },
+      ];
+    },
+  },
 
-        "pregnancy-pet": {
-          fields: [
-            { id: "days", label: "Days Since Mating", type: "number", placeholder: "10", min: 0 },
-            {
+  "pregnancy-pet": {
+    fields: [
+      { id: "days", label: "Days Since Mating", type: "number", placeholder: "10", min: 0 },
+      {
               id: "type", label: "Pet Type", type: "select", options: [
                 { value: "dog", label: "Dog" },
                 { value: "cat", label: "Cat" },
               ]
             },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const days = parseFloat(values.days) || 0;
-            const gestation = 63; // Average for both
-            const remaining = gestation - days;
-            return [
-              { label: "Estimated Due Date", value: `In ${Math.max(0, remaining)} days` },
-              { label: "Gestation Progress", value: `${Math.min(100, (days / gestation) * 100).toFixed(0)}%` },
-            ];
-          },
-        },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const days = parseFloat(values.days) || 0;
+      const gestation = 63; // Average for both
+      const remaining = gestation - days;
+      return [
+        { label: "Estimated Due Date", value: `In ${Math.max(0, remaining)} days` },
+        { label: "Gestation Progress", value: `${Math.min(100, (days / gestation) * 100).toFixed(0)}%` },
+      ];
+    },
+  },
 
-        "medication": {
-          fields: [
-            { id: "weight", label: "Pet Weight (lbs)", type: "number", placeholder: "20", min: 0 },
-            { id: "dosage", label: "Dosage (mg/kg)", type: "number", placeholder: "5", min: 0 },
-            { id: "concentration", label: "Concentration (mg/ml)", type: "number", placeholder: "10", min: 0 },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const weight = parseFloat(values.weight) || 0;
-            const dosage = parseFloat(values.dosage) || 0;
-            const concentration = parseFloat(values.concentration) || 1;
-            const weightKg = weight * 0.453592;
-            const totalMg = weightKg * dosage;
-            const ml = totalMg / concentration;
-            return [
-              { label: "Total Dose", value: `${totalMg.toFixed(1)} mg` },
-              { label: "Volume to Administer", value: `${ml.toFixed(2)} ml` },
-            ];
-          },
-        },
+  "medication": {
+    fields: [
+      { id: "weight", label: "Pet Weight (lbs)", type: "number", placeholder: "20", min: 0 },
+      { id: "dosage", label: "Dosage (mg/kg)", type: "number", placeholder: "5", min: 0 },
+      { id: "concentration", label: "Concentration (mg/ml)", type: "number", placeholder: "10", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const weight = parseFloat(values.weight) || 0;
+      const dosage = parseFloat(values.dosage) || 0;
+      const concentration = parseFloat(values.concentration) || 1;
+      const weightKg = weight * 0.453592;
+      const totalMg = weightKg * dosage;
+      const ml = totalMg / concentration;
+      return [
+        { label: "Total Dose", value: `${totalMg.toFixed(1)} mg` },
+        { label: "Volume to Administer", value: `${ml.toFixed(2)} ml` },
+      ];
+    },
+  },
 
-        "aquarium-size": {
-          fields: [
-            { id: "length", label: "Length (inches)", type: "number", placeholder: "24", min: 0 },
-            { id: "width", label: "Width (inches)", type: "number", placeholder: "12", min: 0 },
-            { id: "height", label: "Height (inches)", type: "number", placeholder: "16", min: 0 },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const l = parseFloat(values.length) || 0;
-            const w = parseFloat(values.width) || 0;
-            const h = parseFloat(values.height) || 0;
-            const volCuIn = l * w * h;
-            const gallons = volCuIn / 231;
-            const liters = gallons * 3.78541;
-            return [
-              { label: "Volume (Gallons)", value: `${gallons.toFixed(1)} gal` },
-              { label: "Volume (Liters)", value: `${liters.toFixed(1)} L` },
-            ];
-          },
-        },
+  "aquarium-size": {
+    fields: [
+      { id: "length", label: "Length (inches)", type: "number", placeholder: "24", min: 0 },
+      { id: "width", label: "Width (inches)", type: "number", placeholder: "12", min: 0 },
+      { id: "height", label: "Height (inches)", type: "number", placeholder: "16", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const l = parseFloat(values.length) || 0;
+      const w = parseFloat(values.width) || 0;
+      const h = parseFloat(values.height) || 0;
+      const volCuIn = l * w * h;
+      const gallons = volCuIn / 231;
+      const liters = gallons * 3.78541;
+      return [
+        { label: "Volume (Gallons)", value: `${gallons.toFixed(1)} gal` },
+        { label: "Volume (Liters)", value: `${liters.toFixed(1)} L` },
+      ];
+    },
+  },
 
-        "pet-cost": {
-          fields: [
-            { id: "food", label: "Monthly Food ($)", type: "number", placeholder: "50", min: 0 },
-            { id: "vet", label: "Annual Vet ($)", type: "number", placeholder: "300", min: 0 },
-            { id: "other", label: "Other Monthly ($)", type: "number", placeholder: "20", min: 0 },
-            { id: "lifespan", label: "Expected Lifespan (years)", type: "number", placeholder: "12", min: 0 },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const food = parseFloat(values.food) || 0;
-            const vet = parseFloat(values.vet) || 0;
-            const other = parseFloat(values.other) || 0;
-            const lifespan = parseFloat(values.lifespan) || 0;
-            const annual = (food + other) * 12 + vet;
-            const total = annual * lifespan;
-            return [
-              { label: "Annual Cost", value: `$${annual.toFixed(2)}` },
-              { label: "Lifetime Cost", value: `$${total.toFixed(2)}` },
-            ];
-          },
-        },
+  "pet-cost": {
+    fields: [
+      { id: "food", label: "Monthly Food ($)", type: "number", placeholder: "50", min: 0 },
+      { id: "vet", label: "Annual Vet ($)", type: "number", placeholder: "300", min: 0 },
+      { id: "other", label: "Other Monthly ($)", type: "number", placeholder: "20", min: 0 },
+      { id: "lifespan", label: "Expected Lifespan (years)", type: "number", placeholder: "12", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const food = parseFloat(values.food) || 0;
+      const vet = parseFloat(values.vet) || 0;
+      const other = parseFloat(values.other) || 0;
+      const lifespan = parseFloat(values.lifespan) || 0;
+      const annual = (food + other) * 12 + vet;
+      const total = annual * lifespan;
+      return [
+        { label: "Annual Cost", value: `$${annual.toFixed(2)}` },
+        { label: "Lifetime Cost", value: `$${total.toFixed(2)}` },
+      ];
+    },
+  },
 
-        "litter-box": {
-          fields: [
-            { id: "cats", label: "Number of Cats", type: "number", placeholder: "2", min: 1 },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const cats = parseFloat(values.cats) || 1;
-            const boxes = cats + 1;
-            return [
-              { label: "Recommended Litter Boxes", value: boxes },
-              { label: "Rule", value: "N + 1 rule" },
-            ];
-          },
-        },
+  "litter-box": {
+    fields: [
+      { id: "cats", label: "Number of Cats", type: "number", placeholder: "2", min: 1 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const cats = parseFloat(values.cats) || 1;
+      const boxes = cats + 1;
+      return [
+        { label: "Recommended Litter Boxes", value: boxes },
+        { label: "Rule", value: "N + 1 rule" },
+      ];
+    },
+  },
 
-        "vaccination": {
-          fields: [
-            { id: "age", label: "Puppy/Kitten Age (weeks)", type: "number", placeholder: "8", min: 0 },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const age = parseFloat(values.age) || 0;
-            let next = "";
-            if (age < 6) next = "Start at 6-8 weeks";
-            else if (age < 16) next = "Next round due soon (every 3-4 weeks until 16 weeks)";
-            else next = "Booster at 1 year";
-            return [
-              { label: "Status", value: next },
-            ];
-          },
-        },
+  "vaccination": {
+    fields: [
+      { id: "age", label: "Puppy/Kitten Age (weeks)", type: "number", placeholder: "8", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const age = parseFloat(values.age) || 0;
+      let next = "";
+      if (age < 6) next = "Start at 6-8 weeks";
+      else if (age < 16) next = "Next round due soon (every 3-4 weeks until 16 weeks)";
+      else next = "Booster at 1 year";
+      return [
+        { label: "Status", value: next },
+      ];
+    },
+  },
 
-        "breed-size": {
-          fields: [
-            { id: "weight", label: "Current Weight (lbs)", type: "number", placeholder: "10", min: 0 },
-            { id: "age", label: "Age (weeks)", type: "number", placeholder: "12", min: 0 },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const w = parseFloat(values.weight) || 0;
-            const a = parseFloat(values.age) || 1;
+  "breed-size": {
+    fields: [
+      { id: "weight", label: "Current Weight (lbs)", type: "number", placeholder: "10", min: 0 },
+      { id: "age", label: "Age (weeks)", type: "number", placeholder: "12", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const w = parseFloat(values.weight) || 0;
+      const a = parseFloat(values.age) || 1;
             // Very rough estimate: (Current Weight / Age in weeks) * 52
-            const adult = (w / a) * 52;
-            return [
-              { label: "Estimated Adult Weight", value: `${adult.toFixed(1)} lbs` },
-              { label: "Note", value: "Rough estimate, varies by breed" },
-            ];
-          },
-        },
+      const adult = (w / a) * 52;
+      return [
+        { label: "Estimated Adult Weight", value: `${adult.toFixed(1)} lbs` },
+        { label: "Note", value: "Rough estimate, varies by breed" },
+      ];
+    },
+  },
 
-        "pet-insurance": {
-          fields: [
-            { id: "monthly", label: "Monthly Premium ($)", type: "number", placeholder: "40", min: 0 },
-            { id: "deductible", label: "Annual Deductible ($)", type: "number", placeholder: "250", min: 0 },
-            { id: "reimbursement", label: "Reimbursement (%)", type: "number", placeholder: "80", min: 0, max: 100 },
-            { id: "bill", label: "Hypothetical Vet Bill ($)", type: "number", placeholder: "2000", min: 0 },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const premium = parseFloat(values.monthly) || 0;
-            const deductible = parseFloat(values.deductible) || 0;
-            const rate = (parseFloat(values.reimbursement) || 0) / 100;
-            const bill = parseFloat(values.bill) || 0;
+  "pet-insurance": {
+    fields: [
+      { id: "monthly", label: "Monthly Premium ($)", type: "number", placeholder: "40", min: 0 },
+      { id: "deductible", label: "Annual Deductible ($)", type: "number", placeholder: "250", min: 0 },
+      { id: "reimbursement", label: "Reimbursement (%)", type: "number", placeholder: "80", min: 0, max: 100 },
+      { id: "bill", label: "Hypothetical Vet Bill ($)", type: "number", placeholder: "2000", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const premium = parseFloat(values.monthly) || 0;
+      const deductible = parseFloat(values.deductible) || 0;
+      const rate = (parseFloat(values.reimbursement) || 0) / 100;
+      const bill = parseFloat(values.bill) || 0;
 
-            const covered = Math.max(0, bill - deductible) * rate;
-            const outOfPocket = bill - covered + (premium * 12); // Annualized cost context
+      const covered = Math.max(0, bill - deductible) * rate;
+      const outOfPocket = bill - covered + (premium * 12); // Annualized cost context
 
-            return [
-              { label: "Insurance Pays", value: `$${covered.toFixed(2)}` },
-              { label: "You Pay (Bill)", value: `$${(bill - covered).toFixed(2)}` },
-              { label: "Annual Cost (Premium + Bill)", value: `$${outOfPocket.toFixed(2)}` },
-            ];
-          },
-        },
+      return [
+        { label: "Insurance Pays", value: `$${covered.toFixed(2)}` },
+        { label: "You Pay (Bill)", value: `$${(bill - covered).toFixed(2)}` },
+        { label: "Annual Cost (Premium + Bill)", value: `$${outOfPocket.toFixed(2)}` },
+      ];
+    },
+  },
 
-        "grooming": {
-          fields: [
-            {
+  "grooming": {
+    fields: [
+      {
               id: "breed", label: "Coat Type", type: "select", options: [
                 { value: "short", label: "Short Hair" },
                 { value: "long", label: "Long/Double Coat" },
                 { value: "poodle", label: "Curly/Poodle" },
               ]
             },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const type = values.breed;
-            let freq = "";
-            if (type === "short") freq = "Brush weekly, bath monthly";
-            else if (type === "long") freq = "Brush daily, bath monthly";
-            else freq = "Professional groom every 4-6 weeks";
-            return [
-              { label: "Recommended Schedule", value: freq },
-            ];
-          },
-        },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const type = values.breed;
+      let freq = "";
+      if (type === "short") freq = "Brush weekly, bath monthly";
+      else if (type === "long") freq = "Brush daily, bath monthly";
+      else freq = "Professional groom every 4-6 weeks";
+      return [
+        { label: "Recommended Schedule", value: freq },
+      ];
+    },
+  },
 
-        "exercise-needs": {
-          fields: [
-            {
+  "exercise-needs": {
+    fields: [
+      {
               id: "energy", label: "Energy Level", type: "select", options: [
                 { value: "low", label: "Low (Bulldog, etc.)" },
                 { value: "med", label: "Medium (Lab, etc.)" },
                 { value: "high", label: "High (Husky, Border Collie)" },
               ]
             },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const level = values.energy;
-            let min = "30";
-            if (level === "med") min = "60";
-            if (level === "high") min = "90+";
-            return [
-              { label: "Daily Exercise", value: `${min} minutes` },
-              { label: "Intensity", value: level === "high" ? "Vigorous activity needed" : "Walks and play" },
-            ];
-          },
-        },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const level = values.energy;
+      let min = "30";
+      if (level === "med") min = "60";
+      if (level === "high") min = "90+";
+      return [
+        { label: "Daily Exercise", value: `${min} minutes` },
+        { label: "Intensity", value: level === "high" ? "Vigorous activity needed" : "Walks and play" },
+      ];
+    },
+  },
 
-        "travel-pets": {
-          fields: [
-            {
+  "travel-pets": {
+    fields: [
+      {
               id: "mode", label: "Travel Mode", type: "select", options: [
                 { value: "car", label: "Car" },
                 { value: "plane", label: "Plane" },
               ]
             },
-            { id: "duration", label: "Duration (hours)", type: "number", placeholder: "4", min: 0 },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const mode = values.mode;
-            const hours = parseFloat(values.duration) || 0;
-            const breaks = mode === "car" ? Math.floor(hours / 3) : 0;
-            return [
-              { label: "Potty/Water Breaks", value: mode === "car" ? `${breaks} stops` : "N/A (Crate)" },
-              { label: "Preparation", value: mode === "plane" ? "Check airline carrier rules" : "Secure crate/harness" },
-            ];
-          },
-        },
+      { id: "duration", label: "Duration (hours)", type: "number", placeholder: "4", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const mode = values.mode;
+      const hours = parseFloat(values.duration) || 0;
+      const breaks = mode === "car" ? Math.floor(hours / 3) : 0;
+      return [
+        { label: "Potty/Water Breaks", value: mode === "car" ? `${breaks} stops` : "N/A (Crate)" },
+        { label: "Preparation", value: mode === "plane" ? "Check airline carrier rules" : "Secure crate/harness" },
+      ];
+    },
+  },
 
-        "adoption-cost": {
-          fields: [
-            { id: "fee", label: "Adoption Fee ($)", type: "number", placeholder: "150", min: 0 },
-            { id: "supplies", label: "Initial Supplies ($)", type: "number", placeholder: "200", min: 0 },
-            { id: "vet", label: "Initial Vet Visit ($)", type: "number", placeholder: "100", min: 0 },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const total = (parseFloat(values.fee) || 0) + (parseFloat(values.supplies) || 0) + (parseFloat(values.vet) || 0);
-            return [
-              { label: "Total Startup Cost", value: `$${total.toFixed(2)}` },
-            ];
-          },
-        },
+  "adoption-cost": {
+    fields: [
+      { id: "fee", label: "Adoption Fee ($)", type: "number", placeholder: "150", min: 0 },
+      { id: "supplies", label: "Initial Supplies ($)", type: "number", placeholder: "200", min: 0 },
+      { id: "vet", label: "Initial Vet Visit ($)", type: "number", placeholder: "100", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const total = (parseFloat(values.fee) || 0) + (parseFloat(values.supplies) || 0) + (parseFloat(values.vet) || 0);
+      return [
+        { label: "Total Startup Cost", value: `$${total.toFixed(2)}` },
+      ];
+    },
+  },
 
-        "boarding": {
-          fields: [
-            { id: "days", label: "Number of Days", type: "number", placeholder: "7", min: 1 },
-            { id: "rate", label: "Daily Rate ($)", type: "number", placeholder: "40", min: 0 },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const days = parseFloat(values.days) || 0;
-            const rate = parseFloat(values.rate) || 0;
-            return [
-              { label: "Total Boarding Cost", value: `$${(days * rate).toFixed(2)}` },
-            ];
-          },
-        },
+  "boarding": {
+    fields: [
+      { id: "days", label: "Number of Days", type: "number", placeholder: "7", min: 1 },
+      { id: "rate", label: "Daily Rate ($)", type: "number", placeholder: "40", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const days = parseFloat(values.days) || 0;
+      const rate = parseFloat(values.rate) || 0;
+      return [
+        { label: "Total Boarding Cost", value: `$${(days * rate).toFixed(2)}` },
+      ];
+    },
+  },
 
-        "training-time": {
-          fields: [
-            { id: "sessions", label: "Sessions per Week", type: "number", placeholder: "3", min: 1 },
-            { id: "minutes", label: "Minutes per Session", type: "number", placeholder: "15", min: 1 },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const sessions = parseFloat(values.sessions) || 0;
-            const mins = parseFloat(values.minutes) || 0;
-            const total = sessions * mins;
-            return [
-              { label: "Weekly Training", value: `${total} minutes` },
-              { label: "Consistency", value: "Key to success!" },
-            ];
-          },
-        },
+  "training-time": {
+    fields: [
+      { id: "sessions", label: "Sessions per Week", type: "number", placeholder: "3", min: 1 },
+      { id: "minutes", label: "Minutes per Session", type: "number", placeholder: "15", min: 1 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const sessions = parseFloat(values.sessions) || 0;
+      const mins = parseFloat(values.minutes) || 0;
+      const total = sessions * mins;
+      return [
+        { label: "Weekly Training", value: `${total} minutes` },
+        { label: "Consistency", value: "Key to success!" },
+      ];
+    },
+  },
 
         "pet-emergency-fund": {
-          fields: [
-            {
+    fields: [
+      {
               id: "risk", label: "Risk Level", type: "select", options: [
                 { value: "low", label: "Low (Young, Healthy)" },
                 { value: "med", label: "Medium (Senior, Breed issues)" },
                 { value: "high", label: "High (Chronic condition)" },
               ]
             },
-          ],
-          calculate: (values: Record<string, string>) => {
-            const risk = values.risk;
-            let fund = "1000";
-            if (risk === "med") fund = "2000-3000";
-            if (risk === "high") fund = "5000+";
-            return [
-              { label: "Recommended Fund", value: `$${fund}` },
-            ];
-          },
-        },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const risk = values.risk;
+      let fund = "1000";
+      if (risk === "med") fund = "2000-3000";
+      if (risk === "high") fund = "5000+";
+      return [
+        { label: "Recommended Fund", value: `$${fund}` },
+      ];
+    },
+  },
 };

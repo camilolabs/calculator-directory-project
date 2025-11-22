@@ -2821,12 +2821,23 @@ export const calculatorData: Category[] = [
       },
       {
         id: "training-time",
+        name: "Pet training time",
+        description: "Calculate pet training duration",
+        icon: "🎓",
+        category: "pet-care"
       }
+    ]
+  }
+];
+
+export function getCategory(categoryId: string): Category | undefined {
+  return calculatorData.find(cat => cat.id === categoryId);
+}
 
 export function getCalculator(categoryId: string, calculatorId: string): Calculator | undefined {
-    const category = getCategory(categoryId);
-    return category?.calculators.find(calc => calc.id === calculatorId);
-  }
+  const category = getCategory(categoryId);
+  return category?.calculators.find(calc => calc.id === calculatorId);
+}
 
 export function getAllCategories(): Category[] {
   return calculatorData;
