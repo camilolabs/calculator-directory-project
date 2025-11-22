@@ -1453,7 +1453,7 @@ export const calculatorData: Category[] = [
         category: "automotive"
       },
       {
-        id: "auto-loan",
+        id: "car-loan",
         name: "Auto loan calculator",
         description: "Calculate car loan payments",
         icon: "💰",
@@ -2010,7 +2010,7 @@ export const calculatorData: Category[] = [
         category: "engineering"
       },
       {
-        id: "torque",
+        id: "torque-engineering",
         name: "Torque calculator",
         description: "Calculate torque and force",
         icon: "🔩",
@@ -2433,7 +2433,7 @@ export const calculatorData: Category[] = [
         category: "music"
       },
       {
-        id: "frequency",
+        id: "frequency-music",
         name: "Frequency calculator",
         description: "Calculate note frequencies",
         icon: "🎹",

@@ -1,0 +1,381 @@
+  "boarding": {
+    fields: [
+      { id: "days", label: "Number of Days", type: "number", placeholder: "7", min: 1 },
+      { id: "rate", label: "Daily Rate ($)", type: "number", placeholder: "40", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const days = parseFloat(values.days) || 0;
+      const rate = parseFloat(values.rate) || 0;
+      return [
+        { label: "Total Boarding Cost", value: `$${(days * rate).toFixed(2)}` },
+      ];
+    },
+  },
+  "training-time": {
+    fields: [
+      { id: "sessions", label: "Sessions per Week", type: "number", placeholder: "3", min: 1 },
+      { id: "minutes", label: "Minutes per Session", type: "number", placeholder: "15", min: 1 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const sessions = parseFloat(values.sessions) || 0;
+      const mins = parseFloat(values.minutes) || 0;
+      const total = sessions * mins;
+      return [
+        { label: "Weekly Training", value: `${total} minutes` },
+        { label: "Consistency", value: "Key to success!" },
+      ];
+    },
+  },
+  "pet-emergency-fund": {
+    fields: [
+      {
+        id: "risk", label: "Risk Level", type: "select", options: [
+          { value: "low", label: "Low (Young, Healthy)" },
+          { value: "med", label: "Medium (Senior, Breed issues)" },
+          { value: "high", label: "High (Chronic condition)" },
+        ]
+      },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const risk = values.risk;
+      let fund = "1000";
+      if (risk === "med") fund = "2000-3000";
+      if (risk === "high") fund = "5000+";
+      return [
+        { label: "Recommended Fund", value: `$${fund}` },
+      ];
+    },
+  },
+  // AUTOMOTIVE CALCULATORS
+  "fuel-cost": {
+    fields: [
+      { id: "distance", label: "Trip Distance (miles)", type: "number", placeholder: "300", min: 0 },
+      { id: "efficiency", label: "Fuel Efficiency (MPG)", type: "number", placeholder: "25", min: 0 },
+      { id: "price", label: "Gas Price ($/gallon)", type: "number", placeholder: "3.50", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const dist = parseFloat(values.distance) || 0;
+      const mpg = parseFloat(values.efficiency) || 1;
+      const price = parseFloat(values.price) || 0;
+      const cost = (dist / mpg) * price;
+      return [
+        { label: "Total Fuel Cost", value: `$${cost.toFixed(2)}` },
+        { label: "Gallons Needed", value: `${(dist / mpg).toFixed(1)} gal` },
+      ];
+    },
+  },
+  "mpg": {
+    fields: [
+      { id: "miles", label: "Miles Driven", type: "number", placeholder: "300", min: 0 },
+      { id: "gallons", label: "Gallons Used", type: "number", placeholder: "12", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const miles = parseFloat(values.miles) || 0;
+      const gallons = parseFloat(values.gallons) || 1;
+      return [
+        { label: "MPG", value: (miles / gallons).toFixed(1) },
+      ];
+    },
+  },
+  "lease": {
+    fields: [
+      { id: "price", label: "Vehicle Price ($)", type: "number", placeholder: "30000", min: 0 },
+      { id: "residual", label: "Residual Value ($)", type: "number", placeholder: "18000", min: 0 },
+      { id: "rate", label: "Money Factor (e.g. 0.0025)", type: "number", placeholder: "0.0025", min: 0 },
+      { id: "months", label: "Lease Term (months)", type: "number", placeholder: "36", min: 1 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const price = parseFloat(values.price) || 0;
+      const residual = parseFloat(values.residual) || 0;
+      const mf = parseFloat(values.rate) || 0;
+      const term = parseFloat(values.months) || 36;
+
+      const depreciation = (price - residual) / term;
+      const finance = (price + residual) * mf;
+      const monthly = depreciation + finance;
+
+      return [
+        { label: "Monthly Payment", value: `$${monthly.toFixed(2)}` },
+        { label: "Total Lease Cost", value: `$${(monthly * term).toFixed(2)}` },
+      ];
+    },
+  },
+  "auto-loan": {
+    fields: [
+      { id: "amount", label: "Loan Amount ($)", type: "number", placeholder: "25000", min: 0 },
+      { id: "rate", label: "Interest Rate (%)", type: "number", placeholder: "5.5", min: 0 },
+      { id: "months", label: "Loan Term (months)", type: "number", placeholder: "60", min: 1 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const P = parseFloat(values.amount) || 0;
+      const r = (parseFloat(values.rate) || 0) / 100 / 12;
+      const n = parseFloat(values.months) || 1;
+
+      let monthly = 0;
+      if (r === 0) monthly = P / n;
+      else monthly = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+
+      return [
+        { label: "Monthly Payment", value: `$${monthly.toFixed(2)}` },
+        { label: "Total Interest", value: `$${(monthly * n - P).toFixed(2)}` },
+      ];
+    },
+  },
+  "horsepower": {
+    fields: [
+      { id: "torque", label: "Torque (lb-ft)", type: "number", placeholder: "300", min: 0 },
+      { id: "rpm", label: "RPM", type: "number", placeholder: "5252", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const torque = parseFloat(values.torque) || 0;
+      const rpm = parseFloat(values.rpm) || 0;
+      const hp = (torque * rpm) / 5252;
+      return [
+        { label: "Horsepower", value: `${Math.round(hp)} HP` },
+      ];
+    },
+  },
+  "0-60": {
+    fields: [
+      { id: "weight", label: "Vehicle Weight (lbs)", type: "number", placeholder: "3500", min: 0 },
+      { id: "hp", label: "Horsepower", type: "number", placeholder: "250", min: 1 },
+      {
+        id: "drive", label: "Drive Type", type: "select", options: [
+          { value: "rwd", label: "RWD/FWD" },
+          { value: "awd", label: "AWD" }
+        ]
+      },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const weight = parseFloat(values.weight) || 3500;
+      const hp = parseFloat(values.hp) || 250;
+      // Empirical estimation
+      let time = Math.pow(weight / hp, 0.6) * 0.9;
+      if (values.drive === "awd") time *= 0.9; // AWD advantage
+
+      return [
+        { label: "Est. 0-60 Time", value: `${time.toFixed(1)} sec` },
+      ];
+    },
+  },
+  "ev-range": {
+    fields: [
+      { id: "battery", label: "Battery Capacity (kWh)", type: "number", placeholder: "75", min: 0 },
+      { id: "efficiency", label: "Efficiency (Wh/mi)", type: "number", placeholder: "250", min: 1 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const bat = parseFloat(values.battery) || 0;
+      const eff = parseFloat(values.efficiency) || 250;
+      const range = (bat * 1000) / eff;
+      return [
+        { label: "Estimated Range", value: `${Math.round(range)} miles` },
+      ];
+    },
+  },
+  "maintenance": {
+    fields: [
+      { id: "mileage", label: "Current Mileage", type: "number", placeholder: "50000", min: 0 },
+      {
+        id: "type", label: "Oil Type", type: "select", options: [
+          { value: "conv", label: "Conventional" },
+          { value: "syn", label: "Synthetic" }
+        ]
+      },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const miles = parseFloat(values.mileage) || 0;
+      const type = values.type || "conv";
+      const interval = type === "syn" ? 7500 : 3000;
+      const nextService = Math.ceil(miles / interval) * interval;
+      return [
+        { label: "Next Oil Change", value: `${nextService} miles` },
+        { label: "Miles Remaining", value: `${nextService - miles}` },
+      ];
+    },
+  },
+  "emission": {
+    fields: [
+      { id: "miles", label: "Annual Miles", type: "number", placeholder: "12000", min: 0 },
+      { id: "mpg", label: "Vehicle MPG", type: "number", placeholder: "25", min: 1 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const miles = parseFloat(values.miles) || 0;
+      const mpg = parseFloat(values.mpg) || 25;
+      // Approx 8.887 kg CO2 per gallon of gasoline
+      const gallons = miles / mpg;
+      const co2 = gallons * 8.887;
+      return [
+        { label: "Annual CO2 Emissions", value: `${(co2 / 1000).toFixed(1)} metric tons` },
+      ];
+    },
+  },
+  "insurance-cost": {
+    fields: [
+      { id: "base", label: "Base Premium ($/mo)", type: "number", placeholder: "100", min: 0 },
+      { id: "accidents", label: "Accidents (last 3 yrs)", type: "number", placeholder: "0", min: 0 },
+      { id: "age", label: "Driver Age", type: "number", placeholder: "30", min: 16 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      let cost = parseFloat(values.base) || 100;
+      const accidents = parseFloat(values.accidents) || 0;
+      const age = parseFloat(values.age) || 30;
+
+      if (age < 25) cost *= 1.5;
+      if (accidents > 0) cost *= (1 + accidents * 0.2);
+
+      return [
+        { label: "Estimated Premium", value: `$${cost.toFixed(2)}/mo` },
+      ];
+    },
+  },
+  "car-depreciation": {
+    fields: [
+      { id: "price", label: "Purchase Price ($)", type: "number", placeholder: "35000", min: 0 },
+      { id: "years", label: "Years Owned", type: "number", placeholder: "5", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const price = parseFloat(values.price) || 0;
+      const years = parseFloat(values.years) || 0;
+      // Approx 15% drop per year
+      const value = price * Math.pow(0.85, years);
+      return [
+        { label: "Current Value", value: `$${value.toFixed(2)}` },
+        { label: "Total Loss", value: `$${(price - value).toFixed(2)}` },
+      ];
+    },
+  },
+  "road-trip": {
+    fields: [
+      { id: "distance", label: "Total Distance (miles)", type: "number", placeholder: "1000", min: 0 },
+      { id: "mpg", label: "MPG", type: "number", placeholder: "25", min: 1 },
+      { id: "gas", label: "Gas Price ($)", type: "number", placeholder: "3.50", min: 0 },
+      { id: "food", label: "Food/Lodging Budget ($)", type: "number", placeholder: "500", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const dist = parseFloat(values.distance) || 0;
+      const mpg = parseFloat(values.mpg) || 25;
+      const gasPrice = parseFloat(values.gas) || 0;
+      const other = parseFloat(values.food) || 0;
+
+      const fuelCost = (dist / mpg) * gasPrice;
+      const total = fuelCost + other;
+
+      return [
+        { label: "Total Trip Cost", value: `$${total.toFixed(2)}` },
+        { label: "Fuel Cost", value: `$${fuelCost.toFixed(2)}` },
+      ];
+    },
+  },
+  "toll": {
+    fields: [
+      { id: "tolls", label: "Number of Tolls", type: "number", placeholder: "5", min: 0 },
+      { id: "avg", label: "Avg Cost per Toll ($)", type: "number", placeholder: "2.50", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const num = parseFloat(values.tolls) || 0;
+      const cost = parseFloat(values.avg) || 0;
+      return [
+        { label: "Total Toll Cost", value: `$${(num * cost).toFixed(2)}` },
+      ];
+    },
+  },
+  "parking-cost": {
+    fields: [
+      { id: "hours", label: "Hours Parked", type: "number", placeholder: "4", min: 0 },
+      { id: "rate", label: "Hourly Rate ($)", type: "number", placeholder: "5", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const hours = parseFloat(values.hours) || 0;
+      const rate = parseFloat(values.rate) || 0;
+      return [
+        { label: "Total Parking Cost", value: `$${(hours * rate).toFixed(2)}` },
+      ];
+    },
+  },
+  "registration": {
+    fields: [
+      { id: "value", label: "Vehicle Value ($)", type: "number", placeholder: "20000", min: 0 },
+      { id: "weight", label: "Weight (lbs)", type: "number", placeholder: "3500", min: 0 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const val = parseFloat(values.value) || 0;
+      const weight = parseFloat(values.weight) || 0;
+      // Hypothetical formula: base  + 0.5% value + .01/lb
+      const cost = 50 + (val * 0.005) + (weight * 0.01);
+      return [
+        { label: "Est. Registration", value: `$${cost.toFixed(2)}` },
+      ];
+    },
+  },
+  "car-comparison": {
+    fields: [
+      { id: "price1", label: "Car 1 Price ($)", type: "number", placeholder: "25000", min: 0 },
+      { id: "mpg1", label: "Car 1 MPG", type: "number", placeholder: "30", min: 1 },
+      { id: "price2", label: "Car 2 Price ($)", type: "number", placeholder: "30000", min: 0 },
+      { id: "mpg2", label: "Car 2 MPG", type: "number", placeholder: "45", min: 1 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const p1 = parseFloat(values.price1) || 0;
+      const m1 = parseFloat(values.mpg1) || 1;
+      const p2 = parseFloat(values.price2) || 0;
+      const m2 = parseFloat(values.mpg2) || 1;
+
+      // Cost over 5 years (12k miles/yr, .50/gal)
+      const fuel1 = (12000 / m1) * 3.5 * 5;
+      const fuel2 = (12000 / m2) * 3.5 * 5;
+
+      const total1 = p1 + fuel1;
+      const total2 = p2 + fuel2;
+
+      return [
+        { label: "Car 1 (5yr Cost)", value: `$${total1.toFixed(2)}` },
+        { label: "Car 2 (5yr Cost)", value: `$${total2.toFixed(2)}` },
+      ];
+    },
+  },
+  "gas-vs-electric": {
+    fields: [
+      { id: "gasPrice", label: "Gas Price ($/gal)", type: "number", placeholder: "3.50", min: 0 },
+      { id: "mpg", label: "Gas Car MPG", type: "number", placeholder: "30", min: 1 },
+      { id: "elecPrice", label: "Electricity ($/kWh)", type: "number", placeholder: "0.15", min: 0 },
+      { id: "kwhPer100", label: "EV kWh/100mi", type: "number", placeholder: "30", min: 1 },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const gasP = parseFloat(values.gasPrice) || 0;
+      const mpg = parseFloat(values.mpg) || 1;
+      const elecP = parseFloat(values.elecPrice) || 0;
+      const eff = parseFloat(values.kwhPer100) || 30;
+
+      const gasCostPerMile = gasP / mpg;
+      const evCostPerMile = (eff / 100) * elecP;
+
+      return [
+        { label: "Gas Cost/Mile", value: `$${gasCostPerMile.toFixed(2)}` },
+        { label: "EV Cost/Mile", value: `$${evCostPerMile.toFixed(2)}` },
+        { label: "Savings/Mile", value: `$${(gasCostPerMile - evCostPerMile).toFixed(2)}` },
+      ];
+    },
+  },
+  "trade-in": {
+    fields: [
+      { id: "kbb", label: "KBB Value ($)", type: "number", placeholder: "15000", min: 0 },
+      {
+        id: "condition", label: "Condition", type: "select", options: [
+          { value: "excellent", label: "Excellent" },
+          { value: "good", label: "Good" },
+          { value: "fair", label: "Fair" }
+        ]
+      },
+    ],
+    calculate: (values: Record<string, string>) => {
+      const val = parseFloat(values.kbb) || 0;
+      const cond = values.condition || "good";
+      let offer = val;
+      if (cond === "good") offer *= 0.9;
+      if (cond === "fair") offer *= 0.8;
+
+      return [
+        { label: "Est. Trade-In Offer", value: `$${offer.toFixed(2)}` },
+      ];
+    },
+  },
